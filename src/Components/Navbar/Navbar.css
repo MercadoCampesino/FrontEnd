@@ -1,0 +1,32 @@
+.navbar{
+    display: flex;
+    align-items: center;
+}
+
+.navbar a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight:400;
+
+}
+
+.navbar li {
+    list-style: none;
+}
+
+.navbar a:hover {
+    text-decoration: none;
+    background-color: white;
+    border-radius: 10px;
+    color: #6B4522;
+}
+
+.navbar .profile{
+    background-color: #6B4522;
+}
+
+/* a:hover {
+    color: rgb(181, 179, 179);
+} */
