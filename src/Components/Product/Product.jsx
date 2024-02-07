@@ -3,7 +3,7 @@ import products from '../../assets/Products/Products'
 import './Product.css'
 
 
-function Products() {
+function Product() {
 
     const firstFourProducts = products.slice(0, 12);
 
@@ -21,4 +21,4 @@ function Products() {
     )
 }
 
-export default Products;
+export default Product;

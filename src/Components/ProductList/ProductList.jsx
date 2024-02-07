@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-
+import Header from '../Header/Header';
 import productsData from '../../assets/Products/Products';
+import './ProductList.css'
 
 const ProductList = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -14,39 +15,42 @@ const ProductList = () => {
   };
 
   return (
-    <div className='featured_products'>
-      <div className='serch_products'>
-        <h2>Productos destacados</h2>
-        <p>Encuentra los mejores productos con excelente calidad</p>
+    <>
+      <Header />
+      <div className='featured_products'>
+        <div className='serch_products'>
+          <div className='title_products'>
+            <h2>La esencia de la naturaleza en cada producto</h2>
+            <p>Conoce las joyas del mercado agrícola</p>
+          </div>
 
-        <div className='serch_'>
-          <input className='busquedaProductos' type='search' name='busquedaProductos' placeholder='Buscar...'
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <input className='buscar' type='submit' value='Buscar' onClick={handleSearch}
-          />
+          <div className='serch_'>
+            <input className='busquedaProductos' type='search' name='busquedaProductos' placeholder='Buscar productos...'
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <input className='buscar' type='submit' value= 'Buscar' onClick={handleSearch}
+            />
+          </div>
         </div>
-      </div>
 
-      {/* <br /> */}
-
-      <div className='a'>
-        <div className='p'>
-          {searchTerm &&
-            filteredProducts.map((product) => (
-              <div className='card_product' key={product.id}>
-                <img className='image' src={product.image} alt='' />
-                <p className='name_product'>{product.name}</p>
-                <p className='price_product'>Precio: ${product.price}</p>
-                <input className='buy' type='submit' value='Comprar' />
-              </div>
-            ))}
+        <div className='a'>
+          <div className='p'>
+            {searchTerm &&
+              filteredProducts.map((product) => (
+                <div className='card_product' key={product.id}>
+                  <img className='image' src={product.image} alt='' />
+                  <p className='name_product'>{product.name}</p>
+                  <p className='price_product'>Precio: ${product.price}</p>
+                  <input className='buy' type='submit' value='Comprar' />
+                </div>
+              ))}
+          </div>
         </div>
+
+
       </div>
-
-
-    </div>
+    </>
   );
 };
 

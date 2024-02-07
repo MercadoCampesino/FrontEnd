@@ -1,0 +1,27 @@
+.content_products {
+    margin-top: 100px;
+}
+
+.hola {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.chao {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    flex-direction: column;
+}
+
+.product {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0 20px 0;
+    flex-wrap: wrap;
+    grid-gap: 20px;
+    width: 1050px;
+}
+
+

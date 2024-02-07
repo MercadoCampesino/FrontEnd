@@ -9,8 +9,8 @@ export default function Home() {
         <>
             <div className='home'>
                 <Header />
-                <div>
-                    <img src="" alt="" />
+                <div className='img_folder'>
+                    <img src="/images/folder.png" alt="" />
                 </div>
 
                 <div className='center_productsDiscount producColor'>
@@ -24,7 +24,9 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <button className='see_more_discount'>Ver más...</button>
+                    <button className='see_more_discount'>
+                        <a className='see_more_discount_a' href="/discounts">Ver más...</a>
+                    </button>
 
                 </div>
 
@@ -39,16 +41,14 @@ export default function Home() {
                         <Product />
                     </div>
 
-                    <button className='see_more_products'>Ver más...</button>
+                    <button className='see_more_products' >
+                        <a className='see_more_a' href="/products">Ver más...</a>
+                    </button>
                 </div>
 
                 <div>
                     <h2>Mercados recomendados</h2>
                     <p>Encuentra los mercados mas destacados, con productos de calidad</p>
-
-                    <div>
-
-                    </div>
                 </div>
             </div>
         </>
