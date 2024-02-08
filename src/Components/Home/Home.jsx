@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../Header/Header'
-import Product from '../Product/Product'
-import DiscountedProducts from '../Product/DiscountedProducts'
+import ProductCard from '../ProductCard/ProductCard'
+import DiscountedProducts from '../ProductCard/DiscountedProducts'
 import './Home.css'
 
 export default function Home() {
@@ -20,7 +20,7 @@ export default function Home() {
                     <h3 className='title_discount_home'>Descuentos frescos en el Mercado Campesino</h3>
                     <div className='discount_color'>
                         <div className='products_discount'>
-                            <DiscountedProducts />
+                            <DiscountedProducts/>
                         </div>
                     </div>
 
@@ -38,7 +38,7 @@ export default function Home() {
                     </div>
 
                     <div className='products_'>
-                        <Product />
+                        <ProductCard/>
                     </div>
 
                     <button className='see_more_products' >

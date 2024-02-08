@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from '../Navbar/Navbar'
 import './Header.css'
-import ProductList from '../ProductList/ProductList'
 
 export default function Header() {
     return (
