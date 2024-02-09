@@ -1,5 +1,5 @@
 import React from 'react';
-import products from '../../assets/Products/Products';
+import products from '../../assets/Products/products';
 import './DiscountedProducts.css'
 
 function ProductosDescuentos() {
