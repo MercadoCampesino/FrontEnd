@@ -3,6 +3,7 @@ import Header from '../Header/Header'
 import ProductCard from '../ProductCard/ProductCard'
 import DiscountedProducts from '../ProductCard/DiscountedProducts'
 import './Home.css'
+import Market from '../Market/Market'
 
 export default function Home() {
     return (
@@ -20,7 +21,7 @@ export default function Home() {
                     <h3 className='title_discount_home'>Descuentos frescos en el Mercado Campesino</h3>
                     <div className='discount_color'>
                         <div className='products_discount'>
-                            <DiscountedProducts/>
+                            <DiscountedProducts />
                         </div>
                     </div>
 
@@ -38,7 +39,7 @@ export default function Home() {
                     </div>
 
                     <div className='products_'>
-                        <ProductCard/>
+                        <ProductCard />
                     </div>
 
                     <button className='see_more_products' >
@@ -46,9 +47,17 @@ export default function Home() {
                     </button>
                 </div>
 
-                <div>
-                    <h2>Mercados recomendados</h2>
-                    <p>Encuentra los mercados mas destacados, con productos de calidad</p>
+                <div className='Cont_markets'>
+                    <div className='title_recommended_markets'>
+                        <h2>Mercados recomendados</h2>
+                        <p>Encuentra los mercados mas destacados, con productos de calidad</p>
+                    </div>
+
+                    <div className='markets'>
+                        <Market />
+                    </div>
+
+                    <hr className='hr_home'/>
                 </div>
             </div>
         </>

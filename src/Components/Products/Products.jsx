@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Header from '../Header/Header';
-import productsData from '../../assets/Products/Products';
+import productsData from '../../assets/Products/products';
 import ProductCard from '../ProductCard/ProductCard';
 import './Products.css';
 
@@ -65,7 +65,7 @@ const Product = () => {
         </div>
 
         {/* Mostrar ProductCard solo si showProductCard es verdadero */}
-        
+
         {showProductCard && (
           <div className='product'>
             <ProductCard />
