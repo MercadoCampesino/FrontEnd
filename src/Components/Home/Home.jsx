@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../Header/Header'
 import ProductCard from '../ProductCard/ProductCard'
 import DiscountedProducts from '../ProductCard/DiscountedProducts'
+import { Footer } from '../Footer/Footer'
 import './Home.css'
 
 export default function Home() {
@@ -51,6 +52,7 @@ export default function Home() {
                     <p>Encuentra los mercados mas destacados, con productos de calidad</p>
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }
