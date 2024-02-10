@@ -1,0 +1,58 @@
+.mainContainer{
+    background-color: #6B4522;
+    color: white;
+    padding: 20px;
+}
+
+
+.title_merCampesino {
+    display: flex;
+    color: white;
+    width: 40%;
+}
+
+.title_footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.titleFooter {
+    border-left: 2px solid white;
+    font-size: 11px;
+    height: 60px;
+    margin-left: 10px;
+    padding-left: 15px;
+}
+
+.titleFooter h1 {
+    margin-top: 5px;
+    font-weight: 400;
+    font-size: 18px;
+    margin-bottom: 17px;
+}
+.titleFooter p {
+    margin-top: -15px;
+    font-size: 13px;
+}
+
+.infoContainer{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 25px;
+}
+
+.infoContainer h2{
+    font-weight: 400;
+    font-size: 19px;
+}
+
+.infoContainer p{
+    font-size: 13px;
+}
+
+.infoContainer a{
+    color: white;
+    font-size: 13px;
+}

@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../Header/Header'
 import ProductCard from '../ProductCard/ProductCard'
 import DiscountedProducts from '../ProductCard/DiscountedProducts'
+import { Footer } from '../Footer/Footer'
 import './Home.css'
 import Market from '../Market/Market'
 
@@ -60,6 +61,7 @@ export default function Home() {
                     <hr className='hr_home'/>
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }

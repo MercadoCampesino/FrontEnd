@@ -46,6 +46,11 @@ header {
     width: 200px;
 }
 
+.img_header button{
+    background-color: #6B4522;
+    border: 0px solid #6B4522;
+}
+
 .navbar_img {
     display: flex;
     align-items: center;
@@ -54,10 +59,84 @@ header {
 .img_bell,
 .img_cart,
 .image_perfil {
-    width: 33px;
-    height: 38px;
+    width: 24px;
+    height: 25px;
 }
     
 .navbar {
     color: white;
+}
+
+/**/
+
+.popover {
+    transform: translateX(-150px);
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    width: fit-content;
+    
+}
+
+.popover-content {
+    font-size: 14px;
+    color: #333;
+    max-width: 200px;
+}
+
+.popover-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.popover-arrow.top {
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px 10px 0;
+    border-color: #fff transparent transparent transparent;
+}
+
+.popover-arrow.left {
+    top: 50%;
+    right: -10px;
+    transform: translateY(-50%);
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent #fff;
+}
+
+.popover-arrow.right {
+    top: 50%;
+    left: -10px;
+    transform: translateY(-50%);
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #fff transparent transparent;
+}
+
+.login_registropop{
+    padding: 10px;
+
+}
+
+.login_registropop a{
+    color: #6B4522;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_registropop a:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    
 }
