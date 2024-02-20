@@ -3,6 +3,7 @@ import Header from '../Header/Header';
 import productsData from '../../assets/Products/products';
 import ProductCard from '../ProductCard/ProductCard';
 import './Products.css';
+import { Footer } from '../Footer/Footer';
 
 const Product = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -28,8 +29,15 @@ const Product = () => {
   return (
     <>
       <Header />
-      <div className='img_folder'>
-        <img src="/images/folder.png" alt="" />
+      <div className='slide'>
+
+        <ul>
+          <li><img src="/images/folder_1.jpeg" alt="" /></li>
+          <li><img src="/images/folder_2.jpeg" alt="" /></li>
+          <li><img src="/images/folder_3.jpeg" alt="" /></li>
+          <li><img src="/images/folder_4.jpeg" alt="" /></li>
+        </ul>
+
       </div>
 
       <div className='content_products'>
@@ -73,6 +81,7 @@ const Product = () => {
         )}
       </div>
 
+      <Footer/>
     </>
   );
 };

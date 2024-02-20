@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react';
 import './Login.css'
 
 export default function Login() {
+
+    const [email, setEmail] = useState('');
+    const [contraseña, setContraseña] = useState('');
+  
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      // Aquí puedes enviar los datos del formulario a un servidor, realizar validaciones, etc. 
+      console.log('Email:', email);
+      console.log('Contraseña:', contraseña);
+    };
+
     return (
         <>
             <section className='login'>
@@ -29,6 +40,40 @@ export default function Login() {
                             {/* <a href="">Regresar</a> */}
                             <div className='center_login'>
 
+                                <form className='form_login_' action="/login" method="post" onSubmit={handleSubmit}>
+                                    <div className='login_form'>
+
+                                        <div class="digitar">
+                                            <label>Correo</label><br />
+                                            <input
+                                                type="email"
+                                                name="correo"
+                                                value={email}
+                                                onChange={(event) => setEmail(event.target.value)}
+                                                placeholder='Ingresa tu correo'
+                                                required ></input>
+                                        </div>
+
+                                        <div class="digitar">
+                                            <label>Contraseña</label><br />
+                                            <input
+                                                type="password"
+                                                name="contrasenia"
+                                                value={contraseña}
+                                                onChange={(event) => setContraseña(event.target.value)}
+                                                placeholder='Ingresa tu contraseña'
+                                                required ></input>
+
+                                        </div>
+
+                                        <div className='start_olvidarContra'>
+                                            <a className="link_olvidarContra" href="">¿Olvide mi contraseña? </a>
+                                            <p className="link_registro">¿No te has registrado? <a className="a_registro" href="/Registrarse"> Registrarse</a></p>
+                                        </div>
+                                    </div>
+
+                                </form>
+                                {/* 
                                 <form className='form_login_' action="/login" method="post">
                                     <div class="login_form">
 
@@ -36,12 +81,20 @@ export default function Login() {
 
                                             <div class="digitar">
                                                 <label>Correo</label><br />
-                                                <input type="text" name="correo" placeholder='Ingresa tu correo' required ></input>
+                                                <input 
+                                                type="text" 
+                                                name="correo" 
+                                                placeholder='Ingresa tu correo' 
+                                                required ></input>
                                             </div>
 
                                             <div class="digitar">
                                                 <label>Contraseña</label> <br />
-                                                <input type="password" name="contrasenia" placeholder='Ingresa tu contraseña' required ></input>
+                                                <input 
+                                                type="password" 
+                                                name="contrasenia" 
+                                                placeholder='Ingresa tu contraseña' 
+                                                required ></input>
 
                                             </div>
 
@@ -55,7 +108,7 @@ export default function Login() {
                                             <button className='loguear_button'>Ingresar</button>
                                         </div>
                                     </div>
-                                </form>
+                                </form> */}
                             </div>
 
                         </div>

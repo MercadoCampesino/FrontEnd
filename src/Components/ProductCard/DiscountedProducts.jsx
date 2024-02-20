@@ -1,26 +1,70 @@
 import React from 'react';
-import products from '../../assets/Products/products';
-import './DiscountedProducts.css'
+import productsDiscount from '../../assets/Products/productsDiscount';
+import './DiscountedProducts.css';
 
-function ProductosDescuentos() {
-
-  const firstFourProducts = products.slice(0, 4);
+function DiscountedProducts({ searchTerm }) {
+  // Filtrar la lista de productos según el término de búsqueda
+  const filteredProducts = productsDiscount.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <>
-      {firstFourProducts.map((product) => (
+      {filteredProducts.map((product) => (
         <div className='card_products' key={product.id}>
-          <img className='images' src={product.image} alt="" />
-            <p className='name_products'>{product.name}</p>
+          <img className='images' src={product.image} alt='' />
+          <p className='name_products'>{product.name}</p>
           <div className='name_price_product'>
-            <p className='price_discount'><strong>Ahora: </strong><em>$</em> {product.priceDiscount}</p>
-            <p><strong>Antes: </strong><span className='price_products_'> <em>$</em> {product.price}</span></p>
+            <p className='price_discount'>
+              <strong>Ahora: </strong>
+              <em>$</em> {product.priceDiscount}
+            </p>
+            <p>
+              <strong>Antes: </strong>
+              <span className='price_products_'>
+                <em>$</em> {product.price}
+              </span>
+            </p>
           </div>
-          <input className='buys' type="submit" value="Comprar" />
+          <input className='buys' type='submit' value='Comprar' />
         </div>
       ))}
     </>
   );
 }
 
-export default ProductosDescuentos;
+export default DiscountedProducts;
+
+
+
+
+
+
+
+
+// import React from 'react';
+// import productsDiscount from '../../assets/Products/productsDiscount';
+// import './DiscountedProducts.css'
+
+// function DiscountedProducts({ showAll }) {
+
+//   const productsToShow = showAll ? productsDiscount : productsDiscount.slice(0, 4);
+
+//   return (
+//     <>
+//       {productsToShow.map((product) => (
+//         <div className='card_products' key={product.id}>
+//           <img className='images' src={product.image} alt="" />
+//             <p className='name_products'>{product.name}</p>
+//           <div className='name_price_product'>
+//             <p className='price_discount'><strong>Ahora: </strong><em>$</em> {product.priceDiscount}</p>
+//             <p><strong>Antes: </strong><span className='price_products_'> <em>$</em> {product.price}</span></p>
+//           </div>
+//           <input className='buys' type="submit" value="Comprar" />
+//         </div>
+//       ))}
+//     </>
+//   );
+// }
+
+// export default DiscountedProducts;

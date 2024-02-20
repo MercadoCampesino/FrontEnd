@@ -6,7 +6,7 @@ export const Footer = () => {
         <>
             <div className='mainContainer'>
                 <div className='title_footer'>
-                <img src="/images/logo_mercadoCampesino.png" alt="" width={37} height={65} />
+                    <img src="/images/logo_mercadoCampesino.png" alt="" width={37} height={65} />
                     <div className='titleFooter'>
                         <h1>MERCADO CAMPESINO</h1>
                         <p>LA MEJOR CALIDAD</p>
@@ -32,8 +32,9 @@ export const Footer = () => {
                     </div>
                 </div>
 
+                <hr className='hr_footer' />
+                <p className='copy'>&copy; Mercado Campesino</p>
             </div>
-
         </>
     )
 }
