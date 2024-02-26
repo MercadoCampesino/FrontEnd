@@ -81,6 +81,7 @@ header {
     position: fixed;
     top: 0;
     width: fit-content;
+    width: 150px;
     
 }
 
@@ -133,10 +134,10 @@ header {
     padding: 10px 15px;
     justify-content: center;
     align-items: center;
+    font-size: 13px;
 }
 
 .login_registropop a:hover{
     text-decoration: underline;
     cursor: pointer;
-    
 }
