@@ -1,0 +1,12 @@
+.base-select {
+    text-align: center;
+}
+
+.select-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    align-items: start;
+    color: white;
+}
