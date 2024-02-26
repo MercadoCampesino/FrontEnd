@@ -52,7 +52,7 @@ export default function Header() {
                     <div className='login_registropop'>
                         <a href="/login">Iniciar sesion</a>
                         <hr/>
-                        <a href="">Registrarse</a>
+                        <a href="/signUp">Registrarse</a>
                     </div>
                 </div>
             )}

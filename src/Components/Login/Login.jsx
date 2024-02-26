@@ -35,8 +35,8 @@ export default function Login() {
                                         <div className="login_center">
 
                                             <div class="digitar">
-                                                <label>Correo</label><br />
-                                                <input type="text" name="correo" placeholder='Ingresa tu correo' required ></input>
+                                                <label>Documento</label><br />
+                                                <input type="text" name="correo" placeholder='Ingresa numero de documento' required ></input>
                                             </div>
 
                                             <div class="digitar">
