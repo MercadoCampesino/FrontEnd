@@ -81,11 +81,7 @@ export default function Login() {
 
                                             <div class="digitar">
                                                 <label>Correo</label><br />
-                                                <input 
-                                                type="text" 
-                                                name="correo" 
-                                                placeholder='Ingresa tu correo' 
-                                                required ></input>
+                                                <input type="text" name="correo" placeholder='Ingresa tu correo' required ></input>
                                             </div>
 
                                             <div class="digitar">

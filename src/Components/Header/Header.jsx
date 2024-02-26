@@ -62,7 +62,7 @@ export default function Header() {
 
                     <div className='login_registropop'>
                         <a href="/login">Iniciar sesion</a>
-                        <hr />
+                        <hr/>
                         <a href="">Registrarse</a>
                     </div>
 
