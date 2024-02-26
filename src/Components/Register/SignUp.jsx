@@ -17,7 +17,8 @@ export const SignUp = () => {
             contrasenia: form.get('password'),
             direccion: "defaultDirection",
             FK_IDAdministrador: 1
-        }
+        } 
+        
         const url = "https://localhost:7235";
         fetch(`${url}/Cliente/GuardarCliente`, {
             method: 'POST',
