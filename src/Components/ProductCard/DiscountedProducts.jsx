@@ -1,14 +1,14 @@
 import React from 'react';
-import products from '../../assets/Products/products';
+import productsDiscount from '../../assets/Products/productsDiscount';
 import './DiscountedProducts.css'
 
-function ProductosDescuentos() {
+function DiscountedProducts({ showAll }) {
 
-  const firstFourProducts = products.slice(0, 4);
+  const productsToShow = showAll ? productsDiscount : productsDiscount.slice(0, 4);
 
   return (
     <>
-      {firstFourProducts.map((product) => (
+      {productsToShow.map((product) => (
         <div className='card_products' key={product.id}>
           <img className='images' src={product.image} alt="" />
             <p className='name_products'>{product.name}</p>
@@ -23,4 +23,4 @@ function ProductosDescuentos() {
   );
 }
 
-export default ProductosDescuentos;
+export default DiscountedProducts;

@@ -23,16 +23,25 @@ export default function Header() {
         <>
             <header>
                 <div className='title_merCampesino'>
-                    <img src="/images/logo_mercadoCampesino.png" alt="" width={50} height={85} />
+                    <a href="/">
+                        <img src="/images/logo_mercadoCampesino.png" alt="" width={50} height={85} />
+                    </a>
+
                     <div className='title_header'>
+
                         <div className='title'>
-                            <h1>MERCADO CAMPESINO</h1>
-                            <p>LA MEJOR CALIDAD</p>
+                            <a className='a_title' href="/">
+                                <h1>MERCADO CAMPESINO</h1>
+                                <p>LA MEJOR CALIDAD</p>
+                            </a>
                         </div>
+
                     </div>
+
                 </div>
 
                 <div className='navbar_img'>
+
                     <div>
                         <Navbar />
                     </div>
@@ -43,17 +52,20 @@ export default function Header() {
                         <button ><img className='img_cart' src="/images/shoppingCart.png" alt="Shopping cart" /></button>
                         <button onClick={handleButtonClick}><img className='image_perfil' src="/images/profile.png" alt="Profile" /></button>
                     </div>
+
                 </div>
             </header>
 
             {/* Popover */}
             {isPopoverOpen && (
                 <div className="popover" style={{ top: popoverPosition.top, left: popoverPosition.left }}>
+
                     <div className='login_registropop'>
                         <a href="/login">Iniciar sesion</a>
                         <hr/>
-                        <a href="/signUp">Registrarse</a>
+                        <a href="">Registrarse</a>
                     </div>
+
                 </div>
             )}
         </>
