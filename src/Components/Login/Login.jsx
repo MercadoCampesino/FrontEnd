@@ -1,16 +1,31 @@
 import React, { useState } from 'react';
 import './Login.css'
+import { Input } from '../Input/Input';
 
 export default function Login() {
 
     const [email, setEmail] = useState('');
     const [contraseña, setContraseña] = useState('');
-  
+
     const handleSubmit = (event) => {
-      event.preventDefault();
-      // Aquí puedes enviar los datos del formulario a un servidor, realizar validaciones, etc. 
-      console.log('Email:', email);
-      console.log('Contraseña:', contraseña);
+        event.preventDefault();
+        const url = "https://localhost:7235";
+        const formData = new FormData(event.target);
+        const data = {
+            correo: formData.get('correo'),
+            contrasenia: formData.get('contrasenia')
+        }
+        console.log(data)
+        fetch(`${url}/Autenticar/Cliente`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(data => { alert("Usuario encontrado"); window.location.href = "/" })
+            .catch(error => alert("Usuario no encontrado"));
     };
 
     return (
@@ -37,38 +52,20 @@ export default function Login() {
                         </div>
 
                         <div className='form_login'>
-                            {/* <a href="">Regresar</a> */}
                             <div className='center_login'>
 
-                                <form className='form_login_' action="/login" method="post" onSubmit={handleSubmit}>
+                                <form className='form_login_' onSubmit={handleSubmit}>
                                     <div className='login_form'>
+                                        <Input label="Correo" type='email' name='correo' placeholder='Ingresa tu correo' required />
+                                        <Input label="Contraseña" type='password' name='contrasenia' placeholder='Ingresa tu contraseña' required />
 
-                                        <div class="digitar">
-                                            <label>Correo</label><br />
-                                            <input
-                                                type="email"
-                                                name="correo"
-                                                value={email}
-                                                onChange={(event) => setEmail(event.target.value)}
-                                                placeholder='Ingresa tu correo'
-                                                required ></input>
-                                        </div>
-
-                                        <div class="digitar">
-                                            <label>Contraseña</label><br />
-                                            <input
-                                                type="password"
-                                                name="contrasenia"
-                                                value={contraseña}
-                                                onChange={(event) => setContraseña(event.target.value)}
-                                                placeholder='Ingresa tu contraseña'
-                                                required ></input>
-
-                                        </div>
 
                                         <div className='start_olvidarContra'>
                                             <a className="link_olvidarContra" href="">¿Olvide mi contraseña? </a>
                                             <p className="link_registro">¿No te has registrado? <a className="a_registro" href="/Registrarse"> Registrarse</a></p>
+                                        </div>
+                                        <div className="loguear">
+                                            <button className='loguear_button'>Ingresar</button>
                                         </div>
                                     </div>
 
@@ -100,9 +97,7 @@ export default function Login() {
                                             </div>
                                         </div>
 
-                                        <div className="loguear">
-                                            <button className='loguear_button'>Ingresar</button>
-                                        </div>
+
                                     </div>
                                 </form> */}
                             </div>

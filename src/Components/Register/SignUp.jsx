@@ -9,6 +9,7 @@ export const SignUp = () => {
         e.preventDefault();
         const form = new FormData(e.target);
         const data = {
+            IDCliente: Math.floor(Math.random() * 1000000000) + 1,
             nombre: form.get('name'),
             apellido: form.get('lastName'),
             fechaNacimiento: form.get('born'),
@@ -16,7 +17,7 @@ export const SignUp = () => {
             correo: form.get('email'),
             contrasenia: form.get('password'),
             direccion: "defaultDirection",
-            FK_IDAdministrador: 1
+            FK_IDAdministrador: 1094880982
         } 
         
         const url = "https://localhost:7235";
@@ -28,7 +29,7 @@ export const SignUp = () => {
             body: JSON.stringify(data)
         })
             .then(response => response.json())
-            .then(data => console.log(data))
+            .then(data => { alert("Usuario registrado"); window.location.href = "/Login" })
             .catch(error => console.log('Error:', error));
 
     }
@@ -68,7 +69,7 @@ export const SignUp = () => {
                     <input type="submit" value="Registrarse" className='submit' />
                 </form>
             </section>
-            <section className="image">
+            <section className="image-register">
                 <img src="/images/img_login.jpg" alt="" />
             </section>
         </main>
