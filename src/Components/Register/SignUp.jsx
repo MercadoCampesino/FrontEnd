@@ -1,85 +1,76 @@
 import React from 'react';
 import './signUp.css';
+import { Input } from '../Input/Input';
+import { Select } from '../Select/Select';
+
 
 export const SignUp = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const form = new FormData(e.target);
+        const data = {
+            nombre: form.get('name'),
+            apellido: form.get('lastName'),
+            fechaNacimiento: form.get('born'),
+            telefono: form.get('phone'),
+            correo: form.get('email'),
+            contrasenia: form.get('password'),
+            direccion: "defaultDirection",
+            FK_IDAdministrador: 1
+        } 
+        
+        const url = "https://localhost:7235";
+        fetch(`${url}/Cliente/GuardarCliente`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.log('Error:', error));
+
+    }
     return (
-        <>
-            <div className='cont_generalRegister'>
-                <div className='title_merCampesinoRegister'>
+        <main className='full-reg-content'>
+            <section className="form-reg">
+
+                <header className='reg-header'>
                     <img src="/images/logo_mercadoCampesino.png" alt="" width={50} height={85} />
-                    <div className='title_headerRegister'>
-                        <div className='titleRegister'>
-                            <h1>MERCADO CAMPESINO</h1>
-                            <p>LA MEJOR CALIDAD</p>
-                        </div>
+                    <section className='header-text'>
+                        <h1>MERCADO CAMPESINO</h1>
+                        <p>LA MEJOR CALIDAD</p>
+                    </section>
+                </header>
+
+                <form className='register-form' onSubmit={handleSubmit}>
+                    <div className="form-sections">
+
+                        <section className='form-section'>
+                            <Input label="Nombre" type='text' name='name' placeholder='Ingresa tu nombre' required />
+                            <Input label="Apellidos" type='text' name='lastName' placeholder='Ingresa tus apellidos' required />
+                            <Input label="Fecha de nacimiento" type='date' name='born' placeholder='Ingresa tu fecha de nacimiento' required />
+                            <Input label="Contraseña" type='password' name='password' placeholder='Ingresa tu contraseña' required />
+                        </section>
+                        <section className='form-section'>
+                            <Input label="Telefono" type='number' name='phone' placeholder='Ingresa tu numero de telefono' required />
+                            <Input label="Correo" type='email' name='email' placeholder='Ingresa tu correo' required />
+                            <section className="selections">
+                                <Select label="Departamento" name="department" options={[{ value: "quindio", label: "Quindio" }]} />
+                                <Select label="Municipio" name="municipality" options={[{ value: "Armenia", label: "Armenia" }]} />
+                            </section>
+
+                            <Input label="Confirmar contraseña" type='password' name='password' placeholder='Confirma tu contraseña' required />
+
+                        </section>
                     </div>
-                </div>
-
-                <form action="">
-                    <div>
-                        <label className="digitar"> Nombre
-                            <input name="name" type="text" placeholder='Ingresa tu nombre' required />
-                        </label>
-
-                        <div className="digitar">
-                            <label htmlFor="lastName">Apellidos</label><br />
-                            <input name="lastName" type="text" placeholder='Ingresa tus apellidos' required />
-                        </div>
-
-                        <div className="digitar">
-                            <label htmlFor="born">Fecha de nacimiento</label><br />
-                            <input name="born" type="date" placeholder='Ingresa tu fecha de nacimiento' required />
-                        </div>
-
-                        <div className="digitar">
-                            <label htmlFor="password">Contraseña</label><br />
-                            <input name="password" type="password" placeholder='Ingresa tu contraseña' required />
-                        </div>
-                    </div>
-                    <div>
-                        <div className="digitar">
-                            <label htmlFor="phone">Telefono</label><br />
-                            <input name="phone" type="number" placeholder='Ingresa tu numero de telefono' required />
-                        </div>
-
-                        <div className="digitar">
-                            <label htmlFor="email">E-mail</label><br />
-                            <input name="email" type="email" placeholder='Ingresa tu correo electronico' required />
-                        </div>
-
-                        <div>
-                            <label htmlFor="">Ubicación</label>
-                            <div className="digitar">
-                                <select name="gender" id="gender" required>
-                                    <option value="" disabled selected>Departamento</option>
-                                    <option value="quindio">Quindio</option>
-                                </select>
-                            </div>
-
-                            <div className="digitar">
-                                <select name="gender" id="gender" required>
-                                    <option value="" disabled selected>Municipio</option>
-                                    <option value="quindio">Armenia</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div className="digitar">
-                            <label htmlFor="password">Confirmar contraseña</label><br />
-                            <input name="password" type="password" placeholder='Confirma tu contraseña' required />
-                        </div>
-
-                    </div>
-
-                    <a className="registras_button" href="/interfaz-login">
-                        <input type="submit" value="Registrarse"></input>
-                    </a>
+                    <input type="submit" value="Registrarse" className='submit' />
                 </form>
-
-                <div className='backGround_img'></div>
-
-            </div>
-
-        </>
+            </section>
+            <section className="image">
+                <img src="/images/img_login.jpg" alt="" />
+            </section>
+        </main>
     )
 }

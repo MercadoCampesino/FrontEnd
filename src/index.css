@@ -5,3 +5,8 @@ body {
   font-family: system-ui;
   background-color: #F4F2DC;
 }
+*, * > *{ 
+  box-sizing: border-box;
+  
+
+}
