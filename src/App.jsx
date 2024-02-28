@@ -6,6 +6,9 @@ import Discounts from './Components/Discounts/Discounts'
 import Products from './Components/Products/Products'
 import Login from './Components/Login/Login'
 import { SignUp } from './Components/Register/SignUp'
+import Profile from './Components/Profile/MarketProfile'
+// import MarketProfile from './Components/Market/Market'
+import Market from './Components/Market/Market'
 
 function App() {
 
@@ -19,6 +22,9 @@ function App() {
         <Route path='/Login' element={<Login />}></Route>
         <Route path='*' element={<NotFound />}></Route>
         <Route path='/register' element={<SignUp />}></Route>
+        <Route path='/profile' element={<Profile />}></Route>
+        {/* <Route path="/market/:id" element={<MarketProfile />} /> */}
+        <Route path="/market/:id" element={<Market />} /> {/* Ruta para mostrar detalles del mercado */}
       </Routes>
     </>
   )
