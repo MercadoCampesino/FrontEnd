@@ -9,7 +9,7 @@ export default function Login() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const url = "https://localhost:7235";
+        const url = "http://MercadoCampesinoBack.somee.com";
         const formData = new FormData(event.target);
         const data = {
             correo: formData.get('correo'),
@@ -26,6 +26,7 @@ export default function Login() {
             .then(response => response.json())
             .then(data => { alert("Usuario encontrado"); window.location.href = "/" })
             .catch(error => alert("Usuario no encontrado"));
+            //cambiar ventana
     };
 
     return (
@@ -62,7 +63,7 @@ export default function Login() {
 
                                         <div className='start_olvidarContra'>
                                             <a className="link_olvidarContra" href="">¿Olvide mi contraseña? </a>
-                                            <p className="link_registro">¿No te has registrado? <a className="a_registro" href="/Registrarse"> Registrarse</a></p>
+                                            <p className="link_registro">¿No te has registrado? <a className="a_registro" href="/Register"> Registrarse</a></p>
                                         </div>
                                         <div className="loguear">
                                             <button className='loguear_button'>Ingresar</button>
