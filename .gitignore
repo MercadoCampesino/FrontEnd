@@ -7,6 +7,9 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+#pnpm i
+#npm i  dependencias
+
 node_modules
 dist
 dist-ssr
