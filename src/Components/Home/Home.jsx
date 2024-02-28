@@ -8,9 +8,18 @@ import Market from '../Market/Market'
 
 
 export default function Home() {
+
+
     return (
         <>
             <Header />
+
+            <div className='Profile_home'>
+                <a href="/profile">
+                    <img className='image_perfil' src="/images/profile.png" alt="Profile" />
+                </a>
+            </div>
+
             <div className='home'>
                 <div className='slide'>
 
@@ -22,8 +31,6 @@ export default function Home() {
                     </ul>
 
                 </div>
-
-
 
                 <div className='center_productsDiscount producColor'>
                     <h2>Descubre el encanto rural</h2>
@@ -67,7 +74,7 @@ export default function Home() {
                         <Market />
                     </div>
 
-                    <hr className='hr_home' />
+                    <hr className='hr' />
                 </div>
             </div>
             <Footer />

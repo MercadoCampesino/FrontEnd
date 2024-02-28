@@ -1,0 +1,78 @@
+.button-toEdit {
+    position: absolute;
+    left: 70%;
+    top: 130px;
+}
+
+.button-toEdit button {
+    padding: 8px 15px;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.MarketProfile h2,
+.reviews-container h2 {
+    color: #6B4522;
+}
+
+.reviews-container h2 {
+    margin: 0;
+}
+
+.container-marketProfile {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.MarketProfile {
+    margin-top: 140px;
+}
+
+.description-market {
+    width: 80%;
+    background-color: #EEE9B4;
+    padding: 10px 30px;
+    border-radius: 15px;
+}
+
+.products-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0 20px 0;
+    flex-wrap: wrap;
+    grid-gap: 20px;
+    width: 1050px;
+    margin-bottom: 60px;
+}
+
+.comments {
+    position: relative;
+    left: 40%;
+    margin: 0;
+    font-size: small;
+    color: rgb(98, 98, 98);
+}
+
+.reviews-container {
+    width: 58%;
+    margin-bottom: 50px;
+}
+
+.Send-comment input {
+    padding: 9px;
+    margin-top: 20px;
+    border-radius: 12px;
+    border: rgb(85, 85, 85) 1px solid;
+    width: 270px;
+    margin-right: 15px;
+}
+
+.Send-comment button {
+    padding: 7px 17px;
+    border-radius: 10px;
+    border: none;
+    background-color: #A1BB23;
+    color: #ffff;
+}

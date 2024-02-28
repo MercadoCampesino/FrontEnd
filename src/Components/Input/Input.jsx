@@ -1,4 +1,5 @@
 import "./Input.css";
+
 export const Input = ({ type, name, placeholder, required, label }) => {
     return (
         <label className="input-base">
