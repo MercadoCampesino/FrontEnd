@@ -3,6 +3,7 @@ import './signUp.css';
 import { useNavigate } from 'react-router-dom'
 import { Input } from '../Input/Input';
 import { Select } from '../Select/Select';
+import { SERVER_URL } from '../../Constants';
 
 export const SignUp = () => {
 
@@ -27,10 +28,9 @@ export const SignUp = () => {
             contrasenia: form.get('password'),
             direccion: "defaultDirection",
             FK_IDAdministrador: 1094880982
-        };
 
-        const url = "http://MercadoCampesinoBack.somee.com";
-        fetch(`${url}/Cliente/GuardarCliente`, {
+        fetch(`${SERVER_URL}Cliente/GuardarCliente`, {
+
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
