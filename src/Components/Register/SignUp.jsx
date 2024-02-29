@@ -15,6 +15,80 @@ export const SignUp = () => {
         setSelectedRole(e.target.value);
     }
 
+    // const handleSubmitCliente = (e) => {
+    //     e.preventDefault();
+    //     const form = new FormData(e.target);
+    //     const data = {
+    //         IDCliente: Math.floor(Math.random() * 1000000000) + 1,
+    //         nombre: form.get('name'),
+    //         apellido: form.get('lastName'),
+    //         fechaNacimiento: form.get('born'),
+    //         telefono: form.get('phone'),
+    //         correo: form.get('email'),
+    //         contrasenia: form.get('password'),
+    //         direccion: "defaultDirection",
+    //         FK_IDAdministrador: 1094880982
+
+    //     fetch(`${SERVER_URL}Cliente/GuardarCliente`, {
+
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(data)
+    //     })
+    //         .then(response => {
+    //             if (response.ok) {
+    //                 return response.json();
+    //             }
+    //             throw new Error('Network response was not ok.');
+    //         })
+    //         .then(data => {
+    //             alert("Usuario registrado");
+    //             window.location.href = "/Login";
+    //         //cambiar ventana
+
+    //         })
+    //         .catch(error => console.error('Error:', error));
+    // };
+
+    // const handleSubmitVendedor = (e) => {
+    //     e.preventDefault();
+    //     const form = new FormData(e.target);
+    //     const data = {
+    //         IDCliente: Math.floor(Math.random() * 1000000000) + 1,
+    //         nombre: form.get('storeName'),
+    //         imagen: form.get(''),
+    //         telefono: form.get('ownerId'),
+    //         direccion: "defaultDirection",
+    //         contrasenia: form.get('password'),
+    //         FK_IDAdministrador: 1094880982
+    //     }; 
+
+    //     const url = "https://localhost:7235";
+    //     fetch(`${url}/Tienda/GuardarTienda`, {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(data)
+    //     })
+    //         .then(response => {
+    //             console.log(response);
+    //             // if (response.ok) {
+    //             //     return response.json();
+    //             // }
+    //             // throw new Error('Network response was not ok.');
+    //         })
+    //         .then(data => {
+    //             alert("Usuario registrado");
+    //             // window.location.href = "/Login";
+    //         //cambiar ventana
+
+    //         })
+    //         .catch(error => console.error('Error:', error));
+    // };
+
     const handleSubmitCliente = (e) => {
         e.preventDefault();
         const form = new FormData(e.target);
@@ -28,34 +102,32 @@ export const SignUp = () => {
             contrasenia: form.get('password'),
             direccion: "defaultDirection",
             FK_IDAdministrador: 1094880982
-
+        };
+    
         fetch(`${SERVER_URL}Cliente/GuardarCliente`, {
-
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
         })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                }
-                throw new Error('Network response was not ok.');
-            })
-            .then(data => {
-                alert("Usuario registrado");
-                window.location.href = "/Login";
-            //cambiar ventana
-
-            })
-            .catch(error => console.error('Error:', error));
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Network response was not ok.');
+        })
+        .then(data => {
+            alert("Usuario registrado");
+            window.location.href = "/Login";
+        })
+        .catch(error => console.error('Error:', error));
     };
-
+    
     const handleSubmitVendedor = (e) => {
         e.preventDefault();
         const form = new FormData(e.target);
-        const data = {
+        const vendedorData = { // Cambiado el nombre de la variable a vendedorData para evitar conflicto
             IDCliente: Math.floor(Math.random() * 1000000000) + 1,
             nombre: form.get('storeName'),
             imagen: form.get(''),
@@ -64,30 +136,24 @@ export const SignUp = () => {
             contrasenia: form.get('password'),
             FK_IDAdministrador: 1094880982
         }; 
-
+    
         const url = "https://localhost:7235";
         fetch(`${url}/Tienda/GuardarTienda`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(vendedorData) // Cambiado el nombre de la variable a vendedorData
         })
-            .then(response => {
-                console.log(response);
-                // if (response.ok) {
-                //     return response.json();
-                // }
-                // throw new Error('Network response was not ok.');
-            })
-            .then(data => {
-                alert("Usuario registrado");
-                // window.location.href = "/Login";
-            //cambiar ventana
-
-            })
-            .catch(error => console.error('Error:', error));
+        .then(response => {
+            console.log(response);
+        })
+        .then(data => {
+            alert("Usuario registrado");
+        })
+        .catch(error => console.error('Error:', error));
     };
+    
 
     
 
