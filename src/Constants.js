@@ -1,0 +1,1 @@
+export const SERVER_URL = "https://localhost:7235/"//"http://mercadocampesinoback.somee.com/"

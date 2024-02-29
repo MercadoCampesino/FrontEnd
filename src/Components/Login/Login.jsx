@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
 import './Login.css'
 import { Input } from '../Input/Input';
+import { readToken } from '../../utils/readToken';
+import { SERVER_URL } from '../../Constants';
+import { store } from '../../store';
+import { login } from '../../store/slices/user';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
 
-    const [email, setEmail] = useState('');
-    const [contraseña, setContraseña] = useState('');
-
+    const navigate = useNavigate();
     const handleSubmit = (event) => {
         event.preventDefault();
-        const url = "https://localhost:7235";
         const formData = new FormData(event.target);
         const data = {
             correo: formData.get('correo'),
             contrasenia: formData.get('contrasenia')
         }
         console.log(data)
-        fetch(`${url}/Autenticar/Cliente`, {
+        fetch(`${SERVER_URL}Autenticar/Cliente`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -24,8 +25,13 @@ export default function Login() {
             body: JSON.stringify(data)
         })
             .then(response => response.json())
-            .then(data => { alert("Usuario encontrado"); window.location.href = "/" })
-            .catch(error => alert("Usuario no encontrado"));
+            .then(data => {
+                localStorage.setItem('token', data.token);
+                const decoded = readToken(data.token);
+                store.dispatch(login(decoded));
+                navigate('/');
+            })
+            .catch(error => { alert("Usuario no encontrado"); console.error('Error:', error) });
     };
 
     return (

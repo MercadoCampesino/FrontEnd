@@ -2,6 +2,7 @@ import React from 'react';
 import './signUp.css';
 import { Input } from '../Input/Input';
 import { Select } from '../Select/Select';
+import { SERVER_URL } from '../../Constants';
 
 
 export const SignUp = () => {
@@ -20,8 +21,7 @@ export const SignUp = () => {
             FK_IDAdministrador: 1094880982
         } 
         
-        const url = "https://localhost:7235";
-        fetch(`${url}/Cliente/GuardarCliente`, {
+        fetch(`${SERVER_URL}Cliente/GuardarCliente`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
