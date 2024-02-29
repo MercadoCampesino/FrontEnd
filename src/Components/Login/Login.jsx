@@ -11,6 +11,9 @@ export default function Login() {
     const navigate = useNavigate();
     const handleSubmit = (event) => {
         event.preventDefault();
+      
+      //  const url = "http://MercadoCampesinoBack.somee.com";
+
         const formData = new FormData(event.target);
         const data = {
             correo: formData.get('correo'),
@@ -25,6 +28,7 @@ export default function Login() {
             body: JSON.stringify(data)
         })
             .then(response => response.json())
+
             .then(data => {
                 localStorage.setItem('token', data.token);
                 const decoded = readToken(data.token);
@@ -32,6 +36,7 @@ export default function Login() {
                 navigate('/');
             })
             .catch(error => { alert("Usuario no encontrado"); console.error('Error:', error) });
+
     };
 
     return (
@@ -68,7 +73,7 @@ export default function Login() {
 
                                         <div className='start_olvidarContra'>
                                             <a className="link_olvidarContra" href="">¿Olvide mi contraseña? </a>
-                                            <p className="link_registro">¿No te has registrado? <a className="a_registro" href="/Registrarse"> Registrarse</a></p>
+                                            <p className="link_registro">¿No te has registrado? <a className="a_registro" href="/Register"> Registrarse</a></p>
                                         </div>
                                         <div className="loguear">
                                             <button className='loguear_button'>Ingresar</button>
