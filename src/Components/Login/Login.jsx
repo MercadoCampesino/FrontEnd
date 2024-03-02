@@ -32,6 +32,7 @@ export default function Login() {
             .then(data => {
                 localStorage.setItem('token', data.token);
                 const decoded = readToken(data.token);
+                console.log(decoded)
                 store.dispatch(login(decoded));
                 navigate('/');
             })

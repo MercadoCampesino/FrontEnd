@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../Navbar/Navbar';
 import './Header.css';
+import { store } from '../../store';
+import { login } from '../../store/slices/user';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 export default function Header() {
     const [isPopoverOpen, setIsPopoverOpen] = useState(false);
     const [popoverPosition, setPopoverPosition] = useState({ top: 0, left: 0 });
-
+    const [isLogged, setIsLogged] = useState(false);
+    const navigate = useNavigate()
     const togglePopover = () => {
         setIsPopoverOpen(!isPopoverOpen);
     };
@@ -18,6 +22,20 @@ export default function Header() {
         setPopoverPosition({ top: popoverTop, left: popoverLeft });
         togglePopover();
     };
+    useEffect(() => {
+        const unsubscribe = store.subscribe(() => {
+            const user = store.getState().user;
+            if (user) setIsLogged(true);
+        });
+        return () => { unsubscribe(); };
+    }, []);
+
+    function handleLogOut() {
+        localStorage.removeItem('token');
+        store.dispatch(login(null));
+        setIsLogged(false);
+        navigate('/login');
+    }
 
     return (
         <>
@@ -56,16 +74,14 @@ export default function Header() {
                 </div>
             </header>
 
-            {/* Popover */}
             {isPopoverOpen && (
                 <div className="popover" style={{ top: popoverPosition.top, left: popoverPosition.left }}>
 
-                    <div className='login_registropop'>
-                        <a href="/login">Iniciar sesion</a>
-                        <hr/>
-                        <a href="/register">Registrarse</a>
-                    </div>
-
+                    <NavLink to={isLogged ? "/client-profile" : "/login"}>
+                        {isLogged ? "Perfil" : "Ingresar"}
+                    </NavLink>
+                    {!isLogged && <NavLink to="/register">Registrarse</NavLink>}
+                    {isLogged && <button onClick={handleLogOut}> cerrar sesion</button>}
                 </div>
             )}
         </>

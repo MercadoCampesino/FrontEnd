@@ -1,23 +1,34 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '../Header/Header'
 import ProductCard from '../ProductCard/ProductCard'
 import DiscountedProducts from '../ProductCard/DiscountedProducts'
 import { Footer } from '../Footer/Footer'
 import './Home.css'
 import Market from '../Market/Market'
+import { NavLink } from 'react-router-dom'
+import { jwtDecode } from 'jwt-decode'
+import { login } from '../../store/slices/user'
+import { store } from '../../store'
 
 
 export default function Home() {
 
 
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            const decoded = jwtDecode(token);
+            store.dispatch(login(decoded));
+        }
+    }, []);
     return (
         <>
             <Header />
 
             <div className='Profile_home'>
-                <a href="/profile">
+                <NavLink to="/profile">
                     <img className='image_perfil' src="/images/profile.png" alt="Profile" />
-                </a>
+                </NavLink>
             </div>
 
             <div className='home'>

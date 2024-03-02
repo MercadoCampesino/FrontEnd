@@ -3,93 +3,13 @@ import './signUp.css';
 import { useNavigate } from 'react-router-dom'
 import { Input } from '../Input/Input';
 import { Select } from '../Select/Select';
-import { SERVER_URL } from '../../Constants';
+import { onSellerRegisterSubmit, onClientRegisterSubmit } from "../../utils/submits"
 
 export const SignUp = () => {
 
     const navigate = useNavigate();
 
-    const [selectedRole, setSelectedRole] = useState("cliente");
-
-    const handleRoleChange = (e) => {
-        setSelectedRole(e.target.value);
-    }
-
-    const handleSubmitCliente = (e) => {
-        e.preventDefault();
-        const form = new FormData(e.target);
-        const data = {
-            IDCliente: Math.floor(Math.random() * 1000000000) + 1,
-            nombre: form.get('name'),
-            apellido: form.get('lastName'),
-            fechaNacimiento: form.get('born'),
-            telefono: form.get('phone'),
-            correo: form.get('email'),
-            contrasenia: form.get('password'),
-            direccion: "defaultDirection",
-            FK_IDAdministrador: 1094880982
-
-        fetch(`${SERVER_URL}Cliente/GuardarCliente`, {
-
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                }
-                throw new Error('Network response was not ok.');
-            })
-            .then(data => {
-                alert("Usuario registrado");
-                window.location.href = "/Login";
-            //cambiar ventana
-
-            })
-            .catch(error => console.error('Error:', error));
-    };
-
-    const handleSubmitVendedor = (e) => {
-        e.preventDefault();
-        const form = new FormData(e.target);
-        const data = {
-            IDCliente: Math.floor(Math.random() * 1000000000) + 1,
-            nombre: form.get('storeName'),
-            imagen: form.get(''),
-            telefono: form.get('ownerId'),
-            direccion: "defaultDirection",
-            contrasenia: form.get('password'),
-            FK_IDAdministrador: 1094880982
-        }; 
-
-        const url = "https://localhost:7235";
-        fetch(`${url}/Tienda/GuardarTienda`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-            .then(response => {
-                console.log(response);
-                // if (response.ok) {
-                //     return response.json();
-                // }
-                // throw new Error('Network response was not ok.');
-            })
-            .then(data => {
-                alert("Usuario registrado");
-                // window.location.href = "/Login";
-            //cambiar ventana
-
-            })
-            .catch(error => console.error('Error:', error));
-    };
-
-    
+    const [isClient, setIsClient] = useState(true);
 
     return (
         <main className='full-reg-content'>
@@ -102,30 +22,35 @@ export const SignUp = () => {
                     </section>
                 </header>
                 <div className='regresar'>
-                <button className='regresar_reg' onClick={() => navigate(-1)}>Regresar</button>
-               </div>
-                <form className='register-form' onSubmit={selectedRole === "cliente" ? handleSubmitCliente : handleSubmitVendedor}>
+                    <button className='regresar_reg' onClick={() => navigate(-1)}>Regresar</button>
+                </div>
+                <section className='register-form'>
                     <div className='checkboxs'>
                         <p>Elige como quieres registrarte</p>
-                        <input
-                            type="radio"
-                            id="cliente"
-                            value="cliente"
-                            checked={selectedRole === "cliente"}
-                            onChange={handleRoleChange}
-                        />
-                        <label htmlFor="cliente">Cliente</label>
-                        <input
-                            type="radio"
-                            id="vendedor"
-                            value="vendedor"
-                            checked={selectedRole === "vendedor"}
-                            onChange={handleRoleChange}
-                        />
-                        <label htmlFor="vendedor">Vendedor</label>
+                        <label>
+                            <input
+                                type="radio"
+                                id="cliente"
+                                name='role'
+                                value="cliente"
+                                onChange={() => { setIsClient(true) }}
+                                defaultChecked
+                            />
+                            Cliente
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                id="vendedor"
+                                name='role'
+                                value="vendedor"
+                                onChange={() => { setIsClient(false) }}
+                            />
+                            Vendedor
+                        </label>
                     </div>
-                    {selectedRole === "cliente" && (
-                        <div className="form-sections">
+                    {isClient ? (
+                        <form className="form-sections" onSubmit={onClientRegisterSubmit}>
                             <section className='form-section'>
                                 <Input label="Nombre" type='text' name='name' placeholder='Ingresa tu nombre' required />
                                 <Input label="Apellidos" type='text' name='lastName' placeholder='Ingresa tus apellidos' required />
@@ -145,28 +70,28 @@ export const SignUp = () => {
                                 <p>¿Ya esta registrado? <a href="">Iniciar sesión</a></p>
                                 <input type="submit" value="Registrarse" className='submit' />
                             </div>
-                        </div>
-                    )}
-                    {selectedRole === "vendedor" && (
-                        <div className="form-sections">
-                            <section className='form-section'>
-                                <Input label="Nombre de la Tienda" type='text' name='storeName' placeholder='Ingrese el nombre de tu tienda' required />
-                                <Input label="Telefono" type='number' name='tel' placeholder='Ingrese su nombre' required />
-                                <Input label="Dirección" type='text' name='defaultDirection' placeholder='Ingrese su dirección' required />
-                                <Input label="Contraseña" type='password' name='password' placeholder='Ingrese su contraseña' required />
-                                <Input label="Confirmar contraseña" type='password' name='password' placeholder='Confirme su contraseña' required />
-                                <Input label="Imagen del mercado" type='file' name='image' required />
+                        </form>
+                    ) : (
+                        <form className="seller-form" onSubmit={onSellerRegisterSubmit}>
+                            <section className='form-sections'>
+                                <section className="form-section">
+                                    <Input label="Correo" type='email' name='email' placeholder='Ingrese su correo' />
+                                    <Input label="Nombre de la Tienda" type='text' name='storeName' placeholder='Ingrese el nombre de tu tienda' />
+                                    <Input label="Telefono" type='tel' name='tel' placeholder='Ingrese su nombre' />
+                                    <Input label="Dirección" type='text' name='address' placeholder='Ingrese su dirección' />
+                                </section>
+                                <section className="form-section">
+                                    <Input label="Contraseña" type='password' name='password' placeholder='Ingrese su contraseña' />
+                                    <Input label="Confirmar contraseña" type='password' name='confirmPassword' placeholder='Confirme su contraseña' />
+                                    <Input label="Imagen del mercado" type='file' name='image' />
+                                </section>
                             </section>
-                            <div className='buttonreg'>
-                                <input type="submit" value="Registrarse" className='submit' />
-                            </div>
-                        </div>
+                            <button type="submit" className='submit'> Registrarse</button>
+                        </form>
                     )}
-                </form>
+                </section>
             </section>
-            <section className="image-register">
-                {/* <img src="/images/img_login.jpg" alt="" /> */}
-            </section>
+            <section className="image-register" />
         </main>
     );
 };

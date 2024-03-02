@@ -13,6 +13,7 @@ import { store } from './store/index'
 import Profile from './Components/Profile/MarketProfile'
 // import MarketProfile from './Components/Market/Market'
 import Market from './Components/Market/Market'
+import ClientProfile from './Components/ClientProfile/ClientProfile'
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route path='/profile' element={<Profile />}></Route>
         {/* <Route path="/market/:id" element={<MarketProfile />} /> */}
         <Route path="/market/:id" element={<Market />} /> {/* Ruta para mostrar detalles del mercado */}
+        <Route path='client-profile' Component={ClientProfile}></Route>
       </Routes>
       </>
     </Provider>
