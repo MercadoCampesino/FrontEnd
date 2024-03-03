@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import Header from '../Header/Header';
-import productsData from '../../assets/Products/products';
 import ProductCard from '../ProductCard/ProductCard';
 import './Products.css';
 import { Footer } from '../Footer/Footer';
+// import ProductList from '../ProductCard/ProductCard'
 
-const Product = () => {
+const Products = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [showProductCard, setShowProductCard] = useState(true);
@@ -19,8 +19,8 @@ const Product = () => {
       setFilteredProducts([]); // Reiniciar la lista de productos filtrados
     } else {
       setShowProductCard(false); // Ocultar ProductCard mientras se busca
-      const filtered = productsData.filter((product) =>
-        product.name.toLowerCase().includes(searchTerm.toLowerCase())
+      const filtered = ProductList.filter((Product) =>
+        Product.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
       setFilteredProducts(filtered);
     }
@@ -62,10 +62,10 @@ const Product = () => {
 
           <div className='product_list'>
             {filteredProducts.map((product) => (
-              <div className='card_product' key={product.id}>
-                <img className='image' src={product.image} alt='' />
-                <p className='name_product'>{product.name}</p>
-                <p className='price_product'>Precio: ${product.price}</p>
+              <div className='card_product' key={product.idProducto}>
+                <img className='image' src={product.imagen} alt='' />
+                <p className='name_product'>{product.nombre}</p>
+                <p className='price_product'>Precio: ${product.precio}</p>
                 <input className='buy' type='submit' value='Comprar' />
               </div>
             ))}
@@ -73,7 +73,6 @@ const Product = () => {
         </div>
 
         {/* Mostrar ProductCard solo si showProductCard es verdadero */}
-
         {showProductCard && (
           <div className='product'>
             <ProductCard />
@@ -81,10 +80,10 @@ const Product = () => {
         )}
       </div>
 
-      <Footer/>
+      <Footer />
     </>
   );
 };
 
-export default Product;
+export default Products;
 

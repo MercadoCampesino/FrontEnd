@@ -1,22 +1,20 @@
 .slide {
+    /* width: 100%; */
     max-width: 100%;
     height: auto;
+    /* margin: 50px auto 0; */
     margin: 0;
     overflow: hidden;
 }
-.home {
-    padding: 0;
-}
+
 .slide ul {
     display: flex;
     padding: 0;
     width: 400%;
-    margin: 0;
     animation: slide 10s infinite alternate ease-in-out;
 }
 
 .slide li {
-    height: 550px;
     width: 100%;
     list-style: none;
     /* cubic-bezier(0.55, 0.48, 0.37, 0.92) */
@@ -26,8 +24,7 @@
     width: 100%;
     /* margin-top: 150px; */
     margin: 0;
-    height: 100%;
-    object-fit: cover;
+    height: 400px;
 }
 
 
@@ -51,11 +48,9 @@
 .Profile_home {
     left: 95%;
     top: 110px;
-    width: fit-content;
-    position: fixed;
+    position: absolute;
     background-color: #6B4522;
     padding: 10px;
-    cursor: pointer;
     border-radius: 50%;
 }
 
@@ -99,7 +94,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 .center_productsDiscount h2,
@@ -153,13 +148,13 @@
     border: none;
 }
 
-.products_ {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px 0 20px 0;
-    flex-wrap: wrap;
+.products_ {    
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: minmax(100px, auto);
     grid-gap: 20px;
-    width: 1050px;
+    width: 70%;
+    margin-top: 10px;
 }
 
 .see_more_products {
