@@ -10,7 +10,6 @@ export const SignUp = () => {
     const navigate = useNavigate();
 
     const [isClient, setIsClient] = useState(true);
-
     return (
         <main className='full-reg-content'>
             <section className="form-reg">
