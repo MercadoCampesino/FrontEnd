@@ -11,14 +11,14 @@ export default function Login() {
     const navigate = useNavigate();
     const handleSubmit = (event) => {
         event.preventDefault();
-      
-      //  const url = "http://MercadoCampesinoBack.somee.com";
+
 
         const formData = new FormData(event.target);
         const data = {
             correo: formData.get('correo'),
             contrasenia: formData.get('contrasenia')
         }
+        const url = `${SERVER_URL}Autenticar/${formData.get('role')}`;
         console.log(data)
         fetch(`${SERVER_URL}Autenticar/Cliente`, {
             method: 'POST',
@@ -32,6 +32,7 @@ export default function Login() {
             .then(data => {
                 localStorage.setItem('token', data.token);
                 const decoded = readToken(data.token);
+                console.log(decoded)
                 store.dispatch(login(decoded));
                 navigate('/');
             })
@@ -69,7 +70,13 @@ export default function Login() {
                                     <div className='login_form'>
                                         <Input label="Correo" type='email' name='correo' placeholder='Ingresa tu correo' required />
                                         <Input label="Contraseña" type='password' name='contrasenia' placeholder='Ingresa tu contraseña' required />
-
+                                        <label className="type">
+                                            Eres un:
+                                            <select name="role" required>
+                                                <option value="cliente">Cliente</option>
+                                                <option value="vendedor">Vendedor</option>
+                                            </select>
+                                        </label>
 
                                         <div className='start_olvidarContra'>
                                             <a className="link_olvidarContra" href="">¿Olvide mi contraseña? </a>
@@ -81,36 +88,6 @@ export default function Login() {
                                     </div>
 
                                 </form>
-                                {/* 
-                                <form className='form_login_' action="/login" method="post">
-                                    <div class="login_form">
-
-                                        <div className="login_center">
-
-                                            <div class="digitar">
-                                                <label>Correo</label><br />
-                                                <input type="text" name="correo" placeholder='Ingresa tu correo' required ></input>
-                                            </div>
-
-                                            <div class="digitar">
-                                                <label>Contraseña</label> <br />
-                                                <input 
-                                                type="password" 
-                                                name="contrasenia" 
-                                                placeholder='Ingresa tu contraseña' 
-                                                required ></input>
-
-                                            </div>
-
-                                            <div className='start_olvidarContra'>
-                                                <a className="link_olvidarContra" href="">¿Olvide mi contraseña? </a>
-                                                <p className="link_registro">¿No te has registrado? <a className="a_registro" href="/Registrarse"> Registrarse</a></p>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </form> */}
                             </div>
 
                         </div>

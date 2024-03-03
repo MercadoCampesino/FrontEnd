@@ -1,10 +1,11 @@
-import React from 'react'
+import './MarketProfile.css'
+import React, { useEffect, useState } from 'react'
 import Reviewcard from '../ReviewCard/Reviewcard';
 import ProductCard from '../ProductCard/ProductCard';
-// import markets from '../.././assets/Markets/markets';
 import Header from '../Header/Header';
-import './MarketProfile.css'
 import { Footer } from '../Footer/Footer';
+// import markets from '../.././assets/Markets/markets';
+import { store } from '../../store';
 
 export default function ProfileMarket() {
 
@@ -24,6 +25,12 @@ export default function ProfileMarket() {
 
 
     ];
+    const [ user, setUser ] = useState({});
+
+    useEffect(() => {
+        console.log(store.getState())
+        setUser(store.getState().user.user);
+    }, []);
 
     return (
         <>
@@ -35,8 +42,8 @@ export default function ProfileMarket() {
 
                 <div>
                     <div className='MarketProfile'>
-                        <h2>nombre</h2>
-                        <p>Direccion</p>
+                        <h2>{user?.nombre}</h2>
+                        <p>{user?.direccion}</p>
                     </div>
                 </div>
 
