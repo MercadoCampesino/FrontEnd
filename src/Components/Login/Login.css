@@ -20,6 +20,22 @@
 
 }
 
+.type {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    color: white;
+    gap: 5px;
+
+    & select {
+        padding: 5px;
+        width: 150px;
+        border-radius: 10px;
+    }
+}
+
 .div_img_login {
     padding: 0px;
     margin: 0px;
@@ -42,11 +58,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
 .title_merCam_login {
-width: 100px;
+    width: 100px;
 }
 
 .title_logo_merCampesino {
@@ -135,8 +151,8 @@ width: 100px;
 .loguear_button {
     border-radius: 13px;
     border: none;
-    padding: 8px 35px; 
-    color:#6B4522;
+    padding: 8px 35px;
+    color: #6B4522;
     font-size: 16px;
     font-weight: 600;
 }
@@ -160,6 +176,6 @@ width: 100px;
 }
 
 .start_olvidarContra {
-width: 100%;
-/* margin-top: -20px; */
+    width: 100%;
+    /* margin-top: -20px; */
 }
