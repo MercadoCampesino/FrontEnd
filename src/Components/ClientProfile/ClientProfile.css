@@ -1,7 +1,7 @@
 .profile-pics {
     width: 100%;
     position: relative;
-    height: 500px;
+    height: 350px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -91,4 +91,9 @@
 
 .perfil-input {
     z-index: 10;
+}
+
+.profile-info .nameLastName{
+    color: #6B4522;
+    font-size: 30px;
 }

@@ -1,0 +1,36 @@
+.cont-form-add-product form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 250px;
+}
+
+
+.cont-form-add-product form input,
+.cont-form-add-product form select {
+    margin-left: 10px;
+    border-radius: 10px;
+    border: 1px solid ;
+    padding: 5px;
+    color: #6B4522;
+}
+
+.cont-form-add-product form label {
+    color: #6B4522;
+}
+
+.button-Create-Product {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.button-Create-Product button {
+    width: 130px;
+    padding: 7px 17px;
+    border-radius: 10px;
+    border: none;
+    background-color: #A1BB23;
+    color: #ffff;
+}

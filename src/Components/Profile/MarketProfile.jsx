@@ -1,13 +1,21 @@
-import './MarketProfile.css'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from "react";
 import Reviewcard from '../ReviewCard/Reviewcard';
 import ProductCard from '../ProductCard/ProductCard';
-import Header from '../Header/Header';
-import { Footer } from '../Footer/Footer';
 // import markets from '../.././assets/Markets/markets';
-import { store } from '../../store';
+import Header from '../Header/Header';
+import './MarketProfile.css'
+import { Footer } from '../Footer/Footer';
+import AddProductForm from '../AddProductForm/AddProductForm';
 
 export default function ProfileMarket() {
+    const [showForm, setShowForm] = useState(false);
+
+    const handleCreateProduct = (productData) => {
+        // Aquí puedes enviar los datos del producto a tu backend o hacer lo que necesites
+        console.log("Nuevo producto:", productData);
+        // Cerrar el formulario después de enviar los datos
+        setShowForm(false);
+    };
 
     const reviews = [
         {
@@ -22,15 +30,7 @@ export default function ProfileMarket() {
             author: 'Elvia Martinez',
             text: 'Muy buenos precios y la calidad excelente',
         },
-
-
     ];
-    const [ user, setUser ] = useState({});
-
-    useEffect(() => {
-        console.log(store.getState())
-        setUser(store.getState().user.user);
-    }, []);
 
     return (
         <>
@@ -42,8 +42,8 @@ export default function ProfileMarket() {
 
                 <div>
                     <div className='MarketProfile'>
-                        <h2>{user?.nombre}</h2>
-                        <p>{user?.direccion}</p>
+                        <h2>nombre</h2>
+                        <p>Direccion</p>
                     </div>
                 </div>
 
@@ -52,7 +52,17 @@ export default function ProfileMarket() {
                 </div>
 
                 <div>
-                    <button>Crear nuevo producto</button>
+                    <button onClick={() => setShowForm(true)}>Crear nuevo producto</button>
+                    {showForm && (
+                        <div className="floating-form-container">
+                            <div className="floating-form">
+                                <button className="close-button" onClick={() => setShowForm(false)}>
+                                    X
+                                </button>
+                                <AddProductForm onSubmit={handleCreateProduct} />
+                            </div>
+                        </div>
+                    )}
                 </div>
 
                 <div className="products-container">
@@ -67,10 +77,10 @@ export default function ProfileMarket() {
                         <Reviewcard key={review.author} review={review} />
                     ))}
 
-                    
 
-                    <div  className='Send-comment'>
-                        <input type="text" placeholder='Escribe una reseña'/>
+
+                    <div className='Send-comment'>
+                        <input type="text" placeholder='Escribe una reseña' />
                         <button>Ver mas...</button>
                     </div>
                 </div>

@@ -8,6 +8,14 @@
     overflow: hidden;
 }
 
+.buttonreg p{
+    color: white;
+}
+
+.buttonreg a{
+    color: white;
+}
+
 .form-reg {
     display: flex;
     flex-direction: column;
@@ -77,7 +85,7 @@
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
-    gap: 25px;
+    /* gap: 25px; */
     /* margin-top: 50px; */
 }
 
@@ -87,7 +95,7 @@
     gap: 20px;
     justify-content: center;
     align-items: center;
-
+    margin-top: 10px;
 }
 
 .form-section {
