@@ -8,20 +8,15 @@ import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import { useSelector } from 'react-redux';
 export default function ClientProfile() {
-    const user = useSelector((state) => state.user?.user);
+    const navigate = useNavigate()
+    const user = useSelector((state) => {
+        const profile = state.user?.user
+        if (profile) return profile; else navigate('/login')
+    });
     const [productosVisible, setProductosVisible] = useState(false);
     const [perfilComprado, setPerfilComprado] = useState('');
     const [fotoPortada, setFotoPortada] = useState(null);
     const [fotoPerfil, setFotoPerfil] = useState(null);
-    const navigate = useNavigate()
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (!token) navigate('/login');
-        else {
-            const decoded = jwtDecode(token);
-            store.dispatch(login(decoded));
-        }
-    }, []);
 
 
 

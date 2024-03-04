@@ -4,11 +4,13 @@ import './Header.css';
 import { store } from '../../store';
 import { login } from '../../store/slices/user';
 import { NavLink, useNavigate } from 'react-router-dom';
-
+import { useSelector, useDispatch } from 'react-redux';
 export default function Header() {
+    const dispatcher = useDispatch();
     const [isPopoverOpen, setIsPopoverOpen] = useState(false);
     const [popoverPosition, setPopoverPosition] = useState({ top: 0, left: 0 });
-    const [isLogged, setIsLogged] = useState(false);
+    const user = useSelector((state) => state.user?.user);
+    const isLogged = useSelector((state) => state.user?.user ? true : false);
     const navigate = useNavigate()
     const togglePopover = () => {
         setIsPopoverOpen(!isPopoverOpen);
@@ -22,19 +24,11 @@ export default function Header() {
         setPopoverPosition({ top: popoverTop, left: popoverLeft });
         togglePopover();
     };
-    useEffect(() => {
-        const unsubscribe = store.subscribe(() => {
-            const user = store.getState().user;
-            if (user) setIsLogged(true);
-        });
-        return () => { unsubscribe(); };
-    }, []);
 
     function handleLogOut() {
         localStorage.removeItem('token');
-        store.dispatch(login(null));
-        setIsLogged(false);
-        navigate('/login');
+        dispatcher(login(null));
+        navigate('/');
     }
 
     return (
@@ -68,7 +62,7 @@ export default function Header() {
                         {/* Botones con popover */}
                         <button ><img className='img_bell' src="/images/notifications.png" alt="Bell" /></button>
                         <button ><img className='img_cart' src="/images/shoppingCart.png" alt="Shopping cart" /></button>
-                        <button onClick={handleButtonClick}><img className='image_perfil' src="/images/profile.png" alt="Profile" /></button>
+                        <button onClick={handleButtonClick}><img className='image_perfil' src={isLogged ? "https://th.bing.com/th/id/OIP.eGHa3HgHxIlTHmcvKNDs7AHaGe?rs=1&pid=ImgDetMain" : "/images/profile.png"} alt="Profile" /></button>
                     </div>
 
                 </div>
@@ -77,7 +71,7 @@ export default function Header() {
             {isPopoverOpen && (
                 <div className="popover" style={{ top: popoverPosition.top, left: popoverPosition.left }}>
 
-                    <NavLink to={isLogged ? "/client-profile" : "/login"}>
+                    <NavLink to={isLogged ? "/profile" : "/login"}>
                         {isLogged ? "Perfil" : "Ingresar"}
                     </NavLink>
                     {!isLogged && <NavLink to="/register">Registrarse</NavLink>}
