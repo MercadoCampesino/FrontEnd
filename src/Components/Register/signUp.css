@@ -20,34 +20,39 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
+    /* align-items: center; */  
     gap: 10px;
     width: 70%;
 }
 
 .regresar {
     margin: 10px 0 0 20px;
-
 }
 
 .regresar_reg {
     color: #fff;
     /* margin-bottom: 100px; */
     margin: 10px;
-    background-color: #6B4522;
+    background-color: #ffffff00;
+    border: none;
+    border-bottom: 1px solid;
+}
 
+.regresar_reg:hover {
+    color: #ababab;
 }
 
 .reg-header {
     display: flex;
-    justify-content: start;
+    justify-content: center;
     position: relative;
     align-items: center;
     gap: 20px;
     padding: 0 50px;
     height: 10%;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 20px; /* cristian */
+    margin-bottom: 20px; /* cristian */
 }
 
 .header-text {
@@ -91,7 +96,7 @@
 
 .form-sections {
     display: flex;
-    position: relative;
+    /* position: relative; */
     gap: 20px;
     justify-content: center;
     align-items: center;
@@ -147,8 +152,6 @@
     font-size: 16px;
     border: none;
     cursor: pointer;
-
-
 }
 
 .image-register {
@@ -167,6 +170,7 @@
 
 .checkboxs {
     color: white;
+    text-align: center;
 
     input {
         margin-left: 20px;
@@ -175,4 +179,13 @@
     label {
         margin-left: 5px;
     }
+}
+
+
+/* cristian nuevo */
+.buttonreg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }

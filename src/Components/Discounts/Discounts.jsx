@@ -14,9 +14,13 @@ export default function Discounts() {
   return (
     <>
       <Header />
-      <div className='title_discounts'>
-        <h2>Descuentos</h2>
-      </div>
+
+      {/* cristian remplazar todo este bloque */}
+      <div className='title_products'>{/* cristian */}
+        <h2>Disfruta de la frescura de la tierra a precios irresistibles</h2>{/* cristian */}
+        <p>siente el sabor de lo autentico con nuestros descuentos en el mercado campesino</p>{/* cristian */}
+      </div>{/* cristian */}
+
       <div className='search_products'>
         <input
           className='busquedaProductos'
@@ -27,15 +31,63 @@ export default function Discounts() {
           onChange={handleSearch}
         />
       </div>
+
       <div className='discounts'>
         <div className='cont_discounts'>
           <DiscountedProducts searchTerm={searchTerm} />
         </div>
-      </div>  
+      </div>
+
+      <hr className='hr' /> {/* cristian */}
+
       <Footer />
     </>
   );
 }
+
+
+
+
+
+
+// import React, { useState } from 'react';
+// import DiscountedProducts from '../ProductCard/DiscountedProducts';
+// import { Footer } from '../Footer/Footer';
+// import Header from '../Header/Header';
+// import './Discounts.css';
+
+// export default function Discounts() {
+//   const [searchTerm, setSearchTerm] = useState('');
+
+//   const handleSearch = (event) => {
+//     setSearchTerm(event.target.value.toLowerCase());
+//   };
+
+//   return (
+//     <>
+//       <Header />
+//       <div className='title_discounts'>
+//         <h2>Descuentos</h2>
+//       </div>
+//       <div className='search_products'>
+//         <input
+//           className='busquedaProductos'
+//           type='search'
+//           name='busquedaProductos'
+//           placeholder='Buscar productos en descuento...'
+//           value={searchTerm}
+//           onChange={handleSearch}
+//         />
+//       </div>
+//       <div className='discounts'>
+//         <div className='cont_discounts'>
+//           <DiscountedProducts searchTerm={searchTerm} />
+//         </div>
+//       </div>  
+//       <Footer />
+//     </>
+//   );
+// }
 
 
 

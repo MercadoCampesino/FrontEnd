@@ -1,4 +1,71 @@
+/* cristian remplazar */
 .image_product {
+    border-radius: 15px;
+    aspect-ratio: 19/15;
+    display: block;
+    object-fit: cover;
+    width: 80%;
+    height: 55%;
+    margin-top: 10px;
+}
+
+.a_card {
+    text-decoration: none;
+    color: rgb(65, 65, 65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.card_product {
+    border: 2px solid #6B4522;
+    background-color: #ffffff;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 200px;
+    height: 260px;
+    text-decoration: none;
+}
+
+.card_product p {
+    margin: 0;
+}
+
+.buy {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #6B4522;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.name_product {
+    font-size: 18px;
+    border-bottom: 2px solid #6B4522;
+    width: 150px;
+    text-align: center;
+}
+
+/* cristian nuevo añadir */
+.button-addToCartIcon {
+    background-color: #A1BB23;
+    border: 1px solid #A1BB23;
+    border-radius: 5px;
+    padding: 3px 15px;
+}
+
+/* cristian nuevo añadir */
+.button-addToCartIcon:hover {
+    background-color: #bdd147;
+}
+
+
+/* .image_product {
     border-radius: 4px;
     width: 100%;
     aspect-ratio: 16/11;
@@ -47,4 +114,4 @@
     border-bottom: 2px solid #6B4522;
     width: 150px;
     text-align: center;
-}
+} */

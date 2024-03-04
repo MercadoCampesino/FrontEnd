@@ -11,7 +11,8 @@ export function ProductList({ idProducto, nombre, existencia, precio, imagen }) 
                 <p className='name_product'>{nombre}</p>
                 <p className='price_discount'><strong>Ahora: </strong><em>$</em> {precio}</p>
                 <div>
-                    <button>
+                {/* cristian relativamente nuevo */}
+                <button className='button-addToCartIcon'>
                         <AddToCartIcon />
                     </button>
                 </div>

@@ -41,13 +41,15 @@ const Products = () => {
       </div>
 
       <div className='content_products'>
+
+      {/* cristian  cuando llegue aque, ME LLAMA*/}
+        <div className='title_products'>
+          <h2>La esencia de la naturaleza en cada producto</h2>
+          <p>Conoce las joyas del mercado agrícola</p>
+        </div>
+
         <div className='featured_products'>
           <div className='search_products'>
-            <div className='title_products'>
-              <h2>La esencia de la naturaleza en cada producto</h2>
-              <p>Conoce las joyas del mercado agrícola</p>
-            </div>
-
             <div className='search_'>
               <input
                 className='busquedaProductos'
@@ -80,10 +82,11 @@ const Products = () => {
         )}
       </div>
 
+      <hr className='hr' /> {/* cristian  */}
+
       <Footer />
     </>
   );
 };
 
 export default Products;
-

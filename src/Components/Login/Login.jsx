@@ -45,7 +45,10 @@ export default function Login() {
             <div className='div_img_login' />
 
             <div className='title_logo_merCampesino'>
-                <a className='regresar_login' href="/">Regresar</a>
+                <div className='cont-regresar_login'>
+                    <a className='regresar_login' href="/">Regresar</a>
+                </div>
+                
                 <div className='title_logo_merCampesino'>
 
                     <div className='title_merCampesino_login'>

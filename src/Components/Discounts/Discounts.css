@@ -11,14 +11,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 30px;/* cristian */
 }
 
+/* cristian */
 .discounts {
     display: flex;
     align-items: center;
-    justify-content: center;
-    
+    justify-content: center;  
 }
 
 /* .cont_discounts {

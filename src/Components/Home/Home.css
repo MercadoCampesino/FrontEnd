@@ -1,8 +1,7 @@
 .slide {
-    /* width: 100%; */
     max-width: 100%;
     height: auto;
-    /* margin: 50px auto 0; */
+    padding: 0;
     margin: 0;
     overflow: hidden;
 }
@@ -10,6 +9,7 @@
 .slide ul {
     display: flex;
     padding: 0;
+    margin: 0; /* cristian */
     width: 400%;
     animation: slide 10s infinite alternate ease-in-out;
 }
@@ -22,7 +22,6 @@
 
 .slide img {
     width: 100%;
-    /* margin-top: 150px; */
     margin: 0;
     height: 400px;
 }
@@ -155,7 +154,9 @@
     grid-gap: 20px;
     width: 70%;
     margin-top: 10px;
+    place-items: center;/* cristian */
 }
+
 
 .see_more_products {
     margin-top: 15px;
