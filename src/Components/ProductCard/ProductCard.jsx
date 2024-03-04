@@ -26,7 +26,7 @@ function ProductCard() {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const url = "http://MercadoCampesinoBack.somee.com";
+                const url = "https://mercadocampesino.azurewebsites.net";
                 const response = await fetch(`${url}/Producto/ListaProducto`);
                 const data = await response.json();
                 if (data && data.mensaje === 'ok') {
