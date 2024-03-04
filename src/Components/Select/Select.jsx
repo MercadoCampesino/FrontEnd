@@ -1,4 +1,4 @@
-import "./Select.css";
+import "./select.css";
 export const Select = ({ label, name, options }) => {
     return (
         <label className="select-wrapper">
