@@ -48,11 +48,11 @@ export default function ProfileMarket() {
                 </div>
 
                 <div className='description-market'>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est provident dolorem harum nam quae placeat amet nobis tempora neque repudiandae. Id quibusdam iste iure accusamus nostrum, alias recusandae sapiente sit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, quae! Dicta amet saepe quas cupiditate repellendus rerum libero, nisi dignissimos ipsa corrupti illo odit consequuntur, reiciendis fuga esse quibusdam eveniet.</p>
+                <p>Aqui exhibimos y vendemos una amplia variedad de productos frescos y cultivados localmente, como frutas y verduras de temporada, hierbas aromáticas, hortalizas, huevos, miel, lácteos y carnes de granja. Estos alimentos son cuidadosamente cultivados y cosechados con métodos sostenibles</p>
                 </div>
 
                 <div>
-                    <button onClick={() => setShowForm(true)}>Crear nuevo producto</button>
+                    <button  className="addProduct-button" onClick={() => setShowForm(true)}>Crear nuevo producto</button>
                     {showForm && (
                         <div className="floating-form-container">
                             <div className="floating-form">
