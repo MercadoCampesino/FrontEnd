@@ -14,11 +14,11 @@ export default function Home() {
         <>
             <Header />
 
-            <div className='Profile_home'>
+            {/* <div className='Profile_home'>
                 <a href="/profile">
                     <img className='image_perfil' src="/images/profile.png" alt="Profile" />
                 </a>
-            </div>
+            </div> */}
 
             <div className='home'>
                 <div className='slide'>

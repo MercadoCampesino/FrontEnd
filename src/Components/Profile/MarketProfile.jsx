@@ -41,18 +41,23 @@ export default function ProfileMarket() {
                 </div>
 
                 <div>
+                    {/* cristian remplace este div */}
                     <div className='MarketProfile'>
-                        <h2>nombre</h2>
-                        <p>Direccion</p>
+                        <h2>Nombre de la tienda</h2>
+                        <p>Direccion de la tienda</p>
                     </div>
                 </div>
 
                 <div className='description-market'>
-                <p>Aqui exhibimos y vendemos una amplia variedad de productos frescos y cultivados localmente, como frutas y verduras de temporada, hierbas aromáticas, hortalizas, huevos, miel, lácteos y carnes de granja. Estos alimentos son cuidadosamente cultivados y cosechados con métodos sostenibles</p>
+                    {/* cristian cambie el texto de p */}
+                    <p>Aqui exhibimos y vendemos una amplia variedad de productos frescos y cultivados localmente, como frutas y verduras de temporada, hierbas aromáticas, hortalizas, huevos, miel, lácteos y carnes de granja. Estos alimentos son cuidadosamente cultivados y cosechados con métodos sostenibles</p>
+
                 </div>
 
-                <div>
-                    <button  className="addProduct-button" onClick={() => setShowForm(true)}>Crear nuevo producto</button>
+                <div className="add_product">
+                    {/* cristian añada la el clasName de button */}
+                    <button className="addProduct-button" onClick={() => setShowForm(true)}>Crear nuevo producto</button>
+
                     {showForm && (
                         <div className="floating-form-container">
                             <div className="floating-form">
