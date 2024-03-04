@@ -1,13 +1,20 @@
-import React from 'react'
 import Header from '../Header/Header'
 import ProductCard from '../ProductCard/ProductCard'
 import DiscountedProducts from '../ProductCard/DiscountedProducts'
 import { Footer } from '../Footer/Footer'
 import './Home.css'
 import Market from '../Market/Market'
+import React, { useState } from 'react';
 
 
 export default function Home() {
+
+    const [chatbotOpen, setChatbotOpen] = useState(false);
+
+    const toggleChatbot = () => {
+        setChatbotOpen(!chatbotOpen);
+    };
+    const url_imgChatBot = 'https://i.pinimg.com/564x/f8/33/15/f83315a9855a4c0d41269f3980b2404b.jpg'
 
 
     return (
@@ -22,7 +29,6 @@ export default function Home() {
 
             <div className='home'>
                 <div className='slide'>
-
                     <ul>
                         <li><img src="/images/folder_1.jpeg" alt="" /></li>
                         <li><img src="/images/folder_2.jpeg" alt="" /></li>
@@ -58,6 +64,31 @@ export default function Home() {
                     <div className='products_'>
                         <ProductCard />
                     </div>
+
+                    <div className='chat-bot-home'>
+                    {/* <ChatBotComponent/> */}
+
+                    <div className="floating-chatbot" style={{ position: 'fixed', bottom: '20px', right: '20px' }}>
+                        {chatbotOpen && (
+                            <iframe
+                                src="https://webchat.botframework.com/embed/MercadoCampesino-bot?s=DwciEbhxT3M.GNMHWj2gP81wCkcMaCzw7EwPYXxJ6MacoCrJlw7GmOA"
+                                style={{ minWidth: '400px', width: '100%', minHeight: '500px' }}
+                                title="ChatBot"
+                            ></iframe>
+                        )}
+                        <img
+                        className='img_chatBot'
+                            src="/images/chatbot.png"
+                            alt="Icono de chatbot"
+                            style={{ width: '50px', height: '50px', cursor: 'pointer' }}
+                            onClick={toggleChatbot}
+                        />
+                    </div>
+                    {/* <a href="/chatBot">
+                        <img src={url_imgChatBot} alt="" />
+                    </a> */}
+                    {/* <img src={url_imgChatBot} alt="" /> */}
+                </div>
 
                     <button className='see_more_products' >
                         <a className='see_more_a' href="/products">Ver más...</a>
