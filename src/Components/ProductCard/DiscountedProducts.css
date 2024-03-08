@@ -42,15 +42,19 @@ em {
 
 /* .name_price_product {
     height: 120px;
+    padding: 30px;
     display: flex;
-    padding: 0;
     flex-direction: column;
     justify-content: space-around;
     background-color: aqua;
     margin-bottom: 10px;
 } */
 
-.price_products_ {
-    text-decoration: line-through;
-    /* color: rgb(211, 21, 21); */
+.price_discount{
+    display: flex
 }
+
+.price_discount span{
+    text-decoration: line-through;
+}
+

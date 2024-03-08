@@ -4,8 +4,8 @@
     aspect-ratio: 19/15;
     display: block;
     object-fit: cover;
-    width: 80%;
-    height: 55%;
+    /* width: 100px; */
+    height: 70px;
     margin-top: 10px;
 }
 

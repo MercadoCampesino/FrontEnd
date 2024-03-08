@@ -9,7 +9,7 @@ export function ProductList({ idProducto, nombre, existencia, precio, imagen }) 
             <div className='card_product' key={idProducto}>
                 <img className='image_product' src={imagen} alt={nombre} />
                 <p className='name_product'>{nombre}</p>
-                <p className='price_discount'><strong>Ahora: </strong><em>$</em> {precio}</p>
+                <p className='price_discount'><strong>Precio: </strong><em>$</em> {precio}</p>
                 <div>
                 {/* cristian relativamente nuevo */}
                 <button className='button-addToCartIcon'>

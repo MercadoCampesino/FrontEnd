@@ -1,9 +1,37 @@
+.cont1{
+    display: flex;
+    line-height: 8px;
+    align-items: center;
+    
+}
+
+.cont1 .tittles{
+    text-align: right;
+    margin-left: 0;
+}
+
+.cont1 .tittles h2{
+    color: #A1BB23;
+    text-shadow: 1px -2px 10px #A1BB23;
+    font-size: 60px;
+}
+
+.cont1 .tittles h3{
+    color:#6B4522;
+    font-size: 35px;
+    text-shadow: 1px -2px 10px #6B4522;
+
+}
+
+
 .slide {
-    max-width: 100%;
+    max-width: 65%;
     height: auto;
     padding: 0;
     margin: 0;
     overflow: hidden;
+    border-radius: 0px 0px 400px 0px;
+    box-shadow: 5px -2px 10px #6B4522;
 }
 
 .slide ul {
@@ -41,8 +69,6 @@
     75% {margin-left: -300%;}
     100% {margin-left: -300%;}
 }
-
-
 
 .Profile_home {
     left: 95%;
@@ -93,7 +119,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 10px;
+    margin-top: 50px;
 }
 
 .center_productsDiscount h2,
@@ -114,7 +140,7 @@
 .featured_product p,
 .title_recommended_markets p {
     padding: 0;
-    margin: 0;
+    margin: 5px 0 15px 0;
     font-weight: 500;
     font-size: 16px;
 }
@@ -190,3 +216,36 @@
     width: 30%;
     margin-bottom: 50px;
 }
+
+
+.hojasIzquierda{
+    position: absolute;
+    z-index: -20;
+    left: -90px;
+    transform: rotate(-8deg);
+}
+
+.hojasDerecha{
+    position: absolute;
+    z-index: -20;
+    right: 0px;
+    /* transform: rotate(370deg); */
+    margin-top: 10px;
+}
+
+
+.hojasIzquierdabig{
+    position: absolute;
+    z-index: -20;
+    left: -150px;
+    transform: rotate(-8deg);
+}
+
+.hojasDerechabig{
+    position: absolute;
+    z-index: -20;
+    right: 0px;
+    /* transform: rotate(370deg); */
+    margin-top: 17px;
+}
+
