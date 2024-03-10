@@ -30,7 +30,7 @@ const Products = () => {
   return (
     <>
       <Header />
-      <div className='slide'>
+      {/* <div className='slide'>
 
         <ul>
           <li><img src="/images/folder_1.jpeg" alt="" /></li>
@@ -39,7 +39,7 @@ const Products = () => {
           <li><img src="/images/folder_4.jpeg" alt="" /></li>
         </ul>
 
-      </div>
+      </div> */}
 
       <div className='content_products'>
 

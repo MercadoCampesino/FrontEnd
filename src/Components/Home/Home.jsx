@@ -86,9 +86,9 @@ export default function Home() {
                             )}
                             <img
                                 className='img_chatBot'
-                                src="/images/chatbot.png"
+                                src="/images/bot.png"
                                 alt="Icono de chatbot"
-                                style={{ width: '50px', height: '50px', cursor: 'pointer' }}
+                                style={{ width: '65px', height: '65px', cursor: 'pointer' }}
                                 onClick={toggleChatbot}
                             />
                         </div>

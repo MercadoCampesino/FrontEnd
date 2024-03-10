@@ -9,7 +9,7 @@ export default function Market() {
 
   const handleClick = (market) => {
     setSelectedMarket(market);
-    navigate(`/market/${market.id}`); // Usa navigate para navegar a la página del mercado
+    navigate(`/market`); // Usa navigate para navegar a la página del mercado
   };
 
   return (

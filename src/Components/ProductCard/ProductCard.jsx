@@ -39,7 +39,7 @@ const ProductCard = ({ addToCart }) => {
                             <p className='name_product'>{product.nombre}</p>
                             <p className='price_discount'><strong>Precio: </strong><em> $</em> {product.precio} 1Kg</p>
 
-                            <div className='agregarboton'>
+                            <div className='agregarbotona'>
                                 <button className='button-addToCartIcon' onClick={() => props.addToCart(product)}><AddToCartIcon />
                                 <p>Agregar</p>
                                 </button>

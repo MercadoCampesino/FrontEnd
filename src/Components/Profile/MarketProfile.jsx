@@ -91,7 +91,7 @@ export default function ProfileMarket() {
                     <img className='hojasDerecha' src="/images/hojasderDesc.png" alt="" width={140} height={240} />
                 </div>
 
-                    <div className="products-container">
+                <div className="products-container">
                     <div className="add_product">
                         {/* cristian añada la el clasName de button */}
                         <button className="addProduct-button" onClick={() => { dialogRef.current.showModal() }}>+</button>
@@ -101,27 +101,34 @@ export default function ProfileMarket() {
                         </dialog>
 
                     </div>
-                        <ProductCard />
-                    </div>
+                    <ProductCard />
+                </div>
 
                 <div className='hojas'>
                     <img className='hojasIzquierda' src="/images/hojasizqDesc.png" alt="" width={200} height={255} />
                     <img className='hojasDerecha' src="/images/hojasderDesc.png" alt="" width={140} height={240} />
                 </div>
+
+                <h2 className="tittlecalificaciones">Calificaciones de tu mercado</h2>
+
                 <div className="reviews-container">
-                    <h2>Calificacions y opiniones</h2>
-                    <p className='comments'>Comentarios: <span>24</span></p>
+                    <div className="calificacion">
+                        <h2>4.5</h2>
+                        <img src="/images/calificaciones.png" alt="" width={200}/>
 
-                    {reviews.map((review) => (
-                        <Reviewcard key={review.author} review={review} />
-                    ))}
-
-
-
-                    <div className='Send-comment'>
-                        <input type="text" placeholder='Escribe una reseña' />
-                        {/* <button>Ver mas...</button> */}
                     </div>
+                    <div>
+                        <p className='comments'>Comentarios: <span>24</span></p>
+
+                        {reviews.map((review) => (
+                            <Reviewcard key={review.author} review={review} />
+                        ))}
+                    </div>
+
+                    {/* <div className='Send-comment'>
+                        <input type="text" placeholder='Escribe una reseña' />
+                        <button>Ver mas...</button>
+                    </div> */}
                 </div>
 
                 <hr className='hr' />

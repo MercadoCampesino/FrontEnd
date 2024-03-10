@@ -14,6 +14,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { login } from './store/slices/user'
 import { readToken } from './utils/readToken'
+import { MarketProfileClient } from './Components/MarketProfileClient/MarketProfileClient'
 function App() {
   const dispatch = useDispatch()
   const isSeller = useSelector((state) => state.user?.user?.idTienda !== undefined)
@@ -37,7 +38,8 @@ function App() {
         <Route path='/register' element={<SignUp />} />
         <Route path='/profile' element={isSeller ? <Profile /> : <ClientProfile />} />
         {/* <Route path="/market/:id" element={MarketProfile} /> */}
-        <Route path="/market/:id" element={<Market />} /> {/* Ruta para mostrar detalles del mercado */}
+        {/* <Route path="/market/:id" element={<Market />} /> Ruta para mostrar detalles del mercado */}
+        <Route path="/market" element={<MarketProfileClient/>} />
       </Routes>
     </>
   )

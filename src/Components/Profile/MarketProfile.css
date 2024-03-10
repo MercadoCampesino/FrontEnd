@@ -62,10 +62,17 @@
 }
 
 .reviews-container {
-    width: 58%;
+    width: 70%;
     margin-bottom: 50px;
-    margin-top: 50px;
+    display: flex;
+    justify-content: space-evenly;
 }
+
+.calificacion h2{
+    color: #A1BB23;
+    font-size: 70px;
+}
+
 
 
 .Send-comment input {
@@ -98,7 +105,6 @@
     z-index: 999;
     /* cristian */
 }
-
 
 .floating-form {
     position: relative;
@@ -143,15 +149,11 @@
     background-color: #bdd147;
 }
 
-
 dialog {
     border: 1px solid black;
     padding: 0;
     margin: auto;
     border-radius: 10px;
-    ;
-
-
 }
 
 .perfil-containermarket .perfil-imgmarket{
@@ -160,7 +162,6 @@ dialog {
     border-radius: 50%;
     margin-top: 20px;
     border: 3px solid #6B4522;
-
 }
 
 .perfil-containermarket input{
@@ -184,4 +185,10 @@ dialog {
     z-index: -10;
     left: 280px;
     margin-top: 45px;
+}
+
+.tittlecalificaciones{
+    font-size: 35px;
+    color: #6B4522;
+    margin-top: 50px;
 }

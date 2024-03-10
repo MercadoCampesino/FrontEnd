@@ -58,3 +58,32 @@ em {
     text-decoration: line-through;
 }
 
+.card_product button{
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+}
+
+.card_product p{
+    margin-left: 5px;
+}
+
+.agregarboton button{
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    background-color: #6B4522;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    padding: 3px 15px;
+    border: 1px solid #6B4522
+}
+
+.agregarboton p{
+    margin-left: 5px;
+}
