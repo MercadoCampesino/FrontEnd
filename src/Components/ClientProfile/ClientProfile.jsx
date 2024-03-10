@@ -72,7 +72,7 @@ export default function ClientProfile() {
                 </section>
                 <div className="profile-info">
                     <span className='nameLastName'>{user ? user.nombre : "Ejemplo Nombre"} {user ? user.apellido : "Ejemplo apellido"}</span>
-                    <span>{user ? user.direccion : "Ejemplo ciudad"}</span>
+                    {/* <span>{user ? user.direccion : "Ejemplo ciudad"}</span> */}
                     <span> {user ? user.edad : 20}</span>
                 </div>
             </section>

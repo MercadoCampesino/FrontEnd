@@ -44,10 +44,15 @@ const Products = () => {
       <div className='content_products'>
 
       {/* cristian  cuando llegue aque, ME LLAMA*/}
-        <div className='title_products'>
+        <div className='title_productsc'>
           <h2>La esencia de la naturaleza en cada producto</h2>
           <p>Conoce las joyas del mercado agrícola</p>
         </div>
+
+        <div className='hojas'>
+                        <img className='hojasIzquierdabig' src="/images/hojasizqDesc.png" alt="" width={250} height={350} />
+                        <img className='hojasDerechabig' src="/images/hojasderDescbig.png" alt="" width={130} height={315} />
+                    </div>
 
         <div className='featured_products'>
           <div className='search_products'>

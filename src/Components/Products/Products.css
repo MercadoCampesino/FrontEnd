@@ -15,20 +15,20 @@
     place-items: center;/* cristian */
 }
 
-.title_products {
+.title_productsc {
     text-align: center;
 }
 
-.title_products h2 {
+.title_productsc h2 {
     color: #6B4522;
     margin-bottom: 0;
     font-size: 25px;
 }
 
-.title_products p {
+.title_productsc p {
     font-weight: 400;
-    color: rgb(71, 70, 70);
-    font-size: 20px;
+    color:black;
+    font-size: 17px;
     margin-top: 0;
 }
 
