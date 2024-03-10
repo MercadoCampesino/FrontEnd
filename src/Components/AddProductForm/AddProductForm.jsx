@@ -4,6 +4,7 @@ import { SERVER_URL } from "../../Constants";
 import { Input } from "../Input/Input"
 import { useSelector } from "react-redux";
 
+
 function AddProductForm({ callback }) {
     const [categories, setCategories] = useState([]);
 
@@ -25,6 +26,18 @@ function AddProductForm({ callback }) {
         fetchData();
     }, []);
 
+    const [file, setFile] =  useState(null)
+const handleSudmit = async (e)=>{
+  e.preventDefault();
+  try {
+    const result = await uploadFile(file);
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+    alert('fallo al subir, intente mas tarde')
+  }
+  
+}
 
 
 
@@ -37,7 +50,7 @@ function AddProductForm({ callback }) {
             const precio = Number(formData.get('precio'));
             const existencia = Number(formData.get('cantidad'));
             const IDCategoria = Number(formData.get('IDCategoria'));
-            const imagen = "no Image";
+            const imagen = formData.get('imagen');
             const FK_IDTienda = Number(user.idTienda);
 
 
@@ -82,12 +95,8 @@ function AddProductForm({ callback }) {
         <form className="cont-form-add-product" onSubmit={handleSubmit}>
             <label>
                 Subir imagen:
-                <input
-                    type="file"
-                    onChange={(e) => setImagen(e.target.files[0])}
-                />
+                <input type="file" name="" id="" onChange={e =>setFile(e.target.files[0])} />
             </label>
-
 
             <Input type="text" name="nombre" label="Nombre del producto" />
 

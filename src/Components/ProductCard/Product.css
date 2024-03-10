@@ -58,6 +58,7 @@
     border-radius: 5px;
     padding: 3px 15px;
     color: white;
+
 }
 
 /* cristian nuevo añadir */
@@ -69,6 +70,13 @@
 .card_product button{
     align-items: center;
     text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+}
+
+.card_product p{
+    margin-left: 5px;
 }
 
 

@@ -60,6 +60,10 @@ export default function ClientProfile() {
                     <img className="portada-img" src={fotoPortada ?? "/images/profileback.png"} alt="Foto de portada" />
                     <input type="file" className="portada-input" onChange={handlePortadaChange} />
                 </div>
+                <div className='hojas'>
+                    <img className='hojasIzquierda' src="/images/hojasizqDesc.png" alt="" width={200} height={255} />
+                    <img className='hojasDerecha' src="/images/hojasderDesc.png" alt="" width={140} height={240} />
+                </div>
                 <section className="profile-absolute">
                     <div className="perfil-container">
                         <img className="perfil-img" src={fotoPerfil ?? "/images/Campesinoprofile.jpg"} alt="Foto de perfil" />

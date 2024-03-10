@@ -31,10 +31,11 @@
 }
 
 .description-market {
-    width: 80%;
+    width: 60%;
     background-color: #EEE9B4;
     padding: 10px 30px;
     border-radius: 15px;
+    margin-top: 10px;
 }
 
 .products-container {
@@ -44,7 +45,7 @@
     grid-gap: 20px;
     width: 70%;
     /* cristian */
-    margin-top: 10px;
+    margin-top: 60px;
     /* cristian */
     place-items: center;
     /* cristian */
@@ -63,7 +64,9 @@
 .reviews-container {
     width: 58%;
     margin-bottom: 50px;
+    margin-top: 50px;
 }
+
 
 .Send-comment input {
     padding: 9px;
@@ -124,11 +127,14 @@
 
 .addProduct-button {
     background-color: #A1BB23;
-    border-radius: 15px;
+    border-radius: 50%;
     color: #fff;
     border: none;
     padding: 12px 25px;
     margin-top: 30px;
+    width: 100px;
+    height: 100px;
+    font-size: 50px;
 }
 
 /* cristian */
@@ -146,4 +152,36 @@ dialog {
     ;
 
 
+}
+
+.perfil-containermarket .perfil-imgmarket{
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin-top: 20px;
+    border: 3px solid #6B4522;
+
+}
+
+.perfil-containermarket input{
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin-top: 60px;
+    margin-left: 24%;
+}
+
+.contprofile{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.hojasDerechaprofile{
+    position: absolute;
+    z-index: -10;
+    left: 280px;
+    margin-top: 45px;
 }

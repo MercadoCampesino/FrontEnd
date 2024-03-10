@@ -38,9 +38,10 @@ const ProductCard = ({ addToCart }) => {
                             <img className='image_product' src={product.imagen} alt={product.nombre} />
                             <p className='name_product'>{product.nombre}</p>
                             <p className='price_discount'><strong>Precio: </strong><em> $</em> {product.precio} 1Kg</p>
-                            <div>
-                                <button className='button-addToCartIcon' onClick={() => props.addToCart(product)}>Agregar
-                                    <AddToCartIcon />
+
+                            <div className='agregarboton'>
+                                <button className='button-addToCartIcon' onClick={() => props.addToCart(product)}><AddToCartIcon />
+                                <p>Agregar</p>
                                 </button>
                             </div>
                         </div>
