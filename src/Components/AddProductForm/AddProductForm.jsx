@@ -87,7 +87,7 @@ function AddProductForm({ onSubmit }) {
                     <p>No se encontraron datos</p>
                 )}
             </div>
-            );
+            
             <form onSubmit={handleSubmit}>
                 <label>
                     Subir imagen:
