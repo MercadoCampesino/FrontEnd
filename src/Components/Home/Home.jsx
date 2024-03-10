@@ -6,8 +6,6 @@ import './Home.css'
 import Market from '../Market/Market'
 import React, { useState } from 'react';
 
-
-
 export default function Home() {
 
     const [chatbotOpen, setChatbotOpen] = useState(false);
@@ -82,7 +80,7 @@ export default function Home() {
                             {chatbotOpen && (
                                 <iframe
                                     src="https://webchat.botframework.com/embed/MercadoCampesino-bot?s=DwciEbhxT3M.GNMHWj2gP81wCkcMaCzw7EwPYXxJ6MacoCrJlw7GmOA"
-                                    style={{ minWidth: '400px', width: '100%', minHeight: '500px' }}
+                                    style={{ minWidth: '400px', width: '30%', minHeight: '500px' }}
                                     title="ChatBot"
                                 ></iframe>
                             )}
@@ -123,6 +121,8 @@ export default function Home() {
                 </div>
             </div>
             <Footer />
+
+            
         </>
     )
 }

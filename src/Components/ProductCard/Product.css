@@ -26,8 +26,8 @@
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
-    width: 200px;
-    height: 260px;
+    width: 185px;
+    height: 232px;
     text-decoration: none;
 }
 
@@ -53,15 +53,22 @@
 
 /* cristian nuevo añadir */
 .button-addToCartIcon {
-    background-color: #A1BB23;
-    border: 1px solid #A1BB23;
+    background-color: #6B4522;
+    border: 1px solid #6B4522;
     border-radius: 5px;
     padding: 3px 15px;
+    color: white;
 }
 
 /* cristian nuevo añadir */
 .button-addToCartIcon:hover {
-    background-color: #bdd147;
+    background-color: #6B4522;
+}
+
+
+.card_product button{
+    align-items: center;
+    text-align: center;
 }
 
 

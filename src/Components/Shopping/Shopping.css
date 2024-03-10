@@ -1,0 +1,16 @@
+.carrito{
+    background-image: url(/images/HojasShopping.png) ;
+    background-size: cover;
+    background-position: top center;
+    position: absolute;
+    top: 55px;
+    right: 170px;
+    border-radius: 30px;
+    padding: 20px;
+    background-color: antiquewhite;
+}
+
+.carrito img{
+    opacity: 0.5;
+    position: absolute;
+}

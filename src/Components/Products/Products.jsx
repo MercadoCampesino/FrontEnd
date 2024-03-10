@@ -26,6 +26,7 @@ const Products = () => {
     }
   };
 
+
   return (
     <>
       <Header />
@@ -68,8 +69,9 @@ const Products = () => {
                 <img className='image' src={product.imagen} alt='' />
                 <p className='name_product'>{product.nombre}</p>
                 <p className='price_product'>Precio: ${product.precio}</p>
-                <input className='buy' type='submit' value='Comprar' />
-              </div>
+                {/* <button>Agregar al carrito</button>               */}
+          
+          </div>
             ))}
           </div>
         </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import productsDiscount from '../../assets/Products/productsDiscount';
 import './DiscountedProducts.css'
 
-function DiscountedProducts({ showAll }) {
+function DiscountedProducts({ showAll, agregarAlCarrito }) {
 
   const productsToShow = showAll ? productsDiscount : productsDiscount.slice(0, 4);
 
@@ -18,7 +18,7 @@ function DiscountedProducts({ showAll }) {
               <p className='price_discount'><strong>Antes: </strong><span ><em>$</em> {product.price}  1Kg</span> </p>
           </div>
 
-          <input className='buys' type="submit" value="Comprar" />
+          <button onClick={() => agregarAlCarrito(product)}>Agregar al carrito</button>          
         </div>
       ))}
     </>

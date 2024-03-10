@@ -1,4 +1,3 @@
-
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import Home from './Components/Home/Home'
@@ -7,7 +6,6 @@ import Discounts from './Components/Discounts/Discounts'
 import Products from './Components/Products/Products'
 import Login from './Components/Login/Login'
 import { SignUp } from './Components/Register/SignUp'
-
 import Profile from './Components/Profile/MarketProfile'
 // import MarketProfile from './Components/Market/Market'
 import Market from './Components/Market/Market'
@@ -26,8 +24,6 @@ function App() {
       dispatch(login(user))
     }
   }, [])
-
-
 
   return (
     <>
