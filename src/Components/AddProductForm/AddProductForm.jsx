@@ -1,41 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import "./AddProductForm.css"
 import { SERVER_URL } from "../../Constants";
-function AddProductForm({ onSubmit }) {
-    const [imagen, setImagen] = useState(null);
-    const [nombre, setNombre] = useState("");
-    const [categoria, setCategoria] = useState("");
-    const [precio, setPrecio] = useState("");
-    const [existenia, setExistencia] = useState("");
+import { Input } from "../Input/Input"
+import { useSelector } from "react-redux";
+
+function AddProductForm({ callback }) {
     const [categories, setCategories] = useState([]);
 
-
-    //   useEffect(() => {
-    //     // Aquí puedes hacer una solicitud al backend para obtener la lista de categorías disponibles
-    //     // Ejemplo de cómo obtener las categorías desde una API:
-    //     fetch("http://MercadoCampesinoBack.somee.com/Categoria/ListaCategoria")
-    //       .then(response => response.json())
-    //       .then(data => setCategories(data))
-    //       .catch(error => console.error('Error al obtener las categorías:', error));
-    //   }, []);}
-
-
-
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch("http://MercadoCampesinoBack.somee.com/Categoria/ListaCategoria");
-                if (!response.ok) {
-                    throw new Error('Error al obtener los datos');
-                }
-                const data = await response.json();
-                setData(data);
-            } catch (error) {
-                console.error('Error al obtener los datos:', error);
+    const user = useSelector((state) => state.user.user);
+    const fetchData = useMemo(() => async function () {
+        try {
+            const response = await fetch(SERVER_URL + "Categoria/ListaCategoria");
+            if (!response.ok) {
+                throw new Error('Error al obtener los datos');
             }
-        };
+            const data = await response.json();
+            setCategories(data.response);
+        } catch (error) {
+            console.error('Error al obtener los datos:', error);
+        }
+    }, []);
+    useEffect(() => {
 
         fetchData();
     }, []);
@@ -46,113 +31,97 @@ function AddProductForm({ onSubmit }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const formData = {
-                nombre: nombre,
-                categoria: categoria,
-                precio: precio,
-                existencia: parseInt(existencia),
+            const formData = new FormData(e.currentTarget);
+
+            const nombre = formData.get('nombre');
+            const precio = Number(formData.get('precio'));
+            const existencia = Number(formData.get('cantidad'));
+            const IDCategoria = Number(formData.get('IDCategoria'));
+            const imagen = "no Image";
+            const FK_IDTienda = Number(user.idTienda);
+
+
+            const producto = {
+                nombre,
+                existencia,
+                precio,
+                imagen,
+                FK_IDTienda,
+                FK_IDCategoria: IDCategoria,
+                IdProducto: Math.floor(Math.random() * 100000) + 1
             };
+            console.log("Producto a crear:", producto);
 
             const requestOptions = {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(formData)
+                body: JSON.stringify(producto)
             };
 
             const response = await fetch(SERVER_URL + "Producto/GuardarProducto", requestOptions);
             if (!response.ok) {
-                throw new Error('Error al crear el producto');
+                console.error(await response.json());
+                throw new Error("Error al crear el producto");
             }
             const data = await response.json();
+            alert("Producto creado exitosamente");
             console.log("Producto creado exitosamente:", data);
-            onSubmit();
         } catch (error) {
-            console.error("Error al crear el producto:", error);
+            alert(error.message);
+        } finally {
+            callback();
         }
     };
 
     return (
 
-        <div className="cont-form-add-product">
-            <div>
-                {Array.isArray(data) && data.length > 0 ? (
-                    <ul>
-                        {data.map((item, index) => (
-                            <li key={index}>{item}</li>
-                        ))}
-                    </ul>
-                ) : (
-                    <p>No se encontraron datos</p>
-                )}
-            </div>
-            
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Subir imagen:
-                    <input
-                        type="file"
-                        onChange={(e) => setImagen(e.target.files[0])}
-                    />
-                </label>
 
 
-                <label>
-                    Nombre del producto:
-                    <input
-                        type="text"
-                        onChange={(e) => setNombre(e.target.value)}
-                        value={nombre}
-                    />
-                </label>
+        <form className="cont-form-add-product" onSubmit={handleSubmit}>
+            <label>
+                Subir imagen:
+                <input
+                    type="file"
+                    onChange={(e) => setImagen(e.target.files[0])}
+                />
+            </label>
 
-                <label>
-                    Categoría:
-                    <select
-                        value={categoria}
-                        onChange={(e) => setCategoria(e.target.value)}
-                    >
-                        <option value="">Seleccionar categoría</option>
-                        {categories.length > 0 ? (
+
+            <Input type="text" name="nombre" label="Nombre del producto" />
+
+            <label className="input-base">
+                Categoría:
+                <select
+                    name="IDCategoria"
+                >
+                    <option value="">Seleccionar categoría</option>
+                    {
+                        categories.length > 0 ? (
                             categories.map(cat => (
-                                <option key={cat.IDCategoria} value={cat.tipo}>
-                                    {cat.tipo} - {cat.descripcion}
+                                <option key={cat.idCategoria} value={cat.idCategoria}>
+                                    {cat.tipo}
                                 </option>
                             ))
                         ) : (
                             <option value="" disabled>
                                 Cargando categorías...
                             </option>
-                        )}
-                    </select>
-                </label>
+                        )
+                    }
+                </select>
+            </label>
 
 
 
-                <label>
-                    Precio:
-                    <input
-                        type="number"
-                        onChange={(e) => setPrecio(e.target.value)}
-                        value={precio}
-                    />
-                </label>
+            <Input type="number" name="precio" label="Precio" />
 
-                <label>
-                    Cantidad:
-                    <input
-                        type="number"
-                        onChange={(e) => setExistencia(e.target.value)}
-                        value={existenia}
-                    />
-                </label>
+            <Input type="text" name="cantidad" label="Cantidad" />
 
-                <div className="button-Create-Product">
-                    <button type="submit">Crear producto</button>
-                </div>
-            </form>
-        </div>
+
+            <button className="create-product-button" type="submit">Crear producto</button>
+        </form>
     );
 }
 
@@ -160,108 +129,3 @@ export default AddProductForm;
 
 
 
-
-
-
-
-
-// import React, { useState } from "react";
-// import "./AddProductForm.css";
-
-// function AddProductForm({ onSubmit }) {
-//   const [image, setImage] = useState(null);
-//   const [productName, setProductName] = useState("");
-//   const [category, setCategory] = useState("");
-//   const [price, setPrice] = useState("");
-//   const [quantity, setQuantity] = useState("");
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       const formData = {
-//         productName: productName,
-//         category: category,
-//         price: price,
-//         quantity: quantity,
-//       };
-
-//       const requestOptions = {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(formData)
-//       };
-
-//       const response = await fetch("http://MercadoCampesinoBack.somee.com/Producto/GuardarProducto", requestOptions);
-//       if (!response.ok) {
-//         throw new Error('Error al crear el producto');
-//       }
-//       const data = await response.json();
-//       console.log("Producto creado exitosamente:", data);
-//       onSubmit();
-//     } catch (error) {
-//       console.error("Error al crear el producto:", error);
-//     }
-//   };
-
-//   return (
-//     <div className="cont-form-add-product">
-//       <form onSubmit={handleSubmit}>
-//         <label>
-//           Subir imagen:
-//           <input
-//             type="file"
-//             onChange={(e) => setImage(e.target.files[0])}
-//           />
-//         </label>
-
-//         <label>
-//           Nombre del producto:
-//           <input
-//             type="text"
-//             onChange={(e) => setProductName(e.target.value)}
-//             value={productName}
-//           />
-//         </label>
-
-//         <label>
-//           Categoría:
-//           <select
-//             value={category}
-//             onChange={(e) => setCategory(e.target.value)}
-//           >
-//             <option value="">Seleccionar categoría</option>
-//             <option value="Frutas">Frutas</option>
-//             <option value="verduras">Verduras</option>
-//             <option value="Granos">Granos</option>
-//           </select>
-//         </label>
-
-//         <label>
-//           Precio:
-//           <input
-//             type="number"
-//             onChange={(e) => setPrice(e.target.value)}
-//             value={price}
-//           />
-//         </label>
-
-//         <label>
-//           Cantidad:
-//           <input
-//             type="number"
-//             onChange={(e) => setQuantity(e.target.value)}
-//             value={quantity}
-//           />
-//         </label>
-
-//         <div className="button-Create-Product">
-//           <button type="submit">Crear producto</button>
-//         </div>
-//       </form>
-//     </div>
-//   );
-// }
-
-// export default AddProductForm;

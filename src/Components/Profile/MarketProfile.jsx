@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Reviewcard from '../ReviewCard/Reviewcard';
 import ProductCard from '../ProductCard/ProductCard';
 // import markets from '../.././assets/Markets/markets';
@@ -9,7 +9,7 @@ import AddProductForm from '../AddProductForm/AddProductForm';
 
 export default function ProfileMarket() {
     const [showForm, setShowForm] = useState(false);
-
+    const dialogRef = useRef(null);
     const handleCreateProduct = (productData) => {
         // Aquí puedes enviar los datos del producto a tu backend o hacer lo que necesites
         console.log("Nuevo producto:", productData);
@@ -56,18 +56,12 @@ export default function ProfileMarket() {
 
                 <div className="add_product">
                     {/* cristian añada la el clasName de button */}
-                    <button className="addProduct-button" onClick={() => setShowForm(true)}>Crear nuevo producto</button>
+                    <button className="addProduct-button" onClick={() => {dialogRef.current.showModal()}}>Crear nuevo producto</button>
 
-                    {showForm && (
-                        <div className="floating-form-container">
-                            <div className="floating-form">
-                                <button className="close-button" onClick={() => setShowForm(false)}>
-                                    X
-                                </button>
-                                <AddProductForm onSubmit={handleCreateProduct} />
-                            </div>
-                        </div>
-                    )}
+                    <dialog ref={dialogRef}>
+                        <AddProductForm callback={() => {dialogRef.current.close()}} onSubmit={handleCreateProduct} />
+                    </dialog>
+
                 </div>
 
                 <div className="products-container">

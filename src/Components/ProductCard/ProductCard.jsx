@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { AddToCartIcon } from '../Icon';
 import './Product.css';
+import { SERVER_URL } from '../../Constants';
 
 const ProductCard = ({ addToCart }) => {
     const [products, setProducts] = useState([]);
@@ -10,8 +11,7 @@ const ProductCard = ({ addToCart }) => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const url = "https://mercadocampesino.azurewebsites.net/";
-                const response = await fetch(`${url}/Producto/ListaProducto`);
+                const response = await fetch(`${SERVER_URL}Producto/ListaProducto`);
                 const data = await response.json();
                 if (data && data.mensaje === 'ok') {
                     setProducts(data.response);
