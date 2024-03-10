@@ -4,14 +4,54 @@ import { useNavigate } from 'react-router-dom'
 import { Input } from '../Input/Input';
 import { Select } from '../Select/Select';
 import { onSellerRegisterSubmit, onClientRegisterSubmit } from "../../utils/submits"
-// import emailjs from 'emailjs-com';
+import emailjs from 'emailjs-com';
 
 export const SignUp = () => {
 
     const navigate = useNavigate();
-    // const refForm = useRef();
+    const refForm = useRef();
 
     const [isClient, setIsClient] = useState(true);
+
+        const handleSubmit = async (event) => {
+        event.preventDefault();
+        const serviceId = "service_x94tdtc";
+        const templateId = "template_eutc2wi";
+        const apikey = "wCWtMpED59hJ9hMZi";
+
+        try {
+            const result = await emailjs.sendForm(serviceId, templateId, refForm.current, apikey);
+            console.log(result.text);
+        } catch (error) {
+            console.error(error);
+        }
+
+        if (selectedRole === "cliente") {
+            handleSubmitCliente(event);
+        } else {
+            handleSubmitVendedor(event);
+        }
+    };
+
+    const sendConfirmationEmail = (email) => {
+        const serviceId = "service_x94tdtc";
+        const templateId = "template_eutc2wi";
+        const apikey = "wCWtMpED59hJ9hMZi";
+
+        const templateParams = {
+            to_email: email,
+            // Add any additional parameters needed for the email template
+        };
+
+        emailjs.send(serviceId, templateId, templateParams, apikey)
+            .then((response) => {
+                console.log('Email sent successfully:', response);
+            })
+            .catch((error) => {
+                console.error('Email sending failed:', error);
+            });
+    };
+
 
     
     return (
@@ -59,7 +99,11 @@ export const SignUp = () => {
                 <section className='register-form'>
 
                     {isClient ? (
-                        <form onSubmit={onClientRegisterSubmit}>
+                        // <form onSubmit={onClientRegisterSubmit}>
+                        <form ref={refForm} onSubmit={(e) => {
+                                                        onClientRegisterSubmit(e);
+                                                        handleSubmit(e);
+                                                    }} >
                             <section className='form-sections'>
                                 <section className='form-section'>
                                     <Input label="Nombre" type='text' name='name' placeholder='Ingresa tu nombre' required />
@@ -79,7 +123,7 @@ export const SignUp = () => {
                             </section>
 
                             <div className='buttonreg'>
-                                <p>¿Ya esta registrado? <a href="">Iniciar sesión</a></p>
+                                <p>¿Ya esta registrado? <a href="/login">Iniciar sesión</a></p>
                                 <input type="submit" value="Registrarse" className='submit' />
                             </div>
                         </form>
@@ -100,6 +144,7 @@ export const SignUp = () => {
                             </section>
                             <button type="submit" className='submit'> Registrarse</button>
                         </form>
+                        
                     )}
                 </section>
             </section>
