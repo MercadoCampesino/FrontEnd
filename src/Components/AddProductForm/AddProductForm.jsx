@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./AddProductForm.css";
-
+import "./AddProductForm.css"
+import { SERVER_URL } from "../../Constants";
 function AddProductForm({ onSubmit }) {
     const [imagen, setImagen] = useState(null);
     const [nombre, setNombre] = useState("");
@@ -61,7 +61,7 @@ function AddProductForm({ onSubmit }) {
                 body: JSON.stringify(formData)
             };
 
-            const response = await fetch("http://MercadoCampesinoBack.somee.com/Producto/GuardarProducto", requestOptions);
+            const response = await fetch(SERVER_URL + "Producto/GuardarProducto", requestOptions);
             if (!response.ok) {
                 throw new Error('Error al crear el producto');
             }
@@ -76,18 +76,18 @@ function AddProductForm({ onSubmit }) {
     return (
 
         <div className="cont-form-add-product">
- <div>
-            {Array.isArray(data) && data.length > 0 ? (
-                <ul>
-                    {data.map((item, index) => (
-                        <li key={index}>{item}</li>
-                    ))}
-                </ul>
-            ) : (
-                <p>No se encontraron datos</p>
-            )}
-        </div>
-    );
+            <div>
+                {Array.isArray(data) && data.length > 0 ? (
+                    <ul>
+                        {data.map((item, index) => (
+                            <li key={index}>{item}</li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p>No se encontraron datos</p>
+                )}
+            </div>
+            );
             <form onSubmit={handleSubmit}>
                 <label>
                     Subir imagen:
