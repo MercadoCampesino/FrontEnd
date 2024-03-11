@@ -38,7 +38,7 @@ export const onSellerRegisterSubmit = async (e) => {
             const responseData = await response.json();
             alert("Mercado registrado");
             console.log(responseData)
-            window.location.href = "/login";
+            // window.location.href = "/Login";
         } else {
             throw new Error('Network response was not ok.');
         }   
@@ -78,7 +78,7 @@ export const onClientRegisterSubmit = async (e) => {
             const responseData = await response.json();
             alert("Usuario registrado");
             console.log(responseData)
-            window.location.href = "/login";
+            // window.location.href = "/Login";
         } else {
             throw new Error('Network response was not ok.');
         }
