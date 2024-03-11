@@ -2,12 +2,18 @@ import React from 'react';
 import productsDiscount from '../../assets/Products/productsDiscount';
 import './DiscountedProducts.css'
 import { AddToCartIcon } from '../Icon';
+import { useCart } from '../Shopping/CartContext';
 
 
-function DiscountedProducts({ showAll, agregarAlCarrito }) {
+function DiscountedProducts({ showAll }) {
 
   const productsToShow = showAll ? productsDiscount : productsDiscount.slice(0, 4);
 
+
+  const { addToCart } = useCart();
+  const handleClick = (product) => {
+    addToCart(product);
+  }
   return (
     <>
       {productsToShow.map((product) => (
@@ -21,16 +27,25 @@ function DiscountedProducts({ showAll, agregarAlCarrito }) {
           </div>
 
           <div className='agregarboton'>
-          <button className='button-addToCartIcon' onClick={() => {
-              console.log('agregarAlCarrito:', agregarAlCarrito);
-
-              agregarAlCarrito(product);
+            <button className='button-addToCartIcon' onClick={() => {
+              const productInSpanish = {
+                ...product,
+                nombre: product.name,
+                precio: product.price,
+                descuento: product.priceDiscount,
+                imagen: product.image,
+                idProducto: product.id,
+                existencia: product.stock
+              
+              }
+              
+              handleClick(productInSpanish)
             }}>
               <AddToCartIcon />
               <p>Agregar</p>
             </button>
           </div>
-          
+
         </div>
       ))}
     </>

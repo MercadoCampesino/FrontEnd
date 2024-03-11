@@ -3,7 +3,7 @@ import './MarketProfileClient.css'
 import Reviewcard from '../ReviewCard/Reviewcard';
 import { Footer } from '../Footer/Footer';
 import Header from '../Header/Header'
-import ProductCard from '../ProductCard/ProductCard';
+import {ProductCard} from '../ProductCard/ProductCard';
 
 export const MarketProfileClient = () => {
     const reviews = [

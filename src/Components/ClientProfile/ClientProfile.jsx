@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../Header/Header';
 import './ClientProfile.css';
-import ProductCard from '../ProductCard/ProductCard';
+import {ProductCard} from '../ProductCard/ProductCard';
 import { store } from '../../store';
 import { login } from '../../store/slices/user';
 import { useNavigate } from 'react-router-dom';

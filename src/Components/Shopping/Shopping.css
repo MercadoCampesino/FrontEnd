@@ -1,5 +1,5 @@
-.carrito{
-    background-image: url(/images/HojasShopping.png) ;
+.carrito {
+    background-image: url(/images/HojasShopping.png);
     background-size: cover;
     background-position: top center;
     position: absolute;
@@ -8,9 +8,53 @@
     border-radius: 30px;
     padding: 20px;
     background-color: antiquewhite;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    border: .5px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
-.carrito img{
+.carrito img {
     opacity: 0.5;
     position: absolute;
+}
+
+
+.carrito button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #6B4522;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.carrito strong {
+    font-size: 30px;
+    color: #6B4522;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    & .item-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+    }
+}
+
+.item-list {
+    margin: 0;
+    padding: 0;
 }

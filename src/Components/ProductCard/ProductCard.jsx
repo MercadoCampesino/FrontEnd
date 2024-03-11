@@ -17,6 +17,7 @@ export const ProductCard = () => {
                 const data = await response.json();
                 if (data && data.mensaje === 'ok') {
                     setProducts(data.response);
+                    console.log('Productos:', data.response);
                     setLoading(false);
                 } else {
                     console.error('Hubo un error al obtener los productos.');

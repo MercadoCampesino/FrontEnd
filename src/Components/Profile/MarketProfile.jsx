@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import Reviewcard from '../ReviewCard/Reviewcard';
-import ProductCard from '../ProductCard/ProductCard';
+import {ProductCard} from '../ProductCard/ProductCard';
 // import markets from '../.././assets/Markets/markets';
 import Header from '../Header/Header';
 import './MarketProfile.css'

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Header from '../Header/Header';
-import ProductCard from '../ProductCard/ProductCard';
+import {ProductCard} from '../ProductCard/ProductCard';
 import './Products.css';
 import { Footer } from '../Footer/Footer';
 // import ProductList from '../ProductCard/ProductCard'
