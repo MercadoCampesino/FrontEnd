@@ -21,7 +21,14 @@ function DiscountedProducts({ showAll, agregarAlCarrito }) {
           </div>
 
           <div className='agregarboton'>
-            <button onClick={() => agregarAlCarrito(product)}> <AddToCartIcon /><p>Agregar</p></button>
+          <button className='button-addToCartIcon' onClick={() => {
+              console.log('agregarAlCarrito:', agregarAlCarrito);
+
+              agregarAlCarrito(product);
+            }}>
+              <AddToCartIcon />
+              <p>Agregar</p>
+            </button>
           </div>
           
         </div>
