@@ -257,11 +257,13 @@
     right: 20px;
     z-index: 9999;
     border-radius: 12px;
-   
     padding: 20px;
-    width: 320px; /* Ancho fijo */
+    width: 50%; /* Ancho fijo */
     /* transition: all 0.3s ease; */
     overflow: hidden; /* Evita que el contenido se desborde */
+    display: flex;
+    flex-direction: column;
+    align-items: end;
 }
 
 /* Estilos para el iframe del chat dentro del chatbot */
@@ -294,8 +296,15 @@
     height: 50px;
     cursor: pointer;
     position: fixed;
+    margin-left: 10px;
     bottom: 20px;
     right: 20px;
     z-index: 10000; /* Asegura que esté por encima de otros elementos */
     background-color: transparent; /* Establece el fondo transparente */
+}
+
+.floating-chatbot iframe {
+    margin-right: 30px;
+    border-radius: 20px;
+    border: none;
 }

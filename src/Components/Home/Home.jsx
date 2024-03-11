@@ -74,7 +74,6 @@ export default function Home() {
                     </div>
 
                     <div className='chat-bot-home'>
-                        {/* <ChatBotComponent/> */}
 
                         <div className="floating-chatbot" style={{ position: 'fixed', bottom: '20px', right: '20px' }}>
                             {chatbotOpen && (
@@ -83,19 +82,15 @@ export default function Home() {
                                     style={{ minWidth: '400px', width: '30%', minHeight: '500px' }}
                                     title="ChatBot"
                                 ></iframe>
-                            )}
+                            )}  
                             <img
                                 className='img_chatBot'
                                 src="/images/bot.png"
                                 alt="Icono de chatbot"
-                                style={{ width: '65px', height: '65px', cursor: 'pointer' }}
+                                style={{ width: '65px', height: '65px', cursor: 'pointer'}}
                                 onClick={toggleChatbot}
                             />
                         </div>
-                        {/* <a href="/chatBot">
-                        <img src={url_imgChatBot} alt="" />
-                    </a> */}
-                        {/* <img src={url_imgChatBot} alt="" /> */}
                     </div>
 
                     <button className='see_more_products' >
