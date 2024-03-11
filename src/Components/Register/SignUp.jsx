@@ -123,7 +123,7 @@ export const SignUp = () => {
                             </section>
 
                             <div className='buttonreg'>
-                                <p>¿Ya esta registrado? <a href="/login">Iniciar sesión</a></p>
+                                <p>¿Ya esta registrado? <a href="/Login">Iniciar sesión</a></p>
                                 <input type="submit" value="Registrarse" className='submit' />
                             </div>
                         </form>
