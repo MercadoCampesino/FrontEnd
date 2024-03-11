@@ -1,5 +1,5 @@
 import Header from '../Header/Header'
-import ProductCard from '../ProductCard/ProductCard'
+import {ProductCard} from '../ProductCard/ProductCard'
 import DiscountedProducts from '../ProductCard/DiscountedProducts'
 import { Footer } from '../Footer/Footer'
 import './Home.css'

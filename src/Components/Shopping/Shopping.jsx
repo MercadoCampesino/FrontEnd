@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './Shopping.css';
 import DiscountedProducts from '../ProductCard/DiscountedProducts';
+import { useCart } from './CartContext';
 
 export const Shopping = () => {
-  const [items, setItems] = useState([]);
-
+  const [items, setItems] = useState(useCart().cart);
   const agregarAlCarrito = (producto) => {
     setItems([...items, producto]);
   };

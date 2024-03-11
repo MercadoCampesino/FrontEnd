@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { AddToCartIcon } from '../Icon';
 import './Product.css';
 import { SERVER_URL } from '../../Constants';
-
-const ProductCard = ({ agregarAlCarrito }) => {
+import { useCart } from '../Shopping/CartContext';
+export const ProductCard = () => {
+    const { addToCart } = useCart();
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
-
+    const handleClick = (product) => {
+        addToCart(product);
+    }
     useEffect(() => {
         const fetchProducts = async () => {
             try {
@@ -39,11 +42,9 @@ const ProductCard = ({ agregarAlCarrito }) => {
                             <p className='price_discount'><strong>Precio: </strong><em> $</em> {productItem.precio} 1Kg</p>
 
                             <div className='agregarbotona'>
-                                {/* Agrega console.log() aquí */}
-                                <button className='button-addToCartIcon' onClick={() => { 
-                                    console.log('hola');
-                                    // agregarAlCarrito(productItem);
-                                }}>
+                                <button className='button-addToCartIcon' onClick={
+                                    () => handleClick(productItem)
+                                }>
                                     <AddToCartIcon />
                                     <p>Agregar</p>
                                 </button>
@@ -56,4 +57,3 @@ const ProductCard = ({ agregarAlCarrito }) => {
     );
 }
 
-export default ProductCard;
