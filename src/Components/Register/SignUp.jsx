@@ -27,9 +27,9 @@ export const SignUp = () => {
         }
 
         if (selectedRole === "cliente") {
-            handleSubmitCliente(event);
+            onClientRegisterSubmit(event);
         } else {
-            handleSubmitVendedor(event);
+            onSellerRegisterSubmit(event);
         }
     };
 

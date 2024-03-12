@@ -36,7 +36,7 @@ function App() {
           <Route path='/discounts' element={<Discounts />} />
           <Route path='/products' element={<Products />} />
           {/* <Route path='/PerfilUsuario' element={PerfilUsuario} /> */}
-          <Route path='/Login' element={<Login />} />
+          <Route path='/login' element={<Login />} />
           <Route path='*' element={<NotFound />} />
           <Route path='/register' element={<SignUp />} />
           <Route path='/profile' element={isSeller ? <Profile /> : <ClientProfile />} />

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import Reviewcard from '../ReviewCard/Reviewcard';
-import {ProductCard} from '../ProductCard/ProductCard';
+import { ProductCard } from '../ProductCard/ProductCard';
 // import markets from '../.././assets/Markets/markets';
 import Header from '../Header/Header';
 import './MarketProfile.css'
@@ -94,6 +94,12 @@ export default function ProfileMarket() {
                 <div className="products-container">
                     <div className="add_product">
                         {/* cristian añada la el clasName de button */}
+                        {/* <button className="addProduct-button" onClick={() => { dialogRef.current.showModal() }}>+</button>
+
+                        <dialog ref={dialogRef}>
+                            <AddProductForm callback={() => { dialogRef.current.close() }} onSubmit={handleCreateProduct} />
+                        </dialog> */}
+
                         <button className="addProduct-button" onClick={() => { dialogRef.current.showModal() }}>+</button>
 
                         <dialog ref={dialogRef}>
@@ -114,7 +120,7 @@ export default function ProfileMarket() {
                 <div className="reviews-container">
                     <div className="calificacion">
                         <h2>4.5</h2>
-                        <img src="/images/calificaciones.png" alt="" width={200}/>
+                        <img src="/images/calificaciones.png" alt="" width={200} />
 
                     </div>
                     <div>
