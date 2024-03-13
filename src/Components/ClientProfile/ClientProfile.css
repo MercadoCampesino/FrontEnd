@@ -165,24 +165,57 @@
 summary {
     width: fit-content;
     margin: 0 auto;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 10px;
+    border-radius: 15px;
     border: none;
-    background-color: chartreuse;
+    width: 400px;
+    background-color: #A1BB23;
+    text-align: center;
+    font-style: italic;
+    list-style: none;
+    font-weight: 700;
+    position: relative;
 
+    /* add a triangule at the start */
+    &::before {
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 0;
+        height: 0;
+        border-left: 10px solid #000;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+    }
+
+    /* turn to down when is open  */
+    &[open] {
+        background-color: red;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #000;
+        border-bottom: 10px solid transparent;
+    }
 }
 
 .card_market {
     text-align: center;
-    margin-bottom: 50px;
     border: 1px solid #6B4522;
-    width: fit-content;
-    height: fit-content;
+    width: 130px;
+    padding: 12px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
 }
 
 .image_market {
-    height: 120px;
-    width: 120px;
+    width: 100%;
+    aspect-ratio: 1/1;
     border-radius: 50%;
     border: 3px solid #6B4522;
 }

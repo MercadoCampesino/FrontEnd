@@ -109,7 +109,7 @@ export default function ClientProfile() {
                 <section className="favourite-products">
                     <section className="general-control">
 
-                        <details>
+                        <details name='profile-sections'>
                             <summary>Productos favoritos</summary>
                             <section className="content">
 
@@ -140,15 +140,15 @@ export default function ClientProfile() {
                 <section className="favourite-markets">
                     <section className="general-control">
 
-                        <details>
+                        <details name='profile-sections'>
                             <summary>Control general de compras</summary>
                             <section className="content">
 
                                 {
                                     markets.map((market, index) => (
                                         <div className='card_market' key={market.id} onClick={() => handleClick(market)}>
-                                            <img className='image_market' src={market.image} alt="#" />
-                                            <p className='name_market'>{market.name}</p>
+                                            <img onError={handleProfileImageError} className='image_market' src={market.image ?? "/images/Campesinoprofile.jpg"} alt="#" />
+                                            <p className='name_market'>{market.name ?? "market name"}</p>
                                         </div>
                                     ))
                                 }
