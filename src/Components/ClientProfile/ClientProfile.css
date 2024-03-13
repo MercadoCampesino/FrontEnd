@@ -93,7 +93,101 @@
     z-index: 10;
 }
 
-.profile-info .nameLastName{
+.profile-info .nameLastName {
     color: #6B4522;
     font-size: 30px;
+}
+
+
+
+
+.profile-actions {
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+
+    padding: 20px;
+    /* & button {
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        background-color: #6B4522;
+        color: #ffffff;
+        margin-bottom: 10px;
+    } */
+
+
+    .buy-control {
+        width: 100%;
+
+
+
+    }
+}
+
+.general-control {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+
+
+
+}
+
+.product {
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 50px;
+
+}
+
+.content {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+summary {
+    width: fit-content;
+    margin: 0 auto;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: chartreuse;
+
+}
+
+.card_market {
+    text-align: center;
+    margin-bottom: 50px;
+    border: 1px solid #6B4522;
+    width: fit-content;
+    height: fit-content;
+}
+
+.image_market {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    border: 3px solid #6B4522;
+}
+
+.name_market {
+    font-weight: 500;
+    margin: 0;
 }

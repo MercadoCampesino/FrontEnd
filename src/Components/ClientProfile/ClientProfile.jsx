@@ -1,36 +1,43 @@
-import React, { useEffect, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Header from '../Header/Header';
 import './ClientProfile.css';
-import {ProductCard} from '../ProductCard/ProductCard';
-import { store } from '../../store';
-import { login } from '../../store/slices/user';
 import { useNavigate } from 'react-router-dom';
-import { jwtDecode } from 'jwt-decode';
 import { useSelector } from 'react-redux';
+import { AddToCartIcon } from '../Icon';
+import { Footer } from '../Footer/Footer';
 export default function ClientProfile() {
     const navigate = useNavigate()
     const user = useSelector((state) => {
         const profile = state.user?.user
+        console.log(profile)
         if (profile) return profile; else navigate('/login')
     });
-    const [productosVisible, setProductosVisible] = useState(false);
-    const [perfilComprado, setPerfilComprado] = useState('');
     const [fotoPortada, setFotoPortada] = useState(null);
     const [fotoPerfil, setFotoPerfil] = useState(null);
-
-
-
-
-    const handlePortadaChange = (event) => {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-
-        reader.onload = (e) => {
-            setFotoPortada(e.target.result);
-        };
-
-        reader.readAsDataURL(file);
+    const [products, _] = useState(Array(8).fill({}));
+    const [markets, __] = useState(Array(5).fill({}));
+    /* ------------ handle image errors -------------- */
+    const handleCoverImageError = () => {
+        coverRef.current.src = '/images/folder.png';
     };
+
+    const handleProfileImageError = () => {
+        profileRef.current.src = '/images/Campesinoprofile.jpg';
+    };
+
+
+    const coverRef = useRef(null);
+    const profileRef = useRef(null);
+    // const handlePortadaChange = (event) => {
+    //     const file = event.target.files[0];
+    //     const reader = new FileReader();
+
+    //     reader.onload = (e) => {
+    //         setFotoPortada(e.target.result);
+    //     };
+
+    //     reader.readAsDataURL(file);
+    // };
 
     const handlePerfilChange = (event) => {
         const file = event.target.files[0];
@@ -43,22 +50,14 @@ export default function ClientProfile() {
         reader.readAsDataURL(file);
     };
 
-    const toggleProductos = () => {
-        setProductosVisible(!productosVisible);
-    };
-
-    const comprarProducto = (perfil) => {
-        setPerfilComprado(perfil);
-        toggleProductos(); // Cerrar la secciÃ³n de productos despuÃ©s de la compra
-    };
 
     return (
-        <div>
+        <>
             <Header />
             <section className="profile-pics">
                 <div className="portada-container">
-                    <img className="portada-img" src={fotoPortada ?? "/images/profileback.png"} alt="Foto de portada" />
-                    <input type="file" className="portada-input" onChange={handlePortadaChange} />
+                    <img ref={coverRef} className="portada-img" src={fotoPortada ?? "x"} alt="Foto de portada" onError={handleCoverImageError} />
+                    {/* <input type="file" className="portada-input" onChange={handlePortadaChange} /> */}
                 </div>
                 <div className='hojas'>
                     <img className='hojasIzquierda' src="/images/hojasizqDesc.png" alt="" width={200} height={255} />
@@ -66,54 +65,100 @@ export default function ClientProfile() {
                 </div>
                 <section className="profile-absolute">
                     <div className="perfil-container">
-                        <img className="perfil-img" src={fotoPerfil ?? "/images/Campesinoprofile.jpg"} alt="Foto de perfil" />
-                        <input type="file" className="perfil-input" onChange={handlePerfilChange} />
+                        <img ref={profileRef} onError={handleProfileImageError} className="perfil-img" src={fotoPerfil ?? "x"} alt="Foto de perfil" />
+                        {/* <input type="file" className="perfil-input" onChange={handlePerfilChange} /> */}
                     </div>
                 </section>
                 <div className="profile-info">
-                    <span className='nameLastName'>{user ? user.nombre : "Ejemplo Nombre"} {user ? user.apellido : "Ejemplo apellido"}</span>
-                    {/* <span>{user ? user.direccion : "Ejemplo ciudad"}</span> */}
-                    <span> {user ? user.edad : 20}</span>
+                    <span className='nameLastName'>{user?.nombre} {user?.apellido}</span>
+                    <span>{user?.direccion}</span>
+                    <span>{user?.edad}</span>
                 </div>
             </section>
+            <section className="profile-actions">
 
+                <section className="general-control">
 
+                    <details>
+                        <summary>Control general de compras</summary>
+                        <section className="content">
 
-            {/* <div className="productos-container">
-                <button onClick={toggleProductos}>Control General de Compras</button>
-                {productosVisible && (
-                    <div>
-                        <h3>Aca se consume el mercado al que le compro</h3>
-                        <ul>
-                            <li>Producto 1 <button onClick={() => comprarProducto(user.nombre)}>Comprar</button></li>
-                            <li>Producto 2 <button onClick={() => comprarProducto(user.nombre)}>Comprar</button></li>
-                            Agrega mÃ¡s productos aquÃ­ Consumiendo la base de datos
-                        </ul>
-                    </div>
-                )}
-            </div> */}
+                            {
+                                products.map((productItem, index) => (
+                                    <figure key={productItem.idProducto}>
+                                        <div className='card_product'>
+                                            <img className='image_product' src={productItem.imagen} alt={productItem.nombre} />
+                                            <p className='name_product'>{productItem.nombre}</p>
+                                            <p className='price_discount'><strong>Precio: </strong><em> $</em> {productItem.precio} 1Kg</p>
 
-            {/* {perfilComprado && (
-                <div className="compra-info">
-                    <h3>Ãšltima compra realizada:</h3>
-                    <p>Producto comprado por: {perfilComprado}</p>
-                </div>
-            )} */}
-            <div className='center_products_'>
+                                            <div className='agregarbotona'>
+                                                <button className='button-addToCartIcon' onClick={
+                                                    () => handleClick(productItem)
+                                                }>
+                                                    <AddToCartIcon />
+                                                    <p>Agregar</p>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                ))
+                            }
+                        </section>
+                    </details>
+                </section>
+                <section className="favourite-products">
+                    <section className="general-control">
 
-                {/* <div className='featured_product'>
-                    <h2 className='featured_product_title'>Productos destacados</h2>
-                    <p>El alma de la tierra en cada producto</p>
-                </div> */}
+                        <details>
+                            <summary>Productos favoritos</summary>
+                            <section className="content">
 
-                {/* <div className='products_'>
-                    <ProductCard />
-                </div> */}
+                                {
+                                    products.map((productItem, index) => (
+                                        <figure key={productItem.idProducto}>
+                                            <div className='card_product'>
+                                                <img className='image_product' src={productItem.imagen} alt={productItem.nombre} />
+                                                <p className='name_product'>{productItem.nombre}</p>
+                                                <p className='price_discount'><strong>Precio: </strong><em> $</em> {productItem.precio} 1Kg</p>
 
-                {/* <button className='see_more_products' >
-                    <a className='see_more_a' href="/products">Ver mÃ¡s...</a>
-                </button> */}
-            </div>
-        </div>
+                                                <div className='agregarbotona'>
+                                                    <button className='button-addToCartIcon' onClick={
+                                                        () => handleClick(productItem)
+                                                    }>
+                                                        <AddToCartIcon />
+                                                        <p>Agregar</p>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </figure>
+                                    ))
+                                }
+                            </section>
+                        </details>
+                    </section>
+                </section>
+                <section className="favourite-markets">
+                    <section className="general-control">
+
+                        <details>
+                            <summary>Control general de compras</summary>
+                            <section className="content">
+
+                                {
+                                    markets.map((market, index) => (
+                                        <div className='card_market' key={market.id} onClick={() => handleClick(market)}>
+                                            <img className='image_market' src={market.image} alt="#" />
+                                            <p className='name_market'>{market.name}</p>
+                                        </div>
+                                    ))
+                                }
+                            </section>
+                        </details>
+                    </section>
+                </section>
+            </section>
+
+            <Footer />
+        </>
     );
 }
