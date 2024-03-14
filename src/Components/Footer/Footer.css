@@ -4,7 +4,6 @@
     padding: 20px;
 }
 
-
 .title_merCampesino {
     display: flex;
     color: white;
@@ -15,7 +14,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .titleFooter {
@@ -32,6 +30,7 @@
     font-size: 18px;
     margin-bottom: 17px;
 }
+
 .titleFooter p {
     margin-top: -15px;
     font-size: 13px;
@@ -57,10 +56,20 @@
     font-size: 13px;
 }
 
-/* .hr_footer {
-    border: 1px solid #A1BB23;
-} */
-
 .copy {
     text-align: center;
+}
+
+/* cristian, todo de aqui para abajo */
+@media (max-width: 768px) {
+    .infoContainer {
+        flex-wrap: wrap;
+    }
+
+    .about_us,
+    .metPagos,
+    .contact {
+        width: 200px;
+        margin-bottom: 10px;
+    }
 }

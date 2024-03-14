@@ -6,23 +6,17 @@
 
 .regresar_login {
     color: #fff;
-    /* margin-bottom: 100px; */
-    margin-left: 30px; /* cristian */
+    margin-left: 30px;
 }
 
-/* cristian nuevo */
 .cont-regresar_login {
     margin-top: 10px;
 }
 
 .imagen_login {
     width: 100%;
-    /* height: 100vh; */
     padding: 0;
     margin: 0;
-    /* background-size: cover;
-    background-image: url(/public/images/img_login.jpg); */
-
 }
 
 .type {
@@ -55,7 +49,6 @@
     margin: 0;
     display: flex;
     justify-content: center;
-    /* align-items: center; */
     flex-direction: column;
 }
 
@@ -85,7 +78,6 @@
     display: flex;
     color: white;
     width: 20px;
-
 }
 
 .title_mer_login {
@@ -100,7 +92,6 @@
     height: 60px;
     margin-left: 1px;
     padding-left: 15px;
-
 }
 
 .title_login h1 {
@@ -121,7 +112,6 @@
     justify-content: center;
     flex-direction: column;
     justify-content: space-around;
-    /* border: 2px solid white; */
     border-radius: 10px;
     padding: 20px;
 }
@@ -167,7 +157,6 @@
     color: #fff;
     text-align: start;
     display: flex;
-    /* justify-content: end; */
 }
 
 .a_registro {
@@ -182,5 +171,29 @@
 
 .start_olvidarContra {
     width: 100%;
-    /* margin-top: -20px; */
+}
+
+/* cristian, todo de aqui para abajo */
+@media only screen and (max-width: 1440px) {
+    .login {
+        grid-template-columns: 1fr 1.5fr;
+    }
+
+    .div_img_login {
+        background-position: 50% 50%;
+    }
+
+    .title_logo_merCampesino {
+        overflow: hidden;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .div_img_login {
+        display: none;
+    }
+
+    .login {
+        grid-template-columns: 1fr;
+    }
 }

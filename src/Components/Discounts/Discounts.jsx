@@ -15,20 +15,12 @@ export default function Discounts() {
     <>
       <Header />
 
-
       <div className='title_products'>
         <div>
           <h2>Disfruta de la frescura de la tierra a precios irresistibles</h2>
           <p>siente el sabor de lo autentico con nuestros descuentos en el mercado campesino</p>
         </div>
       </div>
-
-
-      <div className='hojas'>
-        <img className='hojasIzquierdadescu' src="/images/hojasizqDesc.png" alt="" width={200} height={240} />
-        <img className='hojasDerechadescu' src="/images/hojasderDesc.png" alt="" width={120} height={210} />
-      </div>
-
 
       <div className='slides1'>
         <div className='slides'>

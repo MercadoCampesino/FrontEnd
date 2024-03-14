@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Header from '../Header/Header';
-import {ProductCard} from '../ProductCard/ProductCard';
+import { ProductCard } from '../ProductCard/ProductCard';
 import './Products.css';
 import { Footer } from '../Footer/Footer';
 // import ProductList from '../ProductCard/ProductCard'
@@ -30,29 +30,18 @@ const Products = () => {
   return (
     <>
       <Header />
-      {/* <div className='slide'>
-
-        <ul>
-          <li><img src="/images/folder_1.jpeg" alt="" /></li>
-          <li><img src="/images/folder_2.jpeg" alt="" /></li>
-          <li><img src="/images/folder_3.jpeg" alt="" /></li>
-          <li><img src="/images/folder_4.jpeg" alt="" /></li>
-        </ul>
-
-      </div> */}
 
       <div className='content_products'>
 
-      {/* cristian  cuando llegue aque, ME LLAMA*/}
         <div className='title_productsc'>
           <h2>La esencia de la naturaleza en cada producto</h2>
           <p>Conoce las joyas del mercado agrícola</p>
         </div>
 
         <div className='hojas'>
-                        <img className='hojasIzquierdabig' src="/images/hojasizqDesc.png" alt="" width={250} height={350} />
-                        <img className='hojasDerechabig' src="/images/hojasderDescbig.png" alt="" width={130} height={315} />
-                    </div>
+          <img className='hojasIzquierdabig' src="/images/hojasizqDesc.png" alt="" width={250} height={350} />
+          <img className='hojasDerechabig' src="/images/hojasderDescbig.png" alt="" width={130} height={315} />
+        </div>
 
         <div className='featured_products'>
           <div className='search_products'>
@@ -75,8 +64,8 @@ const Products = () => {
                 <p className='name_product'>{product.nombre}</p>
                 <p className='price_product'>Precio: ${product.precio}</p>
                 {/* <button>Agregar al carrito</button>               */}
-          
-          </div>
+
+              </div>
             ))}
           </div>
         </div>

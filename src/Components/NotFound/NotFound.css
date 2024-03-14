@@ -1,0 +1,25 @@
+.cont_notFound {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notFound {
+    border: #6B4522 1px solid ;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+}
+
+.btn-link {
+    background-color: #A1BB23;
+    padding: 5px 8px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.btn-link:hover {
+    background-color: #cae34c;
+}

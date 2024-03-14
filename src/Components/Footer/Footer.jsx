@@ -20,10 +20,11 @@ export const Footer = () => {
                         <p>NIT: 890.900.943-1</p>
                         <a href="">Terminos y condiciones</a>
                     </div>
+
                     <div>
                         <h2>Metodos de pago</h2>
-
                     </div>
+                    
                     <div>
                         <h2>Contactanos</h2>
                         <p>MercadoCampesino@gmail.com</p>
