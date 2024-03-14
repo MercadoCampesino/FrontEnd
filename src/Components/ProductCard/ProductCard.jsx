@@ -35,7 +35,7 @@ export const ProductCard = () => {
             {loading ? (
                 <h3>Cargando...</h3>
             ) : (
-                products.slice(0, 12).map((productItem) => (
+                products.reverse().map((productItem) => (
                     <figure key={productItem.idProducto}>
                         <div className='card_product'>
                             <img className='image_product' src={productItem.imagen} alt={productItem.nombre} />

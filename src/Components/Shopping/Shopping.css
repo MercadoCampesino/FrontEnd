@@ -45,11 +45,14 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
+    
     & .item-info {
         display: flex;
-        justify-content: center;
         align-items: center;
-        gap: 10px;
+        justify-content: space-evenly;
+        background-color: #ca3535;
+        width: 100%;
+        /* gap: 10px; */
 
     }
 }
@@ -57,4 +60,5 @@
 .item-list {
     margin: 0;
     padding: 0;
+
 }

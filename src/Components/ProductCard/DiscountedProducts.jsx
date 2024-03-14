@@ -31,8 +31,8 @@ function DiscountedProducts({ showAll }) {
               const productInSpanish = {
                 ...product,
                 nombre: product.name,
-                precio: product.price,
-                descuento: product.priceDiscount,
+                precio: product.priceDiscount,
+                descuento: product.price,
                 imagen: product.image,
                 idProducto: product.id,
                 existencia: product.stock

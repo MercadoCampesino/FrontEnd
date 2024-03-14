@@ -51,6 +51,7 @@ export const Shopping = () => {
           {cart.map(item => (
             <li className='item' key={item.idProducto}>
               <section className="item-info">
+                <img src={item.imagen} alt="" width={80} height={85}/>
                 <span>{item.nombre} - ${item.precio}</span>
                 {item.counter && <strong>{item.counter}</strong>}
               </section>

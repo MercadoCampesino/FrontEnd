@@ -85,7 +85,7 @@ export default function ClientProfile() {
 
                             {
                                 products.map((productItem, index) => (
-                                    <figure key={productItem.idProducto}>
+                                    <figure key={index}>
                                         <div className='card_product'>
                                             <img className='image_product' src={productItem.imagen} alt={productItem.nombre} />
                                             <p className='name_product'>{productItem.nombre}</p>
@@ -115,7 +115,7 @@ export default function ClientProfile() {
 
                                 {
                                     products.map((productItem, index) => (
-                                        <figure key={productItem.idProducto}>
+                                        <figure key={index}>
                                             <div className='card_product'>
                                                 <img className='image_product' src={productItem.imagen} alt={productItem.nombre} />
                                                 <p className='name_product'>{productItem.nombre}</p>
@@ -146,12 +146,12 @@ export default function ClientProfile() {
 
                                 {
                                     markets.map((market, index) => (
-                                        <div className='card_market' key={market.id} onClick={() => handleClick(market)}>
+                                        <div className='card_market' key={index} onClick={() => handleClick(market)}>
                                             <img onError={handleProfileImageError} className='image_market' src={market.image ?? "/images/Campesinoprofile.jpg"} alt="#" />
                                             <p className='name_market'>{market.name ?? "market name"}</p>
                                         </div>
                                     ))
-                                }
+                                } 
                             </section>
                         </details>
                     </section>
