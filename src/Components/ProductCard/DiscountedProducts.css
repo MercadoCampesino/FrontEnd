@@ -16,8 +16,10 @@ em {
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
-    width: 200px;
-    height: 260px;
+    width: 185px;
+    height: 232px;
+    text-decoration: none;
+    margin: 10px;
 }
 
 .card_products p {
@@ -30,7 +32,6 @@ em {
     border: none;
     background-color: #6B4522;
     color: #ffffff;
-    /* margin-bottom: 20px; */
 }
 
 .name_products {
@@ -39,16 +40,6 @@ em {
     width: 150px;
     text-align: center;
 }
-
-/* .name_price_product {
-    height: 120px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    background-color: aqua;
-    margin-bottom: 10px;
-} */
 
 .price_discount{
     display: flex

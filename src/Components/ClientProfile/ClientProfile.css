@@ -98,9 +98,6 @@
     font-size: 30px;
 }
 
-
-
-
 .profile-actions {
 
     display: flex;
@@ -109,23 +106,10 @@
     align-items: center;
     gap: 20px;
     width: 100%;
-
     padding: 20px;
-    /* & button {
-        padding: 10px 20px;
-        border-radius: 5px;
-        border: none;
-        background-color: #6B4522;
-        color: #ffffff;
-        margin-bottom: 10px;
-    } */
-
 
     .buy-control {
         width: 100%;
-
-
-
     }
 }
 
@@ -136,20 +120,6 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-
-
-
-
-}
-
-.product {
-    background-color: red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    width: 50px;
-
 }
 
 .content {

@@ -24,7 +24,6 @@
     position: absolute;
 }
 
-
 .carrito button {
     padding: 10px 20px;
     border-radius: 5px;
@@ -52,13 +51,28 @@
         justify-content: space-evenly;
         background-color: #ca3535;
         width: 100%;
-        /* gap: 10px; */
-
     }
 }
 
 .item-list {
     margin: 0;
     padding: 0;
+}
 
+@media only screen and (max-width: 768px) {
+    .carrito {
+        right: 100px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .carrito {
+        right: 70px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .carrito {
+        right: 50px;
+    }
 }

@@ -1,7 +1,3 @@
-/* .cont_discounts {
-    background-color: aqua;
-} */
-
 .title_discounts {
     margin-top: 100px;
 }
@@ -20,13 +16,6 @@
     align-items: center;
     justify-content: center;  
 }
-
-/* .cont_discounts {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-} */
 
 .cont_discounts {
     display: flex;
@@ -81,14 +70,12 @@
 }
 
 .cont_discountsa {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px 0 20px 0;
-    flex-wrap: wrap;
-    width: 75%;
-
-    margin-bottom: 50px;
-    border-radius: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 20px;
+    width: 70%;
+    place-items: center;
 }
 
 .hojasIzquierdadescu{
@@ -159,4 +146,19 @@
     
     75% {margin-left: -300%;}
     100% {margin-left: -300%;}
+}
+
+/* cristian, todo de aqui para abajo */
+@media only screen and (max-width: 768px) {
+
+    .slides {
+        max-width: 70%;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+
+    .slides {
+        display: none;
+    }
 }

@@ -55,33 +55,25 @@ export default function Header() {
                     </a>
 
                     <div className='title_header'>
-
                         <div className='title'>
                             <a className='a_title' href="/">
                                 <h1>MERCADO CAMPESINO</h1>
                                 <p>LA MEJOR CALIDAD</p>
                             </a>
                         </div>
-
                     </div>
-
                 </div>
 
                 <div className='navbar_img'>
-
                     <div>
                         <Navbar />
                     </div>
 
                     <div className='img_header'>
-                        {/* Botones con popover */}
-                        {/* <button ><img className='img_bell' src="/images/notifications.png" alt="Bell" /></button> */}
-                        {/* Tu código de Header existente aquí */}
-                    
-                        <button id="boton-carrito" onClick={toggleCarrito}><img src="/images/shoppingCart.png" alt="" width={30} height={30}/></button>
-                        {carritoAbierto && <Shopping style={{ top: popoverPosition.top, left: popoverPosition.left }} />}{carritoAbierto && <Shopping />}                        <button onClick={handleButtonClick}><img className='image_perfil' src={isLogged ? "https://th.bing.com/th/id/OIP.eGHa3HgHxIlTHmcvKNDs7AHaGe?rs=1&pid=ImgDetMain" : "/images/profile.png"} alt="Profile" /></button>
+                        <button id="boton-carrito" onClick={toggleCarrito}><img src="/images/shoppingCart.png" alt="" width={30} height={30} /></button>
+                        {carritoAbierto && <Shopping style={{ top: popoverPosition.top, left: popoverPosition.left }} />}{carritoAbierto && <Shopping />}
+                        <button onClick={handleButtonClick}><img className='image_perfil' src={isLogged ? "https://th.bing.com/th/id/OIP.eGHa3HgHxIlTHmcvKNDs7AHaGe?rs=1&pid=ImgDetMain" : "/images/profile.png"} alt="Profile" /></button>
                     </div>
-
                 </div>
             </header>
 

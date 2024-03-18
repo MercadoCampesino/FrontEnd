@@ -9,14 +9,14 @@ header {
     top: 0;
     z-index: 10;
 }
+
 .image_perfil{
     border-radius: 50%;
-
 }
+
 .title_merCampesino {
     display: flex;
     color: white;
-    width: 40%;
 }
 
 .title_header {
@@ -36,8 +36,8 @@ header {
 .title h1 {
     margin-top: 5px;
     font-weight: 400;
-
 }
+
 .title p {
     margin-top: -15px;
     font-size: 13px;
@@ -71,8 +71,6 @@ header {
     color: white;
 }
 
-/**/
-
 .popover {
     transform: translateX(-150px);
     background-color: #fff;
@@ -91,7 +89,8 @@ header {
     gap: 20px;
 }
 
-.popover a, .popover button {
+.popover a, 
+.popover button {
     color: #6B4522;
     text-decoration: none;
     background-color: transparent;
@@ -107,4 +106,55 @@ header {
 
 .img_header button svg {
     fill: white;
+}
+
+/* cristian, todo de aqui para abajo*/
+@media only screen and (max-width: 1024px) {
+    .title_merCampesino {
+        width: 50%;
+    }
+
+    .img_header {
+        width: 180px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .title_merCampesino {
+        width: 60%;
+    }
+
+    .img_header {
+        width: 90px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+
+    .img_header {
+        width: 50px;
+        margin-right: 20px;
+    }
+
+    .title {
+        border-left: 2px solid white;
+        font-size: 10px;
+        height: 45px;
+        margin-left: 8px;
+        padding-left: 9px;
+    }
+
+    .title h1 {
+        width: 220px;
+        font-size: 17px;
+    }
+
+    .title p {
+        font-size: 11px;
+    }
+
+    header {
+        justify-content: space-between;
+        padding-left: 35px;
+    }
 }
