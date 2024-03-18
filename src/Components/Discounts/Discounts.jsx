@@ -16,7 +16,7 @@ export default function Discounts() {
       <Header />
 
       <div className='title_products'>
-        <div>
+        <div className='cont_title_products'>
           <h2>Disfruta de la frescura de la tierra a precios irresistibles</h2>
           <p>siente el sabor de lo autentico con nuestros descuentos en el mercado campesino</p>
         </div>

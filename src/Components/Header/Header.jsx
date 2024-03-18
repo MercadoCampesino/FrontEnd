@@ -51,7 +51,7 @@ export default function Header() {
             <header>
                 <div className='title_merCampesino'>
                     <a href="/">
-                        <img src="/images/logo_mercadoCampesino.png" alt="" width={35} height={65} />
+                        <img className='logo' src="/images/logo_mercadoCampesino.png" alt="" width={35} height={65} />
                     </a>
 
                     <div className='title_header'>

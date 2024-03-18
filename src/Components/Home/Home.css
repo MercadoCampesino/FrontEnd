@@ -305,6 +305,6 @@
 
 .floating-chatbot iframe {
     margin-right: 30px;
+    border: none;
     border-radius: 20px;
-    border: none;
 }

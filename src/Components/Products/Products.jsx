@@ -86,3 +86,151 @@ const Products = () => {
 };
 
 export default Products;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState, useEffect } from 'react';
+// import Header from '../Header/Header';
+// import { ProductCard } from '../ProductCard/ProductCard';
+// import './Products.css';
+// import { Footer } from '../Footer/Footer';
+
+// const Products = () => {
+//   const [searchTerm, setSearchTerm] = useState('');
+//   const [filteredProducts, setFilteredProducts] = useState([]);
+//   const [showProductCard, setShowProductCard] = useState(true);
+//   const [error, setError] = useState(null);
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         if (searchTerm.length === 0) {
+//           setShowProductCard(true);
+//           setFilteredProducts([]);
+//           setError(null);
+//           return;
+//         }
+
+//         setShowProductCard(false);
+//         const response = await fetch(`https://mercadocampesino.azurewebsites.net/Producto/ListaProducto?searchTerm=${searchTerm}`);
+//         if (!response.ok) {
+//           throw new Error('Network response was not ok');
+//         }
+//         const data = await response.json();
+//         setFilteredProducts(data);
+//         setError(null);
+//       } catch (error) {
+//         console.error('Error fetching products:', error);
+//         setError('Error fetching products. Please try again later.');
+//       }
+//     };
+
+//     fetchData();
+//   }, [searchTerm]);
+
+//   const handleSearch = (event) => {
+//     const searchTerm = event.target.value;
+//     setSearchTerm(searchTerm);
+//   };
+
+//   return (
+//     <>
+//       <Header />
+
+//       <div className='content_products'>
+//         <div className='title_productsc'>
+//           <h2>La esencia de la naturaleza en cada producto</h2>
+//           <p>Conoce las joyas del mercado agrícola</p>
+//         </div>
+
+//         <div className='hojas'>
+//           <img className='hojasIzquierdabig' src="/images/hojasizqDesc.png" alt="" width={250} height={350} />
+//           <img className='hojasDerechabig' src="/images/hojasderDescbig.png" alt="" width={130} height={315} />
+//         </div>
+
+//         <div className='featured_products'>
+//           <div className='search_products'>
+//             <div className='search_'>
+//               <input
+//                 className='busquedaProductos'
+//                 type='search'
+//                 name='busquedaProductos'
+//                 placeholder='Buscar productos...'
+//                 value={searchTerm}
+//                 onChange={handleSearch}
+//               />
+//             </div>
+//           </div>
+          
+//           <div className='product_list'>
+//             {error ? (
+//               <div>Error: {error}</div>
+//             ) : filteredProducts.length > 0 ? (
+//               filteredProducts.reverse().map((product) => (
+//                 <div className='card_product' key={product.idProducto}>
+//                   <img className='image' src={product.imagen} alt='' />
+//                   <p className='name_product'>{product.nombre}</p>
+//                   <p className='price_product'>Precio: ${product.precio}</p>
+//                 </div>
+//               ))
+//             ) : (
+//               <div>No se encontraron productos.</div>
+//             )}
+//           </div>
+//         </div>
+
+//         {showProductCard && (
+//           <div className='product'>
+//             <ProductCard />
+//           </div>
+//         )}
+//       </div>
+
+//       <hr className='hr' />
+
+//       <Footer />
+//     </>
+//   );
+// };
+
+// export default Products;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
