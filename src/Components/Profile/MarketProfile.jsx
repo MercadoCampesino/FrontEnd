@@ -13,6 +13,9 @@ import { useSelector } from 'react-redux';
 
 export default function ProfileMarket() {
 
+    const [file, setFile] = useState(null)
+
+
     const user = useSelector((state) => {
         const profile = state.user?.user
         if (profile) return profile; else navigate('/login')
@@ -25,6 +28,18 @@ export default function ProfileMarket() {
         console.log("Nuevo producto:", productData);
         setShowForm(false);
     };
+
+    const handleSudmit = async (e) => {
+        e.preventDefault();
+        try {
+          const result = await uploadFile(file);
+          console.log(result);
+          setImageUrl(result); // Actualiza el estado con la URL de la imagen
+        } catch (error) {
+          console.error(error);
+          setError('Fallo al subir, inténtelo más tarde');
+        }
+      }
 
 
 
