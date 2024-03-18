@@ -5,13 +5,18 @@ import { Input } from '../Input/Input';
 import { Select } from '../Select/Select';
 import { onSellerRegisterSubmit, onClientRegisterSubmit } from "../../utils/submits"
 import emailjs from 'emailjs-com';
+import { uploadFile } from "../FireBase/config";
+
+// import { FileState } from '../../utils/submits';
 
 export const SignUp = () => {
 
     const navigate = useNavigate();
     const refForm = useRef();
-
+    const [file, setFile] = useState(null);
     const [isClient, setIsClient] = useState(true);
+    
+    let imageUrl;
 
         const handleSubmit = async (event) => {
         event.preventDefault();
@@ -31,6 +36,7 @@ export const SignUp = () => {
         } else {
             onSellerRegisterSubmit(event);
         }
+          
     };
 
     const sendConfirmationEmail = (email) => {
@@ -106,6 +112,10 @@ export const SignUp = () => {
                                                     }} >
                             <section className='form-sections'>
                                 <section className='form-section'>
+
+                                <label> Subir imagen:
+                                    <input type="file" name="" id="" onChange={e => setFile(e.target.files[0])} />
+                                </label>
                                     <Input label="Nombre" type='text' name='name' placeholder='Ingresa tu nombre' required />
                                     <Input label="Apellidos" type='text' name='lastName' placeholder='Ingresa tus apellidos' required />
                                     <Input label="Fecha de nacimiento" type='date' name='born' placeholder='Ingresa tu fecha de nacimiento' required />
@@ -154,6 +164,7 @@ export const SignUp = () => {
 };
 
 export default SignUp;
+
 
 
 
