@@ -16,7 +16,7 @@ export default function Market() {
     <>
 
       {selectedMarket ? (
-        <div className='card_market' key={selectedMarket.id}>
+        <div id='card_market' className='card_market' key={selectedMarket.id}>
           <h2>{selectedMarket.name}</h2>
           <p>{selectedMarket.description}</p>
         </div>

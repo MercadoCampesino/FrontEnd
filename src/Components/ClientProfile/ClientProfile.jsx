@@ -146,7 +146,7 @@ export default function ClientProfile() {
 
                                 {
                                     markets.map((market, index) => (
-                                        <div className='card_market' key={index} onClick={() => handleClick(market)}>
+                                        <div className='card_market1' key={index} onClick={() => handleClick(market)}>
                                             <img onError={handleProfileImageError} className='image_market' src={market.image ?? "/images/Campesinoprofile.jpg"} alt="#" />
                                             <p className='name_market'>{market.name ?? "market name"}</p>
                                         </div>
