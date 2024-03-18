@@ -46,3 +46,52 @@
     border-radius: 15px;
     border: 2px solid #6B4522;
 }
+
+/* Para pantallas más grandes que 1024px */
+@media (min-width: 1024px) {
+    .product {
+        width: 70%; /* Tu ancho deseado */
+        margin-top: 10px; /* Tu margen superior deseado */
+    }
+}
+
+/* Para pantallas entre 768px y 1023px */
+@media (max-width: 1023px) {
+    .product {
+        width: 80%; /* Por ejemplo, 80% del ancho de su contenedor */
+        margin-top: 10px; /* Tu margen superior deseado */
+    }
+}
+
+/* Para pantallas entre 425px y 767px */
+@media (max-width: 767px) {
+    .product {
+        width: 90%; /* Por ejemplo, 90% del ancho de su contenedor */
+        margin-top: 10px; /* Tu margen superior deseado */
+    }
+}
+
+/* Para pantallas entre 375px y 424px */
+@media (max-width: 425px) {
+    .product {
+        width: 95%; /* Por ejemplo, 95% del ancho de su contenedor */
+        margin-top: 10px; /* Tu margen superior deseado */
+    }
+
+    .busquedaProductos {
+        width: 300px;
+        margin: 0;
+    }
+}
+
+/* Para pantallas menores o iguales a 375px */
+@media (max-width: 375px) {
+    .product {
+        width: 100%; /* 100% del ancho de su contenedor */
+        margin-top: 10px; /* Tu margen superior deseado */
+    }
+
+    .busquedaProductos {
+        width: 250px; /* Por ejemplo, 250px de ancho */
+    }
+}

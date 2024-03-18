@@ -48,20 +48,18 @@ export default function Login() {
                 <div className='cont-regresar_login'>
                     <a className='regresar_login' href="/">Regresar</a>
                 </div>
-                
+
                 <div className='title_logo_merCampesino'>
 
-                    <div className='title_merCampesino_login'>
+                    {/* cristian, cambie todo el bloque de header */}
+                    <header className='reg-header'>
+                        <img src="/images/logo_mercadoCampesino.png" alt="" width={40} height={70} />
 
-                        <img src="/images/logo_mercadoCampesino.png" alt="" width={80} height={80} />
-                        <div className='title_header'>
-
-                            <div className='title_login'>
-                                <h1>MERCADO CAMPESINO</h1>
-                                <h3>LA MEJOR CALIDAD</h3>
-                            </div>
-                        </div>
-                    </div>
+                        <section className='header-text'>
+                            <h1>MERCADO CAMPESINO</h1>
+                            <p>LA MEJOR CALIDAD</p>
+                        </section>
+                    </header>
 
                     <section className='form_login'>
                         <div className='center_login'>

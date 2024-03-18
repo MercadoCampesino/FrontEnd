@@ -27,6 +27,37 @@
     background-color: #6B4522;
 }
 
-/* a:hover {
-    color: rgb(181, 179, 179);
-} */
+/* cristian, cambiar todo de aqui para abajo */
+.menu-button {
+    display: none;
+}
+
+@media (max-width: 425px) {
+    .navbar {
+        display: none;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background-color: #6B4522;
+    }
+
+    .navbar.show {
+        display: block;
+    }
+
+    .navbar li {
+        margin: 10px 0;
+    }
+
+    .menu-button {
+        display: block;
+        position: fixed;
+        top: 23px;
+        left: 10px;
+        z-index: 999;
+        background-color: #6b452200;
+        border: none;
+        color: #fff;
+        font-size: 20px;
+    }
+}
