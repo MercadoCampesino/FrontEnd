@@ -57,9 +57,7 @@ export default function ProfileMarket() {
         <>
             <Header />
             <div className="container-marketProfile">
-                {/* <div className='button-toEdit'>
-                    <button>Editar perfil</button>
-                </div> */}
+
                 <div className="contprofile">
                     <section className="profile-absolutemarket">
                         <div className="perfil-containermarket">
@@ -71,7 +69,6 @@ export default function ProfileMarket() {
                     </section>
 
                     <div>
-
                         <div className="profile-info">
                             <span className='nameLastName'>{user ? user.nombre : "Ejemplo Nombre"} {user ? user.apellido : "Ejemplo apellido"}</span>
                             <span>{user ? user.direccion : "Ejemplo ciudad"}</span>
@@ -79,12 +76,10 @@ export default function ProfileMarket() {
                         </div>
                     </div>
                 </div>
+
                 <div className='description-market'>
-                    {/* cristian cambie el texto de p */}
                     <p>Aqui exhibimos y vendemos una amplia variedad de productos frescos y cultivados localmente, como frutas y verduras de temporada, hierbas aromáticas, hortalizas, huevos, miel, lácteos y carnes de granja. Estos alimentos son cuidadosamente cultivados y cosechados con métodos sostenibles</p>
-
                 </div>
-
 
                 <div className='hojas'>
                     <img className='hojasIzquierda' src="/images/hojasizqDesc.png" alt="" width={200} height={255} />
@@ -93,12 +88,6 @@ export default function ProfileMarket() {
 
                 <div className="products-container">
                     <div className="add_product">
-                        {/* cristian añada la el clasName de button */}
-                        {/* <button className="addProduct-button" onClick={() => { dialogRef.current.showModal() }}>+</button>
-
-                        <dialog ref={dialogRef}>
-                            <AddProductForm callback={() => { dialogRef.current.close() }} onSubmit={handleCreateProduct} />
-                        </dialog> */}
 
                         <button className="addProduct-button" onClick={() => { dialogRef.current.showModal() }}>+</button>
 
@@ -121,8 +110,8 @@ export default function ProfileMarket() {
                     <div className="calificacion">
                         <h2>4.5</h2>
                         <img src="/images/calificaciones.png" alt="" width={200} />
-
                     </div>
+
                     <div>
                         <p className='comments'>Comentarios: <span>24</span></p>
 
@@ -130,11 +119,6 @@ export default function ProfileMarket() {
                             <Reviewcard key={review.author} review={review} />
                         ))}
                     </div>
-
-                    {/* <div className='Send-comment'>
-                        <input type="text" placeholder='Escribe una reseña' />
-                        <button>Ver mas...</button>
-                    </div> */}
                 </div>
 
                 <hr className='hr' />
