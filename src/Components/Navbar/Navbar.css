@@ -9,7 +9,6 @@
     color: #fff;
     padding: 5px 10px;
     font-weight:400;
-
 }
 
 .navbar li {
@@ -27,12 +26,24 @@
     background-color: #6B4522;
 }
 
-/* cristian, cambiar todo de aqui para abajo */
 .menu-button {
     display: none;
 }
 
-@media (max-width: 426px) {
+@media (max-width: 824px) {
+
+    .navbar a {
+        padding: 5px 1px;
+    }
+   
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar_img {
+        padding-right: 30px;
+    }
+}
+@media only screen and (max-width: 768px) {
     .navbar {
         display: none;
         position: absolute;
@@ -61,3 +72,33 @@
         font-size: 20px;
     }
 }
+/* 
+@media (max-width: 426px) {
+    .navbar {
+        display: none;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background-color: #6B4522;
+    }
+
+    .navbar.show {
+        display: block;
+    }
+
+    .navbar li {
+        margin: 10px 0;
+    }
+
+    .menu-button {
+        display: block;
+        position: fixed;
+        top: 23px;
+        left: 10px;
+        z-index: 999;
+        background-color: #6b452200;
+        border: none;
+        color: #fff;
+        font-size: 20px;
+    }
+} */

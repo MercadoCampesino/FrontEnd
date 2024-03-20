@@ -169,7 +169,7 @@ summary {
     }
 }
 
-.card_market {
+ .card_market1 {
     text-align: center;
     border: 1px solid #6B4522;
     width: 130px;
@@ -181,7 +181,7 @@ summary {
     align-items: center;
     gap: 10px;
 
-}
+} 
 
 .image_market {
     width: 100%;

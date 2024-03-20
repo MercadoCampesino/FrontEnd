@@ -7,7 +7,7 @@
     right: 170px;
     border-radius: 30px;
     padding: 20px;
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
     text-align: center;
     font-family: Arial, sans-serif;
     line-height: 1.5;
@@ -16,16 +16,29 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    /* gap: 15px; */
+    width: 500px;
 }
 
 .carrito img {
-    opacity: 0.5;
-    position: absolute;
+    margin-right: 30px;
+    border: #6B4522 solid 2px;
+    border-radius: 25px;
+    width: 85px;
+}
+
+.carrito .removeButton, 
+.carrito .increaseButton {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #6B4522;
+    color: #ffffff;
+    margin-bottom: 10px;
 }
 
 .carrito button {
-    padding: 10px 20px;
+    padding: 9px 15px;
     border-radius: 5px;
     border: none;
     background-color: #6B4522;
@@ -40,17 +53,20 @@
 
 .item{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
+    padding: 15px;
+    width: 100%;
+    justify-content: space-between;
     gap: 10px;
-    
+    background-color: #EEE9B4;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+
     & .item-info {
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
-        background-color: #ca3535;
-        width: 100%;
     }
 }
 
@@ -58,6 +74,54 @@
     margin: 0;
     padding: 0;
 }
+
+.cont-info-product {
+    display: flex;
+    flex-direction: column;
+}
+
+.cont-info-product hr {
+    border: #6B4522 solid 1px;
+    width: 200px;
+    margin: 0;
+}
+
+.info-name {
+    display: flex;
+    justify-content: left;
+}
+
+.info-name h3 {
+    margin: 0;
+    color: #6B4522;
+}
+
+.info-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.info-cant {
+    font-size: 13px;
+    padding-right: 10px;
+}
+
+/* .cant_carrito {
+display: grid;
+grid-auto-rows: minmax(1fr 1fr);
+background-color: aqua;
+} */
+
+/* .cant_carrito {
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    background-color: aqua;
+  }
+  
+  .cant_carrito span, .cant_carrito strong {
+    padding: 5px; 
+  } */
 
 @media only screen and (max-width: 768px) {
     .carrito {
@@ -67,8 +131,13 @@
 
 @media only screen and (max-width: 425px) {
     .carrito {
-        right: 70px;
+        right: 12px;
+        width: 400px;
     }
+
+    /* .item {
+        flex-direction: column;
+    } */
 }
 
 @media only screen and (max-width: 375px) {

@@ -9,7 +9,6 @@ function DiscountedProducts({ showAll }) {
 
   const productsToShow = showAll ? productsDiscount : productsDiscount.slice(0, 4);
 
-
   const { addToCart } = useCart();
   const handleClick = (product) => {
     addToCart(product);
@@ -36,7 +35,6 @@ function DiscountedProducts({ showAll }) {
                 imagen: product.image,
                 idProducto: product.id,
                 existencia: product.stock
-              
               }
               
               handleClick(productInSpanish)
