@@ -1,4 +1,5 @@
 import { SERVER_URL } from "../Constants";
+import Swal from 'sweetalert2'
 
 export const onSellerRegisterSubmit = async (e) => {
     e.preventDefault();
@@ -36,7 +37,11 @@ export const onSellerRegisterSubmit = async (e) => {
         const response = await fetch(url, options);
         if (response.ok) {
             const responseData = await response.json();
-            alert("Mercado registrado");
+            Swal.fire({
+                icon: "success",
+                title: "Registrado",
+                footer: '<a href="#">Why do I have this issue?</a>'
+              });
             console.log(responseData)
             window.location.href = "/login";
         } else {

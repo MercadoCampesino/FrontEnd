@@ -6,6 +6,7 @@ import { Select } from '../Select/Select';
 import { onSellerRegisterSubmit, onClientRegisterSubmit } from "../../utils/submits"
 import emailjs from 'emailjs-com';
 
+
 export const SignUp = () => {
 
     const navigate = useNavigate();
