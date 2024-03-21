@@ -110,7 +110,6 @@ export const ProductCard = () => {
                             <img className='image_product' src={productItem.imagen} alt={productItem.nombre} />
                             <p className='name_product'>{productItem.nombre}</p>
                             <p className='price_discount'><strong>Precio: </strong><em> $</em> {productItem.precio} 1Kg</p>
-
                             <div className='agregarbotona'>
                                 <button className='button-addToCartIcon' onClick={() => handleClick(productItem)}>
                                     <AddToCartIcon />

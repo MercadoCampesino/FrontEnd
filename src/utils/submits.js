@@ -38,18 +38,29 @@ export const onSellerRegisterSubmit = async (e) => {
         if (response.ok) {
             const responseData = await response.json();
             Swal.fire({
+                position: "center",
                 icon: "success",
-                title: "Registrado",
-                footer: '<a href="#">Why do I have this issue?</a>'
+                title: "Usuario Registrado correctamente",
+                showConfirmButton: false,
+                timer: 3000
               });
             console.log(responseData)
-            window.location.href = "/login";
+            setTimeout(() => {
+                window.location.href = "/login";
+            }, 4000);
+            
         } else {
             throw new Error('Network response was not ok.');
         }   
 
     } catch (error) {
-        console.error('Error:', error);
+        Swal.fire({
+            icon: "error",
+            title: "El usuario no se ha podido registrar",
+            text: "Intentalo de nuevo!",
+            footer: '<a href="#">Why do I have this issue?</a>'
+        });
+
     }
 }
 
@@ -81,13 +92,26 @@ export const onClientRegisterSubmit = async (e) => {
         const response = await fetch(url, options);
         if (response.ok) {
             const responseData = await response.json();
-            alert("Usuario registrado");
-            console.log(responseData)
-            window.location.href = "/login";
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Usuario Registrado correctamente",
+                showConfirmButton: false,
+                timer: 3000
+              });
+              console.log(responseData)
+              setTimeout(() => {
+                window.location.href = "/login";
+              }, 4000);
+            
         } else {
             throw new Error('Network response was not ok.');
         }
     } catch (error) {
-        console.error('Error:', error);
+        Swal.fire({
+            icon: "error",
+            title: "El usuario no se pudo registrar correctamente",
+            text: "Intentalo de nuevo!"
+        });
     }
 }

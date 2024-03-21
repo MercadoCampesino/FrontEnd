@@ -16,8 +16,8 @@ em {
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
-    width: 185px;
-    height: 232px;
+    width: 19%;
+    height: 45vh;
     text-decoration: none;
     margin: 10px;
 }
@@ -92,11 +92,11 @@ em {
         justify-content: space-evenly;
         align-content: center;
         width: 55%;
-        height: 20vh;
+        height: 30vh;
     }
     .images {
-        width: 80px;
-        height: 50px;
+        width: 60%;
+        height: 10vh;
         margin-top: 10px;
         padding-top: 0%;
         padding-bottom: 0%;
@@ -111,7 +111,7 @@ em {
     }
     
     .name_products {
-        font-size: 11px;
+        font-size: 100%;
         border-bottom: 2px solid #6B4522;
         width: 100%;
         text-align: center;
@@ -119,13 +119,13 @@ em {
     
     .name_price_product {
         width: 100%;
-        height: 15vh;
+        height: 10vh;
         padding: 0px;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        margin-bottom: 8px;
+        margin-bottom: 0px;
     } 
     
     .price_discount{
@@ -135,7 +135,7 @@ em {
         text-align: center;
         width: 100%;
         height: 3vh;
-        font-size: 80%;
+        font-size: 100%;
     }
     
     .price_discount span{
@@ -183,12 +183,12 @@ em {
         margin-left: 5px;
     }
 }
-@media screen and (max-width: 377px) {
+@media screen and (max-width: 390px) {
     .card_products {
         display: flex;
         justify-content: center;
         align-content: space-around;
-        width: 50%;
+        width: 60%;
         height: 35vh;
     }
     .images {
@@ -208,10 +208,14 @@ em {
     }
     
     .name_products {
-        font-size: 11px;
+        font-size: 90%;
+        font-weight: 600;
         border-bottom: 2px solid #6B4522;
         width: 100%;
-        text-align: center;
+        height: 8vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     
     .name_price_product {
