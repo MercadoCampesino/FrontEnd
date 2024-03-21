@@ -5,6 +5,7 @@ import { Input } from "../Input/Input"
 import { useSelector } from "react-redux";
 import { uploadFile } from "../FireBase/config";
 import { v4 as uuidv4 } from 'uuid';
+import Swal from 'sweetalert2'
 
 function AddProductForm({ callback }) {
 
@@ -74,7 +75,13 @@ function AddProductForm({ callback }) {
                 throw new Error("Error al crear el producto");
             }
             const data = await response.json();
-            alert("Producto creado exitosamente");
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Producto creado exitosamente",
+                showConfirmButton: false,
+                timer: 1500
+              });
             console.log("Producto creado exitosamente:", data);
         } catch (error) {
             alert(error.message);

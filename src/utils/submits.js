@@ -15,7 +15,10 @@ export const onSellerRegisterSubmit = async (e) => {
         const confirmContrasenia = form.get('confirmPassword');
 
         if (contrasenia !== confirmContrasenia) {
-            alert("Las contraseñas no coinciden");
+            Swal.fire({
+                icon: "info",
+                title: "Las contraseñas no coinciden",
+            })
             return;
         }
         
@@ -44,15 +47,33 @@ export const onSellerRegisterSubmit = async (e) => {
         const response = await fetch(url, options);
         if (response.ok) {
             const responseData = await response.json();
+<<<<<<< HEAD
             alert("Mercado registrado");
+=======
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Usuario Registrado correctamente",
+                showConfirmButton: false,
+                timer: 3000
+              });
+>>>>>>> ab1da902d4cf3e98ae364e8845dcc7f67d447131
             console.log(responseData)
-            window.location.href = "/login";
+            setTimeout(() => {
+                window.location.href = "/login";
+            }, 4000);
+            
         } else {
             throw new Error('Network response was not ok.');
         }   
 
     } catch (error) {
-        console.error('Error:', error);
+        Swal.fire({
+            icon: "error",
+            title: "El usuario no se pudo registrar",
+            text: "Intentalo de nuevo!",
+        });
+
     }
 }
 
@@ -90,14 +111,27 @@ export const onClientRegisterSubmit = async (e) => {
         const response = await fetch(url, options);
         if (response.ok) {
             const responseData = await response.json();
-            alert("Usuario registrado");
-            console.log(responseData)
-            window.location.href = "/login";
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Usuario Registrado correctamente",
+                showConfirmButton: false,
+                timer: 3000
+              });
+              console.log(responseData)
+              setTimeout(() => {
+                window.location.href = "/login";
+              }, 4000);
+            
         } else {
             throw new Error('Network response was not ok.');
         }
     } catch (error) {
-        console.error('Error:', error);
+        Swal.fire({
+            icon: "error",
+            title: "El usuario no se pudo registrar correctamente",
+            text: "Intentalo de nuevo!"
+        });
     }
 }
 

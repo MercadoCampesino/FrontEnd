@@ -1,4 +1,16 @@
-/* cristian remplazar */
+.card_product {
+    border: 2px solid #6B4522;
+    background-color: #ffffff;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 90%;
+    height: 40vh;
+    text-decoration: none;
+    margin: 10px;
+}
 .image_product {
     border-radius: 15px;
     aspect-ratio: 19/15;
@@ -16,22 +28,6 @@
     align-items: center;
     justify-content: center;
 }
-
-
-.card_product {
-    border: 2px solid #6B4522;
-    background-color: #ffffff;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 90%;
-    height: 232px;
-    text-decoration: none;
-    margin: 10px;
-}
-
 .card_product p {
     margin: 0;
 }
@@ -80,6 +76,99 @@
     margin-left: 6px;
 }
 
+@media screen and (max-width: 992px) {
+    
+    .card_product {
+        border: 2px solid #6B4522;
+        background-color: #ffffff;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 140%;
+        height: 33vh;
+        text-decoration: none;
+        text-decoration: none;
+        margin: 0px;
+    }
+    .image_product {
+        border-radius: 15px;
+        aspect-ratio: 18/15;
+        display: block;
+        object-fit: cover;
+        height: 30%;
+        width: 50%;
+        margin-top: 0px;
+    }
+    
+    .a_card {
+        text-decoration: none;
+        color: rgb(65, 65, 65);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .card_product p {
+        margin: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .buy {
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        background-color: #6B4522;
+        color: #ffffff;
+        margin-bottom: 10px;
+    }
+    
+    .name_product {
+        font-size: 18px;
+        border-bottom: 2px solid #6B4522;
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* cristian nuevo añadir */
+    .button-addToCartIcon {
+        background-color: #6B4522;
+        border: 1px solid #6B4522;
+        border-radius: 3px;
+        padding: 0px 10px;
+        color: white;
+        display: flex;
+    }
+    
+    .button-addToCartIcon:hover {
+        background-color: #6B4522;
+    }
+    .card_product button{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 14px;
+        cursor: pointer;
+        
+    }
+    
+    .card_product p{    
+        margin-left: 0px;
+        margin: 0%;
+        padding: 0%;
+        width: 100%;
+        height: 2vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
 @media screen and (max-width: 768px) {
     .image_product {
         border-radius: 15px;
@@ -100,7 +189,7 @@
     }
     
     .card_product {
-        border: 2px solid #000000;
+        border: 2px solid #6B4522;
         border-radius: 20px;
         display: flex;
         align-items: center;
@@ -163,7 +252,7 @@
     }
 
 }
-@media screen and (max-width: 377px) {
+@media screen and (max-width: 390px) {
 .image_product {
     border-radius: 15px;
     aspect-ratio: 18/15;
@@ -187,7 +276,7 @@
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
-    width: 100%;
+    width: 110%;
     height: 35vh;
     text-decoration: none;
     margin: 13px;
@@ -234,6 +323,7 @@
 }
 
 .card_product p{    
-    margin-left: 6px;
+    margin-left: 0px;
+    height: 3vh;
 }
 }
