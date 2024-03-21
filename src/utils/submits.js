@@ -56,9 +56,8 @@ export const onSellerRegisterSubmit = async (e) => {
     } catch (error) {
         Swal.fire({
             icon: "error",
-            title: "El usuario no se ha podido registrar",
+            title: "El usuario no se pudo registrar",
             text: "Intentalo de nuevo!",
-            footer: '<a href="#">Why do I have this issue?</a>'
         });
 
     }
