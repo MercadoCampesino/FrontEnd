@@ -5,6 +5,7 @@ import { SERVER_URL } from '../../Constants';
 import { store } from '../../store';
 import { login } from '../../store/slices/user';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 export default function Login() {
 
@@ -35,7 +36,15 @@ export default function Login() {
             store.dispatch(login(decoded));
             navigate('/');
         } catch (error) {
-            alert("Usuario no encontrado");
+            Swal.fire({
+                icon: "info",
+                position: "top-end",
+                title: "Usuario no encontrado",
+                timer: 1600,
+                width: 250,
+                height: 30
+
+            })
             console.error('Error:', error);
         }
     };

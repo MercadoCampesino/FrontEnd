@@ -9,7 +9,10 @@ export const onSellerRegisterSubmit = async (e) => {
         const contrasenia = form.get('password');
         const confirmContrasenia = form.get('confirmPassword');
         if (contrasenia !== confirmContrasenia) {
-            alert("Las contraseñas no coinciden");
+            Swal.fire({
+                icon: "info",
+                title: "Las contraseñas no coinciden",
+            })
             return;
         }
         const data = {
