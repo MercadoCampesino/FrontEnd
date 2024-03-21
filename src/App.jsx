@@ -16,6 +16,7 @@ import { login } from './store/slices/user'
 import { readToken } from './utils/readToken'
 import { MarketProfileClient } from './Components/MarketProfileClient/MarketProfileClient'
 import { CartProvider } from '../src/Components/Shopping/CartContext';
+import { Buys } from './Components/Shopping/Buys/Buys'
 
 function App() {
   const dispatch = useDispatch()
@@ -43,6 +44,7 @@ function App() {
           {/* <Route path="/market/:id" element={MarketProfile} /> */}
           {/* <Route path="/market/:id" element={<Market />} /> Ruta para mostrar detalles del mercado */}
           <Route path="/market" element={<MarketProfileClient />} />
+          <Route path='/buy' element={<Buys/>}></Route>
         </Routes>
       </CartProvider>
     </>

@@ -1,10 +1,108 @@
+// import React, { useState } from 'react';
+// import './Shopping.css';
+// import DiscountedProducts from '../ProductCard/DiscountedProducts';
+// import { useCart } from './CartContext';
+// import { initMercadoPago, Wallet } from '@mercadopago/sdk-react';
+// import axios from 'axios'; // Agrega esta importación
+// // import { CartIcon } from '../Icon';
+
+// export const Shopping = () => {
+//   const { cart, removeFromCart } = useCart();
+
+//   const handleBuys = async () => {
+//     // Guarda la información del carrito en el almacenamiento local antes de redirigir
+//     localStorage.setItem('cart', JSON.stringify(cart));
+
+//     // Redirige al usuario a la página de compras
+//     window.location.href = '/buy';
+// };
+
+//   const calcularTotal = () => {
+//     return cart.reduce((total, item) => total + item.precio * (item.counter ? item.counter : 1), 0);
+//   };
+
+//   const [preferenceId, setPreferenceId] = useState(null);
+
+//   initMercadoPago('TEST-14335436-58e1-45e2-8c5e-1a4db40f1236', { // Reemplaza con tu access token de Mercado Pago
+//     locale: "es-CO"
+//   });
+
+//   const createPreference = async (item) => { // Pasa el artículo como parámetro
+//     try {
+//       const response = await axios.post("https://backmercadopago.onrender.com/create_preference", {
+//         title: item.nombre, quantity: item.counter ? item.counter : 1, price: item.precio // Modifica para usar el artículo actual
+//       });
+//       const { id } = response.data;
+//       return id;
+//     } catch (error) {
+//       console.log("Error al crear la preferencia:", error);
+//       return null;
+//     }
+//   };
+
+//   const handleBuy = async () => {
+//     // Itera sobre cada artículo en el carrito
+//     for (const item of cart) {
+//       const id = await createPreference(item); // Pasa el artículo actual a createPreference
+//       if (id) {
+//         setPreferenceId(id);
+//       }
+//     }
+//   };
+
+//   return (
+//     <div className="carrito">
+//       <h2>Carrito de Compras</h2>
+//       {cart.length === 0 ? (
+//         <p>No hay productos en el carrito.</p>
+//       ) : (
+//         <ul className='item-list'>
+//           {cart.map(item => (
+//             <li className='item' key={item.idProducto}>
+//               <section className="item-info">
+//                 <img src={item.imagen} alt="" width={80} height={85} />
+
+//                 <div className='cont-info-product'>
+                
+//                 {/* <button className='removeButton' onClick={() => removeProductFromCart(item.idProducto)}>x</button> */}
+
+//                   <div className='info-name'>
+//                     <span>
+//                       <h3>{item.nombre}</h3>
+//                     </span>
+//                   </div>
+
+//                   <hr />
+
+//                   <div className='info-price'>
+//                     <span>${item.precio}</span>
+
+//                     <div className='info-cant'>
+//                       <span>Cantidad:</span>
+//                       {item.counter && <span> {item.counter}</span>}
+//                     </div>
+//                   </div>
+//                 </div>
+//               </section>
+//               <button className='removeButton' onClick={() => removeFromCart(item.idProducto)}>-</button>
+//               <button className='increaseButton' onClick={() => increaseFromCart(item.idProducto)}>+</button>
+//             </li>
+//           ))}
+//         </ul>
+//       )}
+//       <strong>Total: ${calcularTotal()}</strong>
+//       <a href='/buy' className='compra' onClick={handleBuy} >Comprar</a>
+//       {preferenceId && <Wallet key={preferenceId} initialization={{ preferenceId: preferenceId }} />}
+//     </div>
+//   );
+// };
+
 import React, { useState } from 'react';
 import './Shopping.css';
-import DiscountedProducts from '../ProductCard/DiscountedProducts';
 import { useCart } from './CartContext';
 import { initMercadoPago, Wallet } from '@mercadopago/sdk-react';
-import axios from 'axios'; // Agrega esta importación
-// import { CartIcon } from '../Icon';
+import axios from 'axios';
+import { Buys } from './Buys/Buys';
 
 export const Shopping = () => {
   const { cart, removeFromCart } = useCart();
@@ -13,32 +111,31 @@ export const Shopping = () => {
     return cart.reduce((total, item) => total + item.precio * (item.counter ? item.counter : 1), 0);
   };
 
+  const handleBuy = async () => {
+    for (const item of cart) {
+      const id = await createPreference(item); // Pasa el artículo actual a createPreference
+      if (id) {
+        setPreferenceId(id);
+      }
+    }
+  };
+
   const [preferenceId, setPreferenceId] = useState(null);
 
-  initMercadoPago('TEST-14335436-58e1-45e2-8c5e-1a4db40f1236', { // Reemplaza con tu access token de Mercado Pago
+  initMercadoPago('TEST-14335436-58e1-45e2-8c5e-1a4db40f1236', {
     locale: "es-CO"
   });
 
-  const createPreference = async (item) => { // Pasa el artículo como parámetro
+  const createPreference = async (item) => {
     try {
       const response = await axios.post("https://backmercadopago.onrender.com/create_preference", {
-        title: item.nombre, quantity: item.counter ? item.counter : 1, price: item.precio // Modifica para usar el artículo actual
+        title: item.nombre, quantity: item.counter ? item.counter : 1, price: item.precio
       });
       const { id } = response.data;
       return id;
     } catch (error) {
       console.log("Error al crear la preferencia:", error);
       return null;
-    }
-  };
-
-  const handleBuy = async () => {
-    // Itera sobre cada artículo en el carrito
-    for (const item of cart) {
-      const id = await createPreference(item); // Pasa el artículo actual a createPreference
-      if (id) {
-        setPreferenceId(id);
-      }
     }
   };
 
@@ -49,26 +146,19 @@ export const Shopping = () => {
         <p>No hay productos en el carrito.</p>
       ) : (
         <ul className='item-list'>
-          {cart.map(item => (
+          {cart.length(item => (
             <li className='item' key={item.idProducto}>
               <section className="item-info">
                 <img src={item.imagen} alt="" width={80} height={85} />
-
                 <div className='cont-info-product'>
-                
-                {/* <button className='removeButton' onClick={() => removeProductFromCart(item.idProducto)}>x</button> */}
-
                   <div className='info-name'>
                     <span>
                       <h3>{item.nombre}</h3>
                     </span>
                   </div>
-
                   <hr />
-
                   <div className='info-price'>
                     <span>${item.precio}</span>
-
                     <div className='info-cant'>
                       <span>Cantidad:</span>
                       {item.counter && <span> {item.counter}</span>}
@@ -83,8 +173,11 @@ export const Shopping = () => {
         </ul>
       )}
       <strong>Total: ${calcularTotal()}</strong>
-      <button className='compra' onClick={handleBuy}>Comprar</button>
+      <Buys cart={cart} /> {/* Pasa el carrito como prop al componente Buys */}
+      <a href='/buy' className='compra' onClick={handleBuy} >Comprar</a>
       {preferenceId && <Wallet key={preferenceId} initialization={{ preferenceId: preferenceId }} />}
     </div>
   );
 };
+
+

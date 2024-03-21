@@ -1,5 +1,5 @@
 import Header from '../Header/Header'
-import {ProductCard} from '../ProductCard/ProductCard'
+import { ProductCard } from '../ProductCard/ProductCard'
 import DiscountedProducts from '../ProductCard/DiscountedProducts'
 import { Footer } from '../Footer/Footer'
 import './Home.css'
@@ -82,12 +82,12 @@ export default function Home() {
                                     style={{ minWidth: '400px', width: '30%', minHeight: '500px' }}
                                     title="ChatBot"
                                 ></iframe>
-                            )}  
+                            )}
                             <img
                                 className='img_chatBot'
                                 src="/images/bot.png"
                                 alt="Icono de chatbot"
-                                style={{ width: '65px', height: '65px', cursor: 'pointer'}}
+                                style={{ width: '65px', height: '65px', cursor: 'pointer' }}
                                 onClick={toggleChatbot}
                             />
                         </div>
@@ -99,7 +99,7 @@ export default function Home() {
                 </div>
 
                 <img className='hojasIzquierdabig' src="/images/hojasizqDesc.png" alt="" width={250} height={350} />
-                        <img className='hojasDerechabig' src="/images/hojasderDescbig.png" alt="" width={130} height={315} />
+                <img className='hojasDerechabig' src="/images/hojasderDescbig.png" alt="" width={130} height={315} />
 
 
                 <div className='Cont_markets'>
@@ -117,7 +117,7 @@ export default function Home() {
             </div>
             <Footer />
 
-            
+
         </>
     )
 }
