@@ -7,13 +7,15 @@ import { AddToCartIcon } from '../Icon';
 import { Footer } from '../Footer/Footer';
 export default function ClientProfile() {
     const navigate = useNavigate()
+
     const user = useSelector((state) => {
         const profile = state.user?.user
         console.log(profile)
         if (profile) return profile; else navigate('/login')
     });
+
     const [fotoPortada, setFotoPortada] = useState(null);
-    const [fotoPerfil, setFotoPerfil] = useState(null);
+    const [fotoPerfil, setFotoPerfil] = useState(user?.imagen);
     const [products, _] = useState(Array(8).fill({}));
     const [markets, __] = useState(Array(5).fill({}));
     /* ------------ handle image errors -------------- */

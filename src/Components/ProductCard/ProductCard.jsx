@@ -79,7 +79,7 @@ export const ProductCard = () => {
                 const response = await fetch(`${SERVER_URL}Producto/ListaProducto`);
                 const data = await response.json();
                 if (data && data.mensaje === 'ok') {
-                    setProducts(data.response);
+                    setProducts(data.response.reverse());
                     console.log('Productos:', data.response);
                     setLoading(false);
                 } else {
@@ -92,7 +92,7 @@ export const ProductCard = () => {
 
         fetchProducts();
 
-        // Actualizar productos cada 1 segundo
+        //Actualizar productos cada 1 segundo
         const intervalId = setInterval(fetchProducts, 1000);
 
         // Limpiar intervalo cuando el componente se desmonta o se actualiza
@@ -104,7 +104,7 @@ export const ProductCard = () => {
             {loading ? (
                 <h3>Cargando...</h3>
             ) : (
-                products.reverse().map((productItem) => (
+                products.map((productItem) => (
                     <figure key={productItem.idProducto}>
                         <div className='card_product'>
                             <img className='image_product' src={productItem.imagen} alt={productItem.nombre} />

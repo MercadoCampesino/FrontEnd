@@ -46,8 +46,7 @@ function AddProductForm({ callback }) {
             const existencia = Number(formData.get('cantidad'));
             const IDCategoria = Number(formData.get('IDCategoria'));
             const FK_IDTienda = Number(user.idTienda);
-
-            console.log('imagenurl:', imageUrl);
+            ('imagenurl:', imageUrl);
 
             const producto = {
                 nombre: nombre,

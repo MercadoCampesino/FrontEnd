@@ -14,14 +14,14 @@ import { useSelector } from 'react-redux';
 export default function ProfileMarket() {
 
     const [file, setFile] = useState(null)
-
+    let imageUrl;
 
     const user = useSelector((state) => {
         const profile = state.user?.user
         if (profile) return profile; else navigate('/login')
     });
     const [showForm, setShowForm] = useState(false);
-    const [fotoPerfil, setFotoPerfil] = useState(null);
+    const [fotoPerfil, setFotoPerfil] = useState(user?.imagen);
     const dialogRef = useRef(null);
 
     const handleCreateProduct = (productData) => {
@@ -32,9 +32,9 @@ export default function ProfileMarket() {
     const handleSudmit = async (e) => {
         e.preventDefault();
         try {
-          const result = await uploadFile(file);
-          console.log(result);
-          setImageUrl(result); // Actualiza el estado con la URL de la imagen
+            const result = await uploadFile(file);
+            console.log(result);
+            imageUrl = result;// Actualiza el estado con la URL de la imagen
         } catch (error) {
           console.error(error);
           setError('Fallo al subir, inténtelo más tarde');

@@ -1,18 +1,24 @@
+import { uploadFile } from "../Components/FireBase/config";
 import { SERVER_URL } from "../Constants";
-// const imageUrl = '../Components/Register/SignUp';
-
 
 export const onSellerRegisterSubmit = async (e) => {
     e.preventDefault();
     
     try {
         const form = new FormData(e.currentTarget);
+        // const form = new FormData(e.target);
         const contrasenia = form.get('password');
+        
+        const image= form.get("profile-img")
+        const urlImage = await uploadFile(image)
+
         const confirmContrasenia = form.get('confirmPassword');
+
         if (contrasenia !== confirmContrasenia) {
             alert("Las contraseñas no coinciden");
             return;
         }
+        
         const data = {
             IDTienda: Math.floor(Math.random() * 1000000000) + 1,
             nombre: form.get('storeName'),
@@ -20,7 +26,7 @@ export const onSellerRegisterSubmit = async (e) => {
             correo: form.get('email'),
             contrasenia: form.get('password'),
             direccion: form.get('address'),
-            // imagen: imageUrl,
+            imagen: urlImage,
             FK_IDAdministrador: 1094880982
         };
 
@@ -54,6 +60,11 @@ export const onClientRegisterSubmit = async (e) => {
     e.preventDefault();
     try {
         const form = new FormData(e.currentTarget);
+        // const form = new FormData(e.target);
+        // const state = useSelector(state => state);
+        const image= form.get("profile-img")
+        const urlImage = await uploadFile(image)
+
         const data = {
             IDCliente: Math.floor(Math.random() * 1000000000) + 1,
             nombre: form.get('name'),
@@ -63,7 +74,7 @@ export const onClientRegisterSubmit = async (e) => {
             correo: form.get('email'),
             contrasenia: form.get('password'),
             direccion: "defaultDirection",
-            // imagen: imageUrl,
+            imagen: urlImage,
             FK_IDAdministrador: 1094880982
         };
 
@@ -75,7 +86,7 @@ export const onClientRegisterSubmit = async (e) => {
             },
             body: JSON.stringify(data)
         };
-git 
+
         const response = await fetch(url, options);
         if (response.ok) {
             const responseData = await response.json();
