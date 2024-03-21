@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux';
 import {setUserData} from '../../utils/registerSlice'
 
 
+
 export const SignUp = () => {
     
     const dispatch = useDispatch();

@@ -47,8 +47,8 @@ export default function Market() {
       ) : (
         markets.map((market) => (
           <div className='card_market' key={market.id} onClick={() => handleClick(market)}>
-            {/* <img className='image_market' src={market.image} alt="#" /> */}
-            <img  className="perfil-img" src={fotoPerfil ?? "x"} alt="Foto de perfil" />
+            <img className='image_market' src={market.image} alt="#" />
+            {/* <img  className="perfil-img" src={fotoPerfil ?? "x"} alt="Foto de perfil" /> */}
             <p className='name_market'>{market.name}</p>
           </div>
         ))

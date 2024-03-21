@@ -4,8 +4,8 @@
     aspect-ratio: 19/15;
     display: block;
     object-fit: cover;
-    /* width: 100px; */
-    height: 70px;
+    width: 60%;
+    height: 13vh;
     margin-top: 10px;
 }
 
@@ -26,7 +26,7 @@
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
-    width: 185px;
+    width: 90%;
     height: 232px;
     text-decoration: none;
     margin: 10px;
@@ -80,7 +80,7 @@
     margin-left: 6px;
 }
 
-@media screen and (max-width: 844px) {
+@media screen and (max-width: 768px) {
     .image_product {
         border-radius: 15px;
         aspect-ratio: 18/15;
@@ -100,16 +100,18 @@
     }
     
     .card_product {
-        border: 2px solid #6B4522;
+        border: 2px solid #000000;
         border-radius: 20px;
         display: flex;
         align-items: center;
         flex-direction: column;
         justify-content: space-around;
-        width: 100%;
-        height: 25vh;
+        width: 150%;
+        margin: 0%;
+        padding: 0%;
+        height: 35vh;
         text-decoration: none;
-        margin: 13px;
+        margin: 0px;
     }
     
     .card_product p {
@@ -137,23 +139,23 @@
         background-color: #6B4522;
         border: 1px solid #6B4522;
         border-radius: 3px;
-        padding: 3px 10px;
+        padding: 0px 10px;
         color: white;
-    
+        display: flex;
     }
     
-    /* cristian nuevo añadir */
     .button-addToCartIcon:hover {
         background-color: #6B4522;
     }
-    
-    
     .card_product button{
+        width: 100%;
+        display: flex;
         align-items: center;
+        justify-content: center;
         text-align: center;
         font-size: 14px;
         cursor: pointer;
-        display: flex;
+        
     }
     
     .card_product p{    
@@ -161,15 +163,16 @@
     }
 
 }
-/* .image_product {
-    border-radius: 4px;
-    width: 100%;
-    aspect-ratio: 16/11;
+@media screen and (max-width: 377px) {
+.image_product {
+    border-radius: 15px;
+    aspect-ratio: 18/15;
     display: block;
     object-fit: cover;
-    background-color: #fff;
+    height: 40%;
+    width: 65%;
+    margin-top: 0px;
 }
-
 .a_card {
     text-decoration: none;
     color: rgb(65, 65, 65);
@@ -177,25 +180,21 @@
     align-items: center;
     justify-content: center;
 }
- 
-
 .card_product {
     border: 2px solid #6B4522;
-    background-color: #ffffff;
-    border-radius: 15px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
-    width: 200px;
-    height: 260px;
+    width: 100%;
+    height: 35vh;
     text-decoration: none;
+    margin: 13px;
 }
-
 .card_product p {
     margin: 0;
 }
-
 .buy {
     padding: 10px 20px;
     border-radius: 5px;
@@ -204,10 +203,37 @@
     color: #ffffff;
     margin-bottom: 10px;
 }
-
 .name_product {
     font-size: 18px;
     border-bottom: 2px solid #6B4522;
-    width: 150px;
+    width: 100%;
     text-align: center;
-} */
+}
+
+/* cristian nuevo añadir */
+.button-addToCartIcon {
+    background-color: #6B4522;
+    border: 1px solid #6B4522;
+    border-radius: 3px;
+    padding: 3px 10px;
+    color: white;
+
+}
+/* cristian nuevo añadir */
+.button-addToCartIcon:hover {
+    background-color: #6B4522;
+}
+
+
+.card_product button{
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+}
+
+.card_product p{    
+    margin-left: 6px;
+}
+}
