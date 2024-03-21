@@ -47,9 +47,6 @@ export const onSellerRegisterSubmit = async (e) => {
         const response = await fetch(url, options);
         if (response.ok) {
             const responseData = await response.json();
-<<<<<<< HEAD
-            alert("Mercado registrado");
-=======
             Swal.fire({
                 position: "center",
                 icon: "success",
@@ -57,7 +54,7 @@ export const onSellerRegisterSubmit = async (e) => {
                 showConfirmButton: false,
                 timer: 3000
               });
->>>>>>> ab1da902d4cf3e98ae364e8845dcc7f67d447131
+
             console.log(responseData)
             setTimeout(() => {
                 window.location.href = "/login";
