@@ -9,14 +9,6 @@
 // export const Shopping = () => {
 //   const { cart, removeFromCart } = useCart();
 
-//   const handleBuys = async () => {
-//     // Guarda la información del carrito en el almacenamiento local antes de redirigir
-//     localStorage.setItem('cart', JSON.stringify(cart));
-
-//     // Redirige al usuario a la página de compras
-//     window.location.href = '/buy';
-// };
-
 //   const calcularTotal = () => {
 //     return cart.reduce((total, item) => total + item.precio * (item.counter ? item.counter : 1), 0);
 //   };
@@ -172,8 +164,7 @@ export const Shopping = () => {
           ))}
         </ul>
       )}
-      <strong>Total: ${calcularTotal()}</strong>
-      <Buys cart={cart} /> {/* Pasa el carrito como prop al componente Buys */}
+      <strong>Total: ${calcularTotal()}</strong> 
       <a href='/buy' className='compra' onClick={handleBuy} >Comprar</a>
       {preferenceId && <Wallet key={preferenceId} initialization={{ preferenceId: preferenceId }} />}
     </div>
