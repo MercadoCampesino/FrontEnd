@@ -9,7 +9,6 @@
     color: #fff;
     padding: 5px 10px;
     font-weight:400;
-
 }
 
 .navbar li {
@@ -27,12 +26,24 @@
     background-color: #6B4522;
 }
 
-/* cristian, cambiar todo de aqui para abajo */
 .menu-button {
     display: none;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 824px) {
+
+    .navbar a {
+        padding: 5px 1px;
+    }
+   
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar_img {
+        padding-right: 30px;
+    }
+}
+@media only screen and (max-width: 768px) {
     .navbar {
         display: none;
         position: absolute;
