@@ -27,7 +27,7 @@ export default function Header() {
         togglePopover();
     };
 
-    const handleLogOut = () => {     
+    const handleLogOut = () => {
         localStorage.removeItem('token');
         dispatch(login(null));
         navigate('/');
@@ -53,7 +53,7 @@ export default function Header() {
                     <a href="/">
                         <img src="/images/logo_mercadoCampesino.png" alt="" width={35} height={65} />
                     </a>
-    
+
                     <div className='title_header'>
                         <div className='title'>
                             <a className='a_title' href="/">
@@ -63,14 +63,16 @@ export default function Header() {
                         </div>
                     </div>
                 </div>
-    
+
                 <div className='navbar_img'>
                     <div>
-                        <Navbar />
+                        {user?.apellido && user.apellido && isLogged && ( // Mostrar la opción del carrito de compras solo si el usuario es un cliente y está autenticado
+                            <Navbar />
+                        )}
                     </div>
-    
+
                     <div className='img_header'>
-                        {user?.apellido && user.apellido  && isLogged && ( // Mostrar la opción del carrito de compras solo si el usuario es un cliente y está autenticado
+                        {user?.apellido && user.apellido && isLogged && ( // Mostrar la opción del carrito de compras solo si el usuario es un cliente y está autenticado
                             <button id="boton-carrito" onClick={toggleCarrito}><img src="/images/shoppingCart.png" alt="" width={30} height={30} />{carritoAbierto && <Shopping style={{ top: popoverPosition.top, left: popoverPosition.left }} />}{carritoAbierto && <Shopping />}
                             </button>
                         )}
@@ -87,7 +89,7 @@ export default function Header() {
                     )}
                 </div>
             </header>
-    
+
             {isPopoverOpen && (
                 <div className="popover" style={{ top: popoverPosition.top, left: popoverPosition.left }}>
                     <NavLink to={isLogged ? "/profile" : "/login"}>
@@ -101,47 +103,47 @@ export default function Header() {
 }
 
 
-    // return (
-    //     <>
-    //         <header>
-    //             <div className='title_merCampesino'>
-    //                 <a href="/">
-    //                     <img src="/images/logo_mercadoCampesino.png" alt="" width={35} height={65} />
-    //                 </a>
+// return (
+//     <>
+//         <header>
+//             <div className='title_merCampesino'>
+//                 <a href="/">
+//                     <img src="/images/logo_mercadoCampesino.png" alt="" width={35} height={65} />
+//                 </a>
 
-    //                 <div className='title_header'>
-    //                     <div className='title'>
-    //                         <a className='a_title' href="/">
-    //                             <h1>MERCADO CAMPESINO</h1>
-    //                             <p>LA MEJOR CALIDAD</p>
-    //                         </a>
-    //                     </div>
-    //                 </div>
-    //             </div>
+//                 <div className='title_header'>
+//                     <div className='title'>
+//                         <a className='a_title' href="/">
+//                             <h1>MERCADO CAMPESINO</h1>
+//                             <p>LA MEJOR CALIDAD</p>
+//                         </a>
+//                     </div>
+//                 </div>
+//             </div>
 
-    //             <div className='navbar_img'>
-    //                 <div>
-    //                     <Navbar />
-    //                 </div>
+//             <div className='navbar_img'>
+//                 <div>
+//                     <Navbar />
+//                 </div>
 
-    //                 <div className='img_header'>
-    //                     <button id="boton-carrito" onClick={toggleCarrito}><img src="/images/shoppingCart.png" alt="" width={30} height={30} /></button>
-    //                     {carritoAbierto && <Shopping style={{ top: popoverPosition.top, left: popoverPosition.left }} />}{carritoAbierto && <Shopping />}
-    //                     <button onClick={handleButtonClick}><img className='image_perfil' src={isLogged ? "https://th.bing.com/th/id/OIP.eGHa3HgHxIlTHmcvKNDs7AHaGe?rs=1&pid=ImgDetMain" : "/images/profile.png"} alt="Profile" /></button>
-    //                 </div>
-    //             </div>
-    //         </header>
+//                 <div className='img_header'>
+//                     <button id="boton-carrito" onClick={toggleCarrito}><img src="/images/shoppingCart.png" alt="" width={30} height={30} /></button>
+//                     {carritoAbierto && <Shopping style={{ top: popoverPosition.top, left: popoverPosition.left }} />}{carritoAbierto && <Shopping />}
+//                     <button onClick={handleButtonClick}><img className='image_perfil' src={isLogged ? "https://th.bing.com/th/id/OIP.eGHa3HgHxIlTHmcvKNDs7AHaGe?rs=1&pid=ImgDetMain" : "/images/profile.png"} alt="Profile" /></button>
+//                 </div>
+//             </div>
+//         </header>
 
-    //         {isPopoverOpen && (
-    //             <div className="popover" style={{ top: popoverPosition.top, left: popoverPosition.left }}>
+//         {isPopoverOpen && (
+//             <div className="popover" style={{ top: popoverPosition.top, left: popoverPosition.left }}>
 
-    //                 <NavLink to={isLogged ? "/profile" : "/login"}>
-    //                     {isLogged ? "Perfil" : "Ingresar"}
-    //                 </NavLink>
-    //                 {!isLogged && <NavLink to="/register">Registrarse</NavLink>}
-    //                 {isLogged && <button onClick={handleLogOut}> cerrar sesion</button>}
-    //             </div>
-    //         )}
-    //     </>
-    // );
+//                 <NavLink to={isLogged ? "/profile" : "/login"}>
+//                     {isLogged ? "Perfil" : "Ingresar"}
+//                 </NavLink>
+//                 {!isLogged && <NavLink to="/register">Registrarse</NavLink>}
+//                 {isLogged && <button onClick={handleLogOut}> cerrar sesion</button>}
+//             </div>
+//         )}
+//     </>
+// );
 

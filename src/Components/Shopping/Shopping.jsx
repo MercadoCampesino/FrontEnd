@@ -4,6 +4,7 @@ import DiscountedProducts from '../ProductCard/DiscountedProducts';
 import { useCart } from './CartContext'; // Importa el contexto del carrito
 import { initMercadoPago, Wallet } from '@mercadopago/sdk-react';
 import axios from 'axios'; // Agrega esta importación
+import { NavLink } from 'react-router-dom';
 
 export const Shopping = () => {
   const { cart, removeFromCart, addOneToCart, deleteFromCart } = useCart(); // Obtén las funciones del contexto del carrito
@@ -84,7 +85,7 @@ export const Shopping = () => {
         </ul>
       )}
       <strong>Total: ${calcularTotal()}</strong>
-      <a href='/buy' className='compra' onClick={handleBuy} >Comprar</a>
+      <NavLink to='/buy' className='compra'  >Comprar</NavLink>
       {preferenceId && <Wallet key={preferenceId} initialization={{ preferenceId: preferenceId }} />}
     </div>
   );
@@ -165,7 +166,7 @@ export const Shopping = () => {
 //           ))}
 //         </ul>
 //       )}
-//       <strong>Total: ${calcularTotal()}</strong> 
+//       <strong>Total: ${calcularTotal()}</strong>
 //       <a href='/buy' className='compra' onClick={handleBuy} >Comprar</a>
 //       {preferenceId && <Wallet key={preferenceId} initialization={{ preferenceId: preferenceId }} />}
 //     </div>

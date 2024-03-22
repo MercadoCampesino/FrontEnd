@@ -9,6 +9,27 @@ export const ProductCard = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
+
+    const handleRemoveClick = async (product) => {
+        try {
+            const response = await fetch(`${SERVER_URL}Producto/EliminarProducto/${product.idProducto}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ idProducto: product.idProducto }),
+            });
+            const data = await response.json();
+            if (data && data.mensaje === 'ok') {
+                console.log('Producto eliminado:', product);
+            } else {
+                console.error('Hubo un error al eliminar el producto:', data);
+            }
+        } catch (error) {
+            console.error('Hubo un error en la solicitud:', error);
+        }
+    }
+
     const handleClick = (product) => {
         addToCart(product);
     }
@@ -54,6 +75,10 @@ export const ProductCard = () => {
                                 <button className='button-addToCartIcon' onClick={() => handleClick(productItem)}>
                                     <AddToCartIcon />
                                     <p>Agregar</p>
+                                
+                                </button>
+                                <button className='button-remove' onClick={() => handleRemoveClick(productItem)}>
+                                    <p>Eliminar</p>
                                 </button>
                             </div>
                         </div>

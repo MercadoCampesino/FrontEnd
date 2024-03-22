@@ -34,7 +34,11 @@ export default function Login() {
             const decoded = readToken(responseData.token);
             console.log(decoded);
             store.dispatch(login(decoded));
-            navigate('/');
+            if (!decoded.apellido) {
+                navigate('/profile');
+            } else {
+                navigate('/');
+            }
         } catch (error) {
             Swal.fire({
                 icon: "info",
