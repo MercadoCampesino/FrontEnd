@@ -1,5 +1,7 @@
 import { uploadFile } from "../Components/FireBase/config";
 import { SERVER_URL } from "../Constants";
+import Swal from 'sweetalert2'
+
 
 export const onSellerRegisterSubmit = async (e) => {
     e.preventDefault();

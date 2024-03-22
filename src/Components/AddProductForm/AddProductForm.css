@@ -51,3 +51,9 @@
         background-color: #c0dc33;
     }
 }
+
+@media only screen and (max-width: 1024px) {
+    .add-product{
+        overflow: hidden;
+    }
+}

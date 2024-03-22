@@ -193,3 +193,45 @@ dialog {
     color: #6B4522;
     margin-top: 50px;
 }
+
+@media only screen and (max-width: 1440px) {
+    .hojasDerechaprofile{
+        left: 300px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .hojasDerechaprofile{
+        left: 220px;
+    }
+
+    .contprofile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .hojasDerechaprofile{
+        left: 90px;
+    }
+
+    .reviews-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .reviews-container .calificacion{
+        align-items: center;
+        text-align: center;
+    }
+
+    .reviews-container .calificacion h2{
+        font-size: 60px;
+    }
+
+    .comments{
+        margin-bottom: 30px;
+    }
+}
