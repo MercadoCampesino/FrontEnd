@@ -41,17 +41,15 @@ export default function Home() {
                     <img className='hojasIzquierda' src="/images/hojasizqDesc.png" alt="" width={200} height={255} />
                     <img className='hojasDerecha' src="/images/hojasderDesc.png" alt="" width={140} height={240} />
                 </div>
-                <div className='center_productsDiscount producColor'>
+                <div className='center_productsDiscount '>
                     <h2>Descuentos frescos en el Mercado Campesino</h2>
-                    <p className='featured_phrase_home'>Encuentra los mercados mas destacados, con productos de calidad</p>
-
+                    <h3 className='featured_phrase_home'>Encuentra los mercados mas destacados, con productos de calidad</h3>
 
                     <div className='discount_color'>
                         <div className='products_discount'>
                             <DiscountedProducts showAll={false} />
                         </div>
                     </div>
-
 
                     <button className='see_more_discount'>
                         <a className='see_more_discount_a' href="/discounts">Ver más...</a>
