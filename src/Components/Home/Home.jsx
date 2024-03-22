@@ -77,6 +77,7 @@ export default function Home() {
                                     style={{ minWidth: '400px', width: '30%', minHeight: '500px' }}
                                     title="ChatBot"
                                 ></iframe>
+                                
                             )}
                             <img
                                 className='img_chatBot'
