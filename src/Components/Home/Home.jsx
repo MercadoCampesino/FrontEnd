@@ -88,9 +88,9 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <button className='see_more_products' >
+                    {/* <button className='see_more_products' >
                         <a className='see_more_a' href="/products">Ver más...</a>
-                    </button>
+                    </button> */}
                 </div>
 
                 <img className='hojasIzquierdabig' src="/images/hojasizqDesc.png" alt="" width={250} height={350} />

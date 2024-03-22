@@ -74,14 +74,22 @@ export const ProductCard = () => {
                             <p className='name_product'>{productItem.nombre}</p>
                             <p className='price_discount'><strong>Precio: </strong><em> $</em> {productItem.precio} 1Kg</p>
                             <div className='agregarbotona'>
-                                <button className='button-addToCartIcon' onClick={() => handleClick(productItem)}>
+                                {!user?.idTienda && (
+                                    <button className='button-addToCartIcon' onClick={() => handleClick(productItem)}>
+                                        <AddToCartIcon />
+                                        <p>Agregar</p>
+                                    </button>
+                                )}
+                                {/* <button className='button-addToCartIcon' onClick={() => handleClick(productItem)}>
                                     <AddToCartIcon />
                                     <p>Agregar</p>
 
-                                </button>
+                                </button> */}
+                                <div className='divproduct'>
                                 {user?.idTienda && <button className='button-remove' onClick={() => handleRemoveClick(productItem)}>
-                                    <p>Eliminar</p>
+                                    <p className='eliminarproduct'>Eliminar</p>
                                 </button>}
+                                </div>
                             </div>
                         </div>
                     </figure>
