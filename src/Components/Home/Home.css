@@ -188,6 +188,10 @@
     background-color: #A1BB23;
     color: #ffff;
     border: none;
+    
+    &:hover {
+        background-color: #9bad44;
+    }
 }
 
 .products_ {
@@ -207,6 +211,10 @@
     background-color: #6B4522;
     border: #6B4522 solid 2px;
     color: white;
+
+    &:hover {
+        background-color: #715135;
+    }
 }
 
 .Cont_markets {

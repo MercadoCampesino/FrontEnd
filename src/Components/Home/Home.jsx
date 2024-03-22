@@ -13,9 +13,6 @@ export default function Home() {
     const toggleChatbot = () => {
         setChatbotOpen(!chatbotOpen);
     };
-    // const url_imgChatBot = 'https://i.pinimg.com/564x/f8/33/15/f83315a9855a4c0d41269f3980b2404b.jpg'
-
-
 
     return (
         <>
@@ -114,8 +111,6 @@ export default function Home() {
                 </div>
             </div>
             <Footer />
-
-
         </>
     )
 }
