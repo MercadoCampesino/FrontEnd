@@ -85,7 +85,7 @@ export const Shopping = () => {
         </ul>
       )}
       <strong>Total: ${calcularTotal()}</strong>
-      <NavLink to='/buy' className='compra'  >Comprar</NavLink>
+      <NavLink to='/buy' className='compra'  >Realizar compra</NavLink>
       {preferenceId && <Wallet key={preferenceId} initialization={{ preferenceId: preferenceId }} />}
     </div>
   );

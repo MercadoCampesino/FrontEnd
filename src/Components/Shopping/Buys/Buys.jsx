@@ -28,7 +28,7 @@ export const Buys = () => {
           </div>
         </div>
 
-        <div>
+        <div className='productsshoppingbuy'>
           <h1>TU COMPRA</h1>
           {
             cart.map(el => {
@@ -45,7 +45,7 @@ export const Buys = () => {
                     </div>
                     <hr />
                     <div className='info-pricebuy'>
-                      <span>${el.precio}</span>
+                      <span>${el.precio} 1Kg</span>
                       <div className='info-cantbuy'>
                         <span>Cantidad:</span>
                         <span> {el.counter}</span>
@@ -56,15 +56,20 @@ export const Buys = () => {
                     <button className='removeButtonbuy' onClick={() => removeFromCart(el.idProducto)}>-</button>
                     <button className='increaseButtonbuy' onClick={() => addOneToCart(el.idProducto)}>+</button>
                   </div>
-                  <button className='deleteButtonbuy' onClick={() => deleteFromCart(el.idProducto)}>Eliminar</button>
+                  <button className='deleteButtonbuy' onClick={() => deleteFromCart(el.idProducto)}>X</button>
 
                 </div>
-                  
+
               )
             })
           }
+
+          <hr className='hrtotal' />
+          <div className='comprabuy'>
+            <strong>Total: ${calcularTotal()}</strong>
+            <button>Comprar </button>
+          </div>
         </div>
-        <strong>Total: ${calcularTotal()}</strong>
       </div>
     </>
   )
