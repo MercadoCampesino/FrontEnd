@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 
 export default function Navbar() {
     const [showMenu, setShowMenu] = useState(false);
-
     const toggleMenu = () => {
         setShowMenu(!showMenu);
     };

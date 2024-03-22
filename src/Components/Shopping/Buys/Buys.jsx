@@ -1,8 +1,11 @@
 import React from 'react'
 import './Buys.css'
+import { useContext } from 'react'
+import { CartContext } from '../CartContext'
+
 
 export const Buys = () => {
-
+  const { cart, removeFromCart, addOneToCart, deleteFromCart } = useContext(CartContext)
   return (
     <>
       <img className='hojasIzquierdabig' src="/images/hojasizqDesc.png" alt="" width={250} height={350} />
@@ -24,6 +27,37 @@ export const Buys = () => {
 
         <div>
           <h1>TU COMPRA</h1>
+          {
+            cart.map(el => {
+
+              return (
+                <div key={el.idProducto} className='itembuy'>
+                  <img src={el.imagen
+                  } alt="" width={80} height={85} />
+                  <div className='cont-info-productbuy'>
+                    <div className='info-namebuy'>
+                      <span>
+                        <h3>{el.nombre}</h3>
+                      </span>
+                    </div>
+                    <hr />
+                    <div className='info-pricebuy'>
+                      <span>${el.precio}</span>
+                      <div className='info-cantbuy'>
+                        <span>Cantidad:</span>
+                        <span> {el.counter}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='remove_increase_buttonbuy'>
+                    <button className='removeButtonbuy' onClick={() => removeFromCart(el.idProducto)}>-</button>
+                    <button className='increaseButtonbuy' onClick={() => addOneToCart(el.idProducto)}>+</button>
+                  </div>
+                  <button className='deleteButtonbuy' onClick={() => deleteFromCart(el.idProducto)}>Eliminar</button>
+                </div>
+              )
+            })
+          }
         </div>
       </div>
     </>
