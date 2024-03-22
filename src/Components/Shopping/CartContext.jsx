@@ -7,6 +7,7 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (product) => {
     const isProductInCart = cart.some(item => item.idProducto === product.idProducto);
+
     if (isProductInCart) {
       const updatedCart = cart.map(item => {
         if (item.idProducto === product.idProducto) {
@@ -24,7 +25,7 @@ export const CartProvider = ({ children }) => {
       });
       setCart(updatedCart);
       return;
-    }
+    } 
     setCart([...cart, product]);
   };
 

@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { login } from '../../store/slices/user';
 import Navbar from '../Navbar/Navbar';
-import {Shopping} from '../Shopping/Shopping';
+import { Shopping } from '../Shopping/Shopping';
 import './Header.css';
 
 export default function Header() {

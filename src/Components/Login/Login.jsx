@@ -66,12 +66,20 @@ export default function Login() {
 
                     {/* cristian, cambie todo el bloque de header */}
                     <header className='reg-header'>
-                        <img src="/images/logo_mercadoCampesino.png" alt="" width={40} height={70} />
 
-                        <section className='header-text'>
-                            <h1>MERCADO CAMPESINO</h1>
-                            <p>LA MEJOR CALIDAD</p>
-                        </section>
+                        <div className='reg-header'>
+                            <a href="/">
+                                <img src="/images/logo_mercadoCampesino.png" alt="" width={35} height={65} />
+                            </a>
+                            <div className='title_header'>
+                                <div className='title'>
+                                    <a className='a_title' href="/">
+                                        <h1>MERCADO CAMPESINO</h1>
+                                        <p>LA MEJOR CALIDAD</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </header>
 
                     <section className='form_login'>

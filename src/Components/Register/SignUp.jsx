@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { Input } from '../Input/Input';
 import { Select } from '../Select/Select';
 import { onSellerRegisterSubmit, onClientRegisterSubmit } from "../../utils/submits";
-
 import emailjs from 'emailjs-com';
 import { uploadFile } from "../FireBase/config";
 import { useDispatch } from 'react-redux';
