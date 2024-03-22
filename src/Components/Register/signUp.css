@@ -160,6 +160,33 @@
     }
 }
 
+.subir_img {
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 4px 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    display: flex;
+    width: 180px;
+    align-items: center;
+    /* transition: background-color 0.3s ease; */
+}
+
+.subir_img:hover {
+    background-color: #e0e0e0;
+}
+
+.subir_img input[type="file"] {
+    display: none;
+}
+
+.subir_img img {
+    width: 30px;
+    padding-left: 10px;
+}
+
 .buttonreg {
     display: flex;
     align-items: center;
