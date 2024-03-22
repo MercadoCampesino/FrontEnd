@@ -173,6 +173,7 @@ export const SignUp = () => {
                                     <img src="/images/add-photo.png" alt="" />
                                     <input type="file" name="profile-img" id=""/>
                                 </label>                                    </section>
+
                                 </section>
                                 <button href="/profile" type="submit" className='submit'> Registrarse</button>
                             </form>
