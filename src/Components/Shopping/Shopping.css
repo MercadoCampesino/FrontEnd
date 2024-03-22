@@ -26,6 +26,13 @@
     width: 85px;
 }
 
+.carrito h2{
+    font-size: 18px;
+    color: #6B4522;
+}
+
+
+
 .carrito .removeButton,
 .carrito .increaseButton {
     padding: 5px 10px;
@@ -59,8 +66,13 @@
 }
 
 .carrito strong {
-    font-size: 30px;
+    font-size: 20px;
     color: #6B4522;
+    margin-right: 20px;
+}
+
+.compra{
+    font-size: 13px;
 }
 
 .item {
