@@ -24,7 +24,6 @@
     width: 70%;
 }
 
-/* cristian, cambiar todo este bloque */
 .regresar {
     position: absolute;
     left: 20px;
@@ -48,16 +47,10 @@
     display: flex;
     justify-content: center;
     position: relative;
-    align-items: center;
-    gap: 20px;
-    padding: 0 50px;
-    height: 10%;
-    width: 100%;
     margin-top: 20px;
-    margin-bottom: 20px;
 }
 
-.header-text {
+/* .header-text {
     color: white;
     display: flex;
     justify-content: center;
@@ -80,7 +73,7 @@
         height: fit-content;
         font-size: 13px;
     }
-}
+} */
 
 .register-form {
     flex: 1;
@@ -91,7 +84,7 @@
 
 .form-sections {
     display: flex;
-    gap: 15px;/* cristian, de 20px lo baje a 15px */
+    gap: 15px;
     justify-content: center;
     align-items: center;
     margin-top: 10px;
@@ -100,7 +93,7 @@
 .form-section {
     display: flex;
     flex-direction: column;
-    gap: 15px;/* cristian, de 20px lo baje a 15px */
+    gap: 15px;
     justify-content: center;
     align-items: center;
 }
@@ -108,27 +101,27 @@
 .seller-form {
     display: flex;
     flex-direction: column;
-    gap: 15px;/* cristian, de 20px lo baje a 15px */
+    gap: 15px;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .selections {
     display: flex;
     width: 300px;
-    justify-content: center;
+    justify-content: space-between;
     align-items: start;
     border-radius: 10px;
     color: white;
 
     label {
-        width: 50%;
+        width: 48%;
     }
 
     select {
         border: 1px solid #6B4522;
-        height: 40px;
+        height: 35px;
         width: 100%;
         font-size: 16px;
         border-radius: 10px;
@@ -140,7 +133,7 @@
     border-radius: 10px;
     background-color: #F4F2DC;
     color: #6B4522;
-    font-size: 16px;
+    font-size: 15px;
     border: none;
     cursor: pointer;
 }
@@ -174,7 +167,6 @@
     flex-direction: column;
 }
 
-/* cristian, todo de aqui para abajo */
 @media only screen and (max-width: 1440px) {
     .form-reg {
         width: 60%;

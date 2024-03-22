@@ -85,11 +85,20 @@ export const Shopping = () => {
         </ul>
       )}
       <strong>Total: ${calcularTotal()}</strong>
-      <NavLink to='/buy' className='compra'  >Comprar</NavLink>
+      <NavLink to='/buy' className='compra'>Comprar</NavLink>
       {preferenceId && <Wallet key={preferenceId} initialization={{ preferenceId: preferenceId }} />}
     </div>
   );
 };
+
+
+
+
+
+
+
+
+
 
 // import React, { useState } from 'react';
 // import './Shopping.css';
