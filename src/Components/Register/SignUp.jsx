@@ -81,14 +81,20 @@ export const SignUp = () => {
                 </div>
     
                 <section className="form-reg">
-                    <header className='reg-header'>
-                        <img src="/images/logo_mercadoCampesino.png" alt="" width={40} height={70} />
-    
-                        <section className='header-text'>
+
+                <div className='reg-header'>
+                <a href="/">
+                    <img src="/images/logo_mercadoCampesino.png" alt="" width={35} height={65} />
+                </a>
+                <div className='title_header'>
+                    <div className='title'>
+                        <a className='a_title' href="/">
                             <h1>MERCADO CAMPESINO</h1>
                             <p>LA MEJOR CALIDAD</p>
-                        </section>
-                    </header>
+                        </a>
+                    </div>
+                </div>
+            </div>
     
                     <div className='checkboxs'>
                         <p>Elige como quieres registrarte</p>
@@ -147,7 +153,7 @@ export const SignUp = () => {
                                 <div className='buttonreg'>
                                     <p>¿Ya esta registrado? <a href="/login">Iniciar sesión</a></p>
                                     <input type="submit" value="Registrarse" className='submit' />
-                                </div>
+                             </div>
                             </form>
                         ) : (
                             <form className="seller-form" onSubmit={onSellerRegisterSubmit}>
