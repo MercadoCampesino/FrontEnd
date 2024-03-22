@@ -7,7 +7,6 @@
     right: 170px;
     border-radius: 30px;
     padding: 20px;
-    /* background-color: antiquewhite; */
     text-align: center;
     font-family: Arial, sans-serif;
     line-height: 1.5;
@@ -27,23 +26,36 @@
     width: 85px;
 }
 
-.carrito .removeButton, 
+.carrito .removeButton,
 .carrito .increaseButton {
     padding: 5px 10px;
     border-radius: 5px;
     border: none;
     background-color: #6B4522;
     color: #ffffff;
-    margin-bottom: 10px;
+    margin-left: 5px; 
+
+    &:hover {
+        background-color: #72583f;
+    }
 }
 
-.carrito button {
-    padding: 9px 15px;
-    border-radius: 5px;
-    border: none;
-    background-color: #6B4522;
-    color: #ffffff;
-    margin-bottom: 10px;
+.carrito .deleteButton {
+    color: rgb(226, 29, 29);
+    background-color: #6b452200;
+    display: flex;
+    align-items: center;
+    font-weight:600;
+    font-size: 20px;
+}
+
+.carrito .deleteButton:hover {
+    transform: translateY(-2px);
+}
+
+.deleteButton {
+    position: relative;
+    right: 0;
 }
 
 .carrito strong {
@@ -51,7 +63,7 @@
     color: #6B4522;
 }
 
-.item{
+.item {
     display: flex;
     justify-content: left;
     align-items: center;
@@ -82,7 +94,7 @@
 
 .cont-info-product hr {
     border: #6B4522 solid 1px;
-    width: 200px;
+    width: 150px;
     margin: 0;
 }
 
@@ -100,6 +112,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.compra {
+    padding: 10px 15px;
+    color: #ffffff;
+    border-radius: 10px;
+
+    &:hover {
+        background-color: #72583f;
+    }
 }
 
 .info-cant {
