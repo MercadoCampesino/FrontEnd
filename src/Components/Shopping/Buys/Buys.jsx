@@ -1,7 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Buys.css'
 import { useContext } from 'react'
 import { CartContext } from '../CartContext'
+import { initMercadoPago, Wallet } from '@mercadopago/sdk-react';
+
 
 
 export const Buys = () => {
@@ -9,6 +11,36 @@ export const Buys = () => {
     return cart.reduce((total, item) => total + item.precio * (item.counter ? item.counter : 1), 0);
   };
   const { cart, removeFromCart, addOneToCart, deleteFromCart } = useContext(CartContext)
+
+  const [preferenceId, setPreferenceId] = useState(null);
+
+  initMercadoPago('TEST-14335436-58e1-45e2-8c5e-1a4db40f1236', {
+    locale: "es-CO"
+  });
+
+  const createPreference = async (item) => {
+    try {
+      const response = await axios.post("https://backmercadopago.onrender.com/create_preference", {
+        title: item.nombre, quantity: item.counter ? item.counter : 1, price: item.precio
+      });
+      const { id } = response.data;
+      return id;
+    } catch (error) {
+      console.log("Error al crear la preferencia:", error);
+      return null;
+    }
+  };
+
+  const handleBuy = async () => {
+    for (const item of cart) {
+      const id = await createPreference(item);
+      if (id) {
+        setPreferenceId(id);
+      }
+    }
+  };
+
+
   return (
     <>
       <img className='hojasIzquierdabig' src="/images/hojasizqDesc.png" alt="" width={250} height={350} />
@@ -67,7 +99,8 @@ export const Buys = () => {
           <hr className='hrtotal' />
           <div className='comprabuy'>
             <strong>Total: ${calcularTotal()}</strong>
-            <button>Comprar </button>
+            <button className='compra' onClick={handleBuy}>Comprar</button>
+      {preferenceId && <Wallet key={preferenceId} initialization={{ preferenceId: preferenceId }}/>}
           </div>
         </div>
       </div>
