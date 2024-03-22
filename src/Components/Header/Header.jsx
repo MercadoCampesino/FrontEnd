@@ -66,7 +66,7 @@ export default function Header() {
 
                 <div className='navbar_img'>
                     <div>
-                        {user?.apellido && user.apellido && isLogged && ( // Mostrar la opción del carrito de compras solo si el usuario es un cliente y está autenticado
+                        {(!isLogged || user?.apellido) && ( // Mostrar la opción del carrito de compras solo si el usuario es un cliente y está autenticado
                             <Navbar />
                         )}
                     </div>
