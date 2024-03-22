@@ -2,12 +2,14 @@ import React, { useState, useEffect, useContext } from 'react';
 import { AddToCartIcon } from '../Icon';
 import './Product.css';
 import { SERVER_URL } from '../../Constants';
+import { useSelector } from 'react-redux';
 import { useCart } from '../Shopping/CartContext';
 
 export const ProductCard = () => {
     const { addToCart } = useCart();
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const user = useSelector((state) => state?.user?.user);
 
 
     const handleRemoveClick = async (product) => {
@@ -75,11 +77,11 @@ export const ProductCard = () => {
                                 <button className='button-addToCartIcon' onClick={() => handleClick(productItem)}>
                                     <AddToCartIcon />
                                     <p>Agregar</p>
-                                
+
                                 </button>
-                                <button className='button-remove' onClick={() => handleRemoveClick(productItem)}>
+                                {user?.idTienda && <button className='button-remove' onClick={() => handleRemoveClick(productItem)}>
                                     <p>Eliminar</p>
-                                </button>
+                                </button>}
                             </div>
                         </div>
                     </figure>
