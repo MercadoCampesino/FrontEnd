@@ -5,6 +5,9 @@ import { CartContext } from '../CartContext'
 
 
 export const Buys = () => {
+  const calcularTotal = () => {
+    return cart.reduce((total, item) => total + item.precio * (item.counter ? item.counter : 1), 0);
+  };
   const { cart, removeFromCart, addOneToCart, deleteFromCart } = useContext(CartContext)
   return (
     <>
@@ -54,11 +57,14 @@ export const Buys = () => {
                     <button className='increaseButtonbuy' onClick={() => addOneToCart(el.idProducto)}>+</button>
                   </div>
                   <button className='deleteButtonbuy' onClick={() => deleteFromCart(el.idProducto)}>Eliminar</button>
+
                 </div>
+                  
               )
             })
           }
         </div>
+        <strong>Total: ${calcularTotal()}</strong>
       </div>
     </>
   )

@@ -67,11 +67,11 @@ export const onSellerRegisterSubmit = async (e) => {
         }   
 
     } catch (error) {
-        Swal.fire({
-            icon: "error",
-            title: "El usuario no se pudo registrar",
-            text: "Intentalo de nuevo!",
-        });
+        // Swal.fire({
+        //     icon: "error",
+        //     title: "El usuario no se pudo registrar",
+        //     text: "Intentalo de nuevo!",
+        // });
 
     }
 }
@@ -126,11 +126,11 @@ export const onClientRegisterSubmit = async (e) => {
             throw new Error('Network response was not ok.');
         }
     } catch (error) {
-        Swal.fire({
-            icon: "error",
-            title: "El usuario no se pudo registrar correctamente",
-            text: "Intentalo de nuevo!"
-        });
+        // Swal.fire({
+        //     icon: "error",
+        //     title: "El usuario no se pudo registrar correctamente",
+        //     text: "Intentalo de nuevo!"
+        // });
     }
 }
 

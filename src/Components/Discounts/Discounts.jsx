@@ -21,6 +21,11 @@ export default function Discounts() {
           <p>siente el sabor de lo autentico con nuestros descuentos en el mercado campesino</p>
         </div>
       </div>
+              
+      <div className='hojas'>
+          <img className='hojasIzquierdabig' src="/images/hojasizqDesc.png" alt="" width={250} height={350} />
+          <img className='hojasDerechabig' src="/images/hojasderDescbig.png" alt="" width={130} height={315} />
+        </div>
 
       <div className='slides1'>
         <div className='slides'>
@@ -49,14 +54,13 @@ export default function Discounts() {
           <DiscountedProducts searchTerm={searchTerm} />
         </div>
         
-        <div className='hojas'>
+      </div>
+
+      <div className='hojas'>
           <img className='hojasIzquierdabig' src="/images/hojasizqDesc.png" alt="" width={250} height={350} />
           <img className='hojasDerechabig' src="/images/hojasderDescbig.png" alt="" width={130} height={315} />
         </div>
-      </div>
-
       <div className='discountsa'>
-
         <div className='cont_discountsa'>
           <DiscountedProducts searchTerm={searchTerm} />
         </div>

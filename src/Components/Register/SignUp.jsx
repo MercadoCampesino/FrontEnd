@@ -4,12 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import { Input } from '../Input/Input';
 import { Select } from '../Select/Select';
 import { onSellerRegisterSubmit, onClientRegisterSubmit } from "../../utils/submits";
+
 import emailjs from 'emailjs-com';
 import { uploadFile } from "../FireBase/config";
-
 import { useDispatch } from 'react-redux';
 import {setUserData} from '../../utils/registerSlice'
-
 
 
 export const SignUp = () => {
@@ -23,15 +22,15 @@ export const SignUp = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const serviceId = "service_x94tdtc";
-        const templateId = "template_eutc2wi";
-        const apikey = "wCWtMpED59hJ9hMZi";
-
+        const serviceId = "service_z7bkolg";
+        const templateId = "template_3s3cvmq";
+        const apikey = "faZkZaBlxn8YZxTcN";
+    
         try {
-            const result = await emailjs.sendForm(serviceId, templateId, refForm.current, apikey);
-            console.log(result.text);
+          const result = await emailjs.sendForm(serviceId, templateId, refForm.current, apikey);
+          console.log(result.text);
         } catch (error) {
-            console.error(error);
+          console.error(error);
         }
 
         const selectedRole = isClient ? "cliente" : "vendedor";
@@ -43,23 +42,23 @@ export const SignUp = () => {
         }
     };
 
-    const sendConfirmationEmail = (email) => {
-        const serviceId = "service_x94tdtc";
-        const templateId = "template_eutc2wi";
-        const apikey = "wCWtMpED59hJ9hMZi";
+    // const sendConfirmationEmail = (email) => {
+    //     const serviceId = "service_z7bkolg";
+    //     const templateId = "template_3s3cvmq";
+    //     const apikey = "YBzopxJUvovQi42vM-MnT";
 
-        const templateParams = {
-            to_email: email,
-        };
+    //     const templateParams = {
+    //         to_email: email,
+    //     };
 
-        emailjs.send(serviceId, templateId, templateParams, apikey)
-            .then((response) => {
-                console.log('Email sent successfully:', response);
-            })
-            .catch((error) => {
-                console.error('Email sending failed:', error);
-            });
-    };
+    //     emailjs.send(serviceId, templateId, templateParams, apikey)
+    //         .then((response) => {
+    //             console.log('Email sent successfully:', response);
+    //         })
+    //         .catch((error) => {
+    //             console.error('Email sending failed:', error);
+    //         });
+    // };
 
     const handleSudmiturl = async (e) => {
         e.preventDefault();
