@@ -73,8 +73,6 @@
     font-size: 70px;
 }
 
-
-
 .Send-comment input {
     padding: 9px;
     margin-top: 20px;
@@ -184,7 +182,7 @@ dialog {
 .hojasDerechaprofile{
     position: absolute;
     z-index: -10;
-    left: 280px;
+    left: 250px;
     margin-top: 45px;
 }
 
