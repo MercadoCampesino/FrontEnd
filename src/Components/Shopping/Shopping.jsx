@@ -73,6 +73,7 @@ export const Shopping = () => {
                   </div>
                 </div>
               </section>
+              
 
               <div className='remove_increase_button'>
                 <button className='removeButton' onClick={() => removeFromCart(item.idProducto)}>-</button>

@@ -171,7 +171,6 @@
     display: flex;
     width: 180px;
     align-items: center;
-    /* transition: background-color 0.3s ease; */
 }
 
 .subir_img:hover {

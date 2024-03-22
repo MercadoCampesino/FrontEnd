@@ -144,20 +144,28 @@ header {
 }
 @media only screen and (max-width: 1024px) {
 
+    .img_header {
+        width: 130px;
+    }
+
     header {
         justify-content: space-between;
-        padding-left: 35px;
+        padding-left: 40px;
     }
 }
 
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px) {
 
     .img_header {
-        width: 90px;
+        width: 140px;
     }
-}
+} */
 
 @media only screen and (max-width: 715px) {
+
+    header {
+        padding-right: 40px;
+    }
 
     .logo {
         margin-left: 10px;
@@ -174,7 +182,6 @@ header {
     }
 
     .title h1 {
-        /* width: 230px; */
         margin-bottom: 12px;
         font-size: 18px;
     }
@@ -227,6 +234,10 @@ header {
 
 
 @media only screen and (max-width: 426px) {
+
+    header {
+        padding-right: 10px;
+    }
 
     .auth_links{
         font-size: 14px;
