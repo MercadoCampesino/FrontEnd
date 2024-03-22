@@ -150,7 +150,7 @@ export const SignUp = () => {
     
                                 <div className='buttonreg'>
                                     <p>¿Ya esta registrado? <a href="/login">Iniciar sesión</a></p>
-                                    <input type="submit" value="Registrarse" className='submit' />
+                                    <input href="/" type="submit" value="Registrarse" className='submit' />
                              </div>
                             </form>
                         ) : (
@@ -168,7 +168,7 @@ export const SignUp = () => {
                                         <input type="file" name="profile-img" id="" />
                                     </section>
                                 </section>
-                                <button type="submit" className='submit'> Registrarse</button>
+                                <button href="/profile" type="submit" className='submit'> Registrarse</button>
                             </form>
     
                         )}
