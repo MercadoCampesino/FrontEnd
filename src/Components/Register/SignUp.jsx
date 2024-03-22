@@ -128,11 +128,13 @@ export const SignUp = () => {
                                 handleSubmit(e);
                                 handleSudmiturl(e);
                             }} >
+                                        <label className='subir_img'>
+                                            Subir imagen
+                                            <img src="/images/add-photo.png" alt="" />
+                                            <input type="file" name="profile-img" id=""/>
+                                        </label>
                                 <section className='form-sections'>
                                     <section className='form-section'>
-                                        <label> Subir imagen:
-                                            <input type="file" name="profile-img" id="" />
-                                        </label>
                                         <Input label="Nombre" type='text' name='name' placeholder='Ingresa tu nombre' required />
                                         <Input label="Apellidos" type='text' name='lastName' placeholder='Ingresa tus apellidos' required />
                                         <Input label="Fecha de nacimiento" type='date' name='born' placeholder='Ingresa tu fecha de nacimiento' required />
@@ -166,7 +168,10 @@ export const SignUp = () => {
                                     <section className="form-section">
                                         <Input label="Contraseña" type='password' name='password' placeholder='Ingrese su contraseña' />
                                         <Input label="Confirmar contraseña" type='password' name='confirmPassword' placeholder='Confirme su contraseña' />
-                                        <input type="file" name="profile-img" id="" />
+                                        <label className='subir_img img_market'> subir imagen
+                                        <img src="/images/add-photo.png" alt="" />
+                                            <input type="file" name="profile-img" id="" />
+                                        </label>
                                     </section>
                                 </section>
                                 <button type="submit" className='submit'> Registrarse</button>
