@@ -118,6 +118,8 @@ header {
 }
 
 .auth_links{
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
@@ -215,7 +217,20 @@ header {
     }
 }
 
+
+@media only screen and (max-width: 510px) {
+
+    .auth_links{
+        font-size: 16px;
+    }}
+
+
+
 @media only screen and (max-width: 426px) {
+
+    .auth_links{
+        font-size: 14px;
+    }
 
     .logo {
         margin-left: 10px;

@@ -86,7 +86,7 @@ export const onClientRegisterSubmit = async (e) => {
         const data = {
             IDCliente: Math.floor(Math.random() * 1000000000) + 1,
             nombre: form.get('name'),
-            apellido: form.get('lastName'),
+            apellido: form.get('lastName'), 
             fechaNacimiento: form.get('born'),
             telefono: form.get('phone'),
             correo: form.get('email'),

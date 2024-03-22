@@ -86,7 +86,7 @@ export default function Login() {
                                     </label>
 
                                     <div className='start_olvidarContra'>
-                                        <a className="link_olvidarContra" href="">¿Olvide mi contraseña? </a>
+                                        {/* <a className="link_olvidarContra" href="">¿Olvide mi contraseña? </a> */}
                                         <p className="link_registro">¿No te has registrado? <a className="a_registro" href="/register"> Registrarse</a></p>
                                     </div>
                                     <div className="loguear">
