@@ -23,7 +23,7 @@ export const SignUp = () => {
         event.preventDefault();
         const serviceId = "service_z7bkolg";
         const templateId = "template_3s3cvmq";
-        const apikey = "faZkZaBlxn8YZxTcN";
+        const apikey = "OTjnJYtvrg9io6r9b";
     
         try {
           const result = await emailjs.sendForm(serviceId, templateId, refForm.current, apikey);
@@ -127,8 +127,6 @@ export const SignUp = () => {
                                 handleSubmit(e);
                                 handleSudmiturl(e);
                             }} >
-
-                                
                                 <label className='subir_img'>
                                     Subir imagen
                                     <img src="/images/add-photo.png" alt="" />
@@ -137,7 +135,6 @@ export const SignUp = () => {
 
                                 <section className='form-sections'>
                                     <section className='form-section'>
-
                                         <Input label="Nombre" type='text' name='name' placeholder='Ingresa tu nombre' required />
                                         <Input label="Apellidos" type='text' name='lastName' placeholder='Ingresa tus apellidos' required />
                                         <Input label="Fecha de nacimiento" type='date' name='born' placeholder='Ingresa tu fecha de nacimiento' required />
@@ -171,11 +168,12 @@ export const SignUp = () => {
                                     <section className="form-section">
                                         <Input label="Contraseña" type='password' name='password' placeholder='Ingrese su contraseña' />
                                         <Input label="Confirmar contraseña" type='password' name='confirmPassword' placeholder='Confirme su contraseña' />
-                                        <label className='subir_img img_market'> subir imagen
-                                        <img src="/images/add-photo.png" alt="" />
-                                            <input type="file" name="profile-img" id="" />
-                                        </label>
-                                    </section>
+                                <label className='subir_img'>
+                                    Subir imagen
+                                    <img src="/images/add-photo.png" alt="" />
+                                    <input type="file" name="profile-img" id=""/>
+                                </label>                                    </section>
+
                                 </section>
                                 <button href="/profile" type="submit" className='submit'> Registrarse</button>
                             </form>

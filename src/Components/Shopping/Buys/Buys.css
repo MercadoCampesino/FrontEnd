@@ -12,6 +12,10 @@
     color: #ffffff;
 }
 
+.mercadopago{
+    margin: 0 30% 0 30%;
+}
+
 .title_headerbuy {
     display: flex;
     align-items: center;

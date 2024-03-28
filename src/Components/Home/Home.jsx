@@ -77,6 +77,7 @@ export default function Home() {
                                     style={{ minWidth: '400px', width: '30%', minHeight: '500px' }}
                                     title="ChatBot"
                                 ></iframe>
+                                
                             )}
                             <img
                                 className='img_chatBot'
@@ -88,9 +89,9 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <button className='see_more_products' >
+                    {/* <button className='see_more_products' >
                         <a className='see_more_a' href="/products">Ver más...</a>
-                    </button>
+                    </button> */}
                 </div>
 
                 <img className='hojasIzquierdabig' src="/images/hojasizqDesc.png" alt="" width={250} height={350} />
