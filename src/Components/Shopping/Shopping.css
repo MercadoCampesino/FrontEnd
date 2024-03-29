@@ -150,15 +150,39 @@
     }
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 426px) {
     .carrito {
-        right: 12px;
+        right: 10px;
         width: 400px;
+    }
+
+    .item {
+        justify-content: center;
+    }
+
+    .deleteButton {
+        position:relative;
+        left: 115px;
+        bottom: 100px;
     }
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 376px) {
     .carrito {
-        right: 50px;
+        right: 5px;
+        width: 365px;
     }
+}
+
+@media only screen and (max-width: 321px) {
+    .carrito {
+        right: 1px;
+        width: 320px;
+    }
+
+    .deleteButton {
+        left: 90px;
+        bottom: 100px;
+    }
+
 }

@@ -38,18 +38,18 @@
    
 }
 
-@media only screen and (max-width: 768px) {
-    .navbar_img {
-        /* padding-right: 7px; */
-    }
-}
+
 @media only screen and (max-width: 768px) {
     .navbar {
         display: none;
         position: absolute;
-        top: 50px;
+        top: 54px;
+        border-top: #fff solid 1px;
         left: 0;
         background-color: #6B4522;
+        width: 140px;
+        padding-left: 17px;
+        align-items: start;
     }
 
     .navbar.show {
@@ -57,8 +57,12 @@
     }
 
     .navbar li {
-        margin: 10px 0;
-    }
+        text-align: left;
+        display: flex;
+        align-items: center;
+        justify-content: start;  
+        padding-bottom: 6px; 
+     }
 
     .menu-button {
         display: block;
@@ -71,4 +75,12 @@
         color: #fff;
         font-size: 20px;
     }
+}
+
+@media only screen and (max-width: 321px) {
+
+    .menu-button {
+        left: 4px;
+    }
+
 }
