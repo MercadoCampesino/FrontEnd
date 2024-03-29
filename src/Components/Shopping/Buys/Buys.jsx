@@ -107,8 +107,6 @@
 //     </>
 //   )
 // }
-
-
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { CartContext } from '../CartContext';
@@ -205,11 +203,9 @@ export const Buys = () => {
             <button className='compra' onClick={handleBuy}>Comprar</button>
             
           </div>
-          <div className='mercadopago'>
           {preferenceId && <Wallet key={preferenceId} initialization={{ preferenceId: preferenceId }} />}
-          </div>
         </div>
       </div>
-    </>
-  );
+    </>
+  );
 };
