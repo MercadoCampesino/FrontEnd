@@ -161,8 +161,9 @@
     }
 
     .deleteButton {
-        position:absolute;
-        right: 30px;
+        position:relative;
+        left: 115px;
+        bottom: 100px;
     }
 }
 
@@ -173,9 +174,15 @@
     }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 321px) {
     .carrito {
         right: 1px;
         width: 320px;
     }
+
+    .deleteButton {
+        left: 90px;
+        bottom: 100px;
+    }
+
 }

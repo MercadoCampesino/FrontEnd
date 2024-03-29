@@ -57,3 +57,28 @@
         overflow: hidden;
     }
 }
+
+@media only screen and (max-width: 320px) {
+
+    .cont-form-add-product {
+        padding: 10px;
+        /* gap: 3px; */
+    
+        & .input-base {
+            color: #6B4522;
+            width: 90%;
+    
+            & select {
+                width: 90%;
+                padding: 5px;
+                border-radius: 10px;
+                border: 1px solid #6B4522;
+                color: #6B4522;
+            }
+        }
+    
+        &:open {
+            display: flex;
+        };
+    }
+}

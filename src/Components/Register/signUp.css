@@ -206,21 +206,33 @@
     .image-register {
         display: none;
     }
+
+    .full-reg-content {
+        overflow: auto;
+    }
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 426px) {
+
+    .subir_img {
+        margin-left: 65px
+    }
+
     .form-sections {
         flex-wrap: wrap;
     }
 
     .full-reg-content {
         overflow: auto;
-        height: 1000px;
+        height: 960px;
+    }
+
+    .reg-header {
+        margin-top: 40px;
     }
 
     .reg-header img {
-        width: 50px;
-        margin-right: 20px;
+        width: 40px;
     }
 
     .header-text {
@@ -238,5 +250,19 @@
 
     .header-text p {
         font-size: 11px;
+    }
+}
+
+@media only screen and (max-width: 376px) {
+
+    .subir_img {
+        margin-left: 40px
+    }
+}
+
+@media only screen and (max-width: 321px) {
+
+    .subir_img {
+        margin-left: 13px
     }
 }

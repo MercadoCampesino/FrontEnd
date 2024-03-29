@@ -81,7 +81,7 @@ export const SignUp = () => {
                 <section className="form-reg">
 
                 <div className='reg-header'>
-                <a href="/">
+                <a className='logo_reg' href="/">
                     <img src="/images/logo_mercadoCampesino.png" alt="" width={35} height={65} />
                 </a>
                 <div className='title_header'>
