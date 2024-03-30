@@ -260,12 +260,8 @@ export const ProductCard = () => {
                             <div className="popover" onClick={(e) => e.stopPropagation()}>
                                 <h2>Editar Producto</h2>
                                 <form onSubmit={(e) => e.preventDefault()}>
-                                    <label htmlFor="nombre">Nombre:</label>
-                                    <input type="text" id="nombre" value={editedFields.nombre} onChange={(e) => handleEditChange('nombre', e.target.value)} />
                                     <label htmlFor="precio">Precio:</label>
                                     <input type="number" id="precio" value={editedFields.precio} onChange={(e) => handleEditChange('precio', e.target.value)} />
-                                    <label htmlFor="imagen">URL de la Imagen:</label>
-                                    <input type="text" id="imagen" value={editedFields.imagen} onChange={(e) => handleEditChange('imagen', e.target.value)} />
                                     <label htmlFor="cantidad">Cantidad:</label>
                                     <input type="number" id="cantidad" value={editedFields.cantidad} onChange={(e) => handleEditChange('cantidad', e.target.value)} />
                                     <button onClick={handleEditCancel}>Cancelar</button>
