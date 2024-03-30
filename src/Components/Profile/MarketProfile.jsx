@@ -1,11 +1,11 @@
 import React, { useRef, useState } from "react";
 import { ProductCard } from '../ProductCard/ProductCard';
 import Header from '../Header/Header';
-import Reviewcard from '../ReviewCard/Reviewcard';
 import './MarketProfile.css'
 import { Footer } from '../Footer/Footer';
 import AddProductForm from '../AddProductForm/AddProductForm';
 import { useSelector } from 'react-redux';
+import ReviewCard from "../ReviewCard/Reviewcard";
 
 export default function ProfileMarket() {
 
@@ -125,10 +125,11 @@ export default function ProfileMarket() {
                     </div>
                     <div>
                         {reviews.map((review) => (
-                            <Reviewcard key={review.author} review={review} />
+                            <ReviewCard key={review.author} review={review} />
                         ))}
 
                     </div>
+                    {/* <ReviewCard></ReviewCard> */}
                 </div>
 
                 <hr className='hr' />
