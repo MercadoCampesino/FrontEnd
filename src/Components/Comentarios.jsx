@@ -1,6 +1,24 @@
 import React, { useState } from "react";
+import Reviewcard from './ReviewCard/ReviewCard';
+
 
 export default function Comentarios({ comments, onAddComment }) {
+
+    const reviews = [
+        {
+            author: 'Jessica Gomez',
+            text: 'Excelentes productos, de muy buena calidad... Quedé encantada',
+        },
+        {
+            author: 'Sergio Lopez',
+            text: 'Muy buenos los productos para muy demorada la entrega',
+        },
+        {
+            author: 'Elvia Martinez',
+            text: 'Muy buenos precios y la calidad excelente',
+        },
+    ];
+
 
     const [commentText, setCommentText] = useState("");
 
@@ -20,9 +38,13 @@ export default function Comentarios({ comments, onAddComment }) {
         <>
             <div>
                 <p className='comments'>Comentarios: <span>{comments.length}</span></p>
+                {reviews.map((review) => (
+                    <Reviewcard key={review.author} review={review} />
+                ))}
                 {comments.map((comment, index) => (
                     <div key={index} className="comment">
-                        <p><strong>{comment.author}:</strong> {comment.text}</p>
+                        <p className="review-author"><strong>{comment.author} <br />
+                        </strong> {comment.text}</p>
                     </div>
                 ))}
                 <div className='Send-comment'>

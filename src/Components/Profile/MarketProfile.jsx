@@ -5,7 +5,7 @@ import './MarketProfile.css'
 import { Footer } from '../Footer/Footer';
 import AddProductForm from '../AddProductForm/AddProductForm';
 import { useSelector } from 'react-redux';
-// import ReviewCard from "../ReviewCard/Reviewcard";
+// import Reviewcard from '../ReviewCard/Reviewcard';
 
 export default function ProfileMarket() {
 
@@ -114,22 +114,31 @@ export default function ProfileMarket() {
                     <img className='hojasIzquierda' src="/images/hojasizqDesc.png" alt="" width={200} height={255} />
                     <img className='hojasDerecha' src="/images/hojasderDesc.png" alt="" width={140} height={240} />
                 </div>
-{/* 
+
                 <h2 className="tittlecalificaciones">Calificaciones de tu mercado</h2>
 
                 <div className="reviews-container">
+
                     <div className="calificacion">
                         <h2>4.5</h2>
                         <img src="/images/calificaciones.png" alt="" width={200} />
 
                     </div>
                     <div>
+                        <h2>Opiniones</h2>
+                        <p className='comments'>Comentarios: <span>24</span></p>
+
                         {reviews.map((review) => (
-                            <ReviewCard key={review.author} review={review} />
+                            <Reviewcard key={review.author} review={review} />
                         ))}
 
+                        {/* 
+                    <div  className='Send-comment'>
+                        <input type="text" placeholder='Escribe una reseña'/>
+                        <button>Ver mas...</button>
+                    </div> */}
                     </div>
-                </div> */}
+                </div>
 
                 <hr className='hr' />
 
