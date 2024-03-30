@@ -1,10 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Header from '../Header/Header';
 import './ClientProfile.css';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { AddToCartIcon } from '../Icon';
 import { Footer } from '../Footer/Footer';
+import { SERVER_URL } from '../../Constants';
 export default function ClientProfile() {
     const navigate = useNavigate()
 
@@ -16,7 +17,7 @@ export default function ClientProfile() {
 
     const [fotoPortada, setFotoPortada] = useState(null);
     const [fotoPerfil, setFotoPerfil] = useState(user?.imagen);
-    const [products, _] = useState(Array(8).fill({}));
+    const [products, setProducts] = useState(Array(8).fill({}));
     const [markets, __] = useState(Array(5).fill({}));
     /* ------------ handle image errors -------------- */
     const handleCoverImageError = () => {
@@ -27,6 +28,16 @@ export default function ClientProfile() {
         profileRef.current.src = '/images/Campesinoprofile.jpg';
     };
 
+
+    useEffect(() => {
+        async function getProducts() {
+            if (!user?.IDCliente == undefined) return;
+            const response = await fetch(`${SERVER_URL}/api/compra/ListarPorCliente?idCliente=${user?.IDCliente}`);
+            const data = await response.json();
+            setProducts(data.productos);
+        }
+        getProducts();
+    }, [user])
 
     const coverRef = useRef(null);
     const profileRef = useRef(null);
@@ -153,7 +164,7 @@ export default function ClientProfile() {
                                             <p className='name_market'>{market.name ?? "market name"}</p>
                                         </div>
                                     ))
-                                } 
+                                }
                             </section>
                         </details>
                     </section>
