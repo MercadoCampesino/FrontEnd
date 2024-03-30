@@ -14,7 +14,7 @@ export default function ClientProfile() {
         console.log(profile)
         if (profile) return profile; else navigate('/login')
     });
-
+    const favProducts = useSelector((state) => state.likes?.likes);
     const [fotoPortada, setFotoPortada] = useState(null);
     const [fotoPerfil, setFotoPerfil] = useState(user?.imagen);
     const [products, setProducts] = useState(Array(8).fill({}));
@@ -127,7 +127,7 @@ export default function ClientProfile() {
                             <section className="content">
 
                                 {
-                                    products.map((productItem, index) => (
+                                    favProducts.map((productItem, index) => (
                                         <figure key={index}>
                                             <div className='card_product'>
                                                 <img className='image_product' src={productItem.imagen} alt={productItem.nombre} />
