@@ -129,7 +129,6 @@ export default function ProfileMarket() {
                         ))}
 
                     </div>
-                    {/* <ReviewCard></ReviewCard> */}
                 </div>
 
                 <hr className='hr' />
