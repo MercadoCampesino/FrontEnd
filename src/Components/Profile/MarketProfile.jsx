@@ -1,36 +1,28 @@
 import React, { useRef, useState } from "react";
 import { ProductCard } from '../ProductCard/ProductCard';
-// import markets from '../.././assets/Markets/markets';
 import Header from '../Header/Header';
+import Reviewcard from '../ReviewCard/Reviewcard';
 import './MarketProfile.css'
 import { Footer } from '../Footer/Footer';
 import AddProductForm from '../AddProductForm/AddProductForm';
 import { useSelector } from 'react-redux';
-// import { useState } from 'react'
-// import { uploadFile } from './Firebase/config'
-
 
 export default function ProfileMarket() {
 
-    const [commentText, setCommentText] = useState(""); // Agrega un estado para almacenar el texto del comentario
-    const [comments, setComments] = useState([]);
-
-    const handleAddComment = (e) => {
-        e.preventDefault();
-        if (commentText.trim() !== "") {
-            const newComment = {
-                author: user.nombre,
-                text: commentText,
-            };
-            setComments([...comments, newComment]);
-            setCommentText(""); // Limpia el campo de texto del comentario después de agregar el comentario
-        }
-    };
-
-    const handleChange = (e) => {
-        setCommentText(e.target.value); // Actualiza el estado del texto del comentario cuando cambia el input
-    };
-    
+    const reviews = [
+        {
+            author: 'Jessica Gomez',
+            text: 'Excelentes productos, de muy buena calidad... Quedé encantada',
+        },
+        {
+            author: 'Sergio Lopez',
+            text: 'Muy buenos los productos para muy demorada la entrega',
+        },
+        {
+            author: 'Elvia Martinez',
+            text: 'Muy buenos precios y la calidad excelente',
+        },
+    ];
 
     const [file, setFile] = useState(null)
     let imageUrl;
@@ -60,7 +52,6 @@ export default function ProfileMarket() {
         }
     }
 
-
     const handlePerfilChange = (event) => {
         const file = event.target.files[0];
         const reader = new FileReader();
@@ -71,7 +62,6 @@ export default function ProfileMarket() {
 
         reader.readAsDataURL(file);
     };
-
 
     return (
         <>
@@ -90,7 +80,6 @@ export default function ProfileMarket() {
                     </section>
 
                     <div>
-
                         <div className="profile-info">
                             <span className='nameLastName'>{user ? user.nombre : "Ejemplo Nombre"} {user ? user.apellido : "Ejemplo apellido"}</span>
                             <span>{user ? user.direccion : "Ejemplo ciudad"}</span>
@@ -101,9 +90,7 @@ export default function ProfileMarket() {
 
                 <div className='description-market'>
                     <p>Aqui exhibimos y vendemos una amplia variedad de productos frescos y cultivados localmente, como frutas y verduras de temporada, hierbas aromáticas, hortalizas, huevos, miel, lácteos y carnes de granja. Estos alimentos son cuidadosamente cultivados y cosechados con métodos sostenibles</p>
-
                 </div>
-
 
                 <div className='hojas'>
                     <img className='hojasIzquierda' src="/images/hojasizqDesc.png" alt="" width={200} height={255} />
@@ -112,12 +99,6 @@ export default function ProfileMarket() {
 
                 <div className="products-container">
                     <div className="add_product">
-                        {/* cristian añada la el clasName de button */}
-                        {/* <button className="addProduct-button" onClick={() => { dialogRef.current.showModal() }}>+</button>
-
-                        <dialog ref={dialogRef}>
-                            <AddProductForm callback={() => { dialogRef.current.close() }} onSubmit={handleCreateProduct} />
-                        </dialog> */}
 
                         <button className="addProduct-button" onClick={() => { dialogRef.current.showModal() }}>+</button>
 
@@ -143,22 +124,11 @@ export default function ProfileMarket() {
 
                     </div>
                     <div>
-                        <p className='comments'>Comentarios: <span>{comments.length}</span></p>
-                        {comments.map((comment, index) => (
-                            <div key={index} className="comment">
-                                <p><strong>{comment.author}:</strong> {comment.text}</p>
-                            </div>
+                        {reviews.map((review) => (
+                            <Reviewcard key={review.author} review={review} />
                         ))}
-                        {/* <div className='Send-comment'>
-                            <input 
-                                type="text" 
-                                placeholder='Escribe una reseña' 
-                                value={commentText} 
-                                onChange={handleChange} // Maneja el cambio en el input
-                                onKeyDown={(e) => e.key === 'Enter' ? handleAddComment(e) : null} 
-                            />
-                        </div> */}
-                    </div>  
+
+                    </div>
                 </div>
 
                 <hr className='hr' />
