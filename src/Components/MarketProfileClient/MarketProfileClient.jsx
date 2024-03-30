@@ -3,6 +3,7 @@ import { Footer } from '../Footer/Footer';
 import Header from '../Header/Header';
 import { ProductCard } from '../ProductCard/ProductCard';
 import Comentarios from '../Comentarios';
+// import Reviewcard from '../ReviewCard/Reviewcard';
 
 export const MarketProfileClient = () => {
     const [comments, setComments] = useState([]);
@@ -47,18 +48,23 @@ export const MarketProfileClient = () => {
                     <img className='hojasIzquierda' src="/images/hojasizqDesc.png" alt="" width={200} height={255} />
                     <img className='hojasDerecha' src="/images/hojasderDesc.png" alt="" width={140} height={240} />
                 </div>
-                <h2 className="tittlecalificaciones">Calificaciones y opiniones</h2>
+                <h2 className="tittlecalificaciones">Calificaciones del mercado</h2>
+
+                <h2 className="tittlecalificaciones">Opiniones</h2>
                 <div className="reviews-container">
                     <div className="calificacion">
                         <h2>4.5</h2>
                         <img src="/images/calificaciones.png" alt="" width={200} />
                     </div>
-                    <Comentarios 
-                        comments={comments} 
-                        onAddComment={handleAddComment} 
-                    />  
+                    <div>
+                        <Comentarios
+                            comments={comments}
+                            onAddComment={handleAddComment}
+                        />
+                    </div>
+
                 </div>
-                
+
                 <hr className='hr' />
             </div>
             <Footer />
@@ -160,7 +166,7 @@ export const MarketProfileClient = () => {
 //                         <div className='Send-comment'>
 //                             <input type="text" placeholder='Escribe una reseña' onKeyPress={(e) => e.key === 'Enter' ? handleAddComment(e) : null} />
 //                         </div>
-//                     </div>  
+//                     </div>
 //                 </div>
 
 

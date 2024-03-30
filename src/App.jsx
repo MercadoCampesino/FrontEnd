@@ -13,6 +13,7 @@ import ClientProfile from './Components/ClientProfile/ClientProfile'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { login } from './store/slices/user'
+import { setLikes } from "./store/slices/likes"
 import { readToken } from './utils/readToken'
 import { MarketProfileClient } from './Components/MarketProfileClient/MarketProfileClient'
 import { CartProvider } from '../src/Components/Shopping/CartContext';
@@ -20,7 +21,7 @@ import { Buys } from './Components/Shopping/Buys/Buys'
 
 function App() {
   const dispatch = useDispatch()
-  const isSeller = useSelector((state) => state.user?.user?.idTienda !== undefined)
+  const user = useSelector((state) => state.user?.user)
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
@@ -28,6 +29,21 @@ function App() {
       dispatch(login(user))
     }
   }, [])
+
+  useEffect(() => {
+    
+    async function getLikes() {
+      if (user?.IDCliente == undefined) return
+      console.log(user.IDCliente)
+      const response = await fetch(`https://mercadocampesino.azurewebsites.net/Favoritos/ListarFavoritosPorPersona?FK_IDCliente1=${user.IDCliente}`)
+      const data = await response.json()
+      console.log(data)
+      dispatch(setLikes(data.response))
+    }
+
+    getLikes()
+
+  }, [user])
 
   return (
     <>
@@ -40,7 +56,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='*' element={<NotFound />} />
           <Route path='/register' element={<SignUp />} />
-          <Route path='/profile' element={isSeller ? <Profile /> : <ClientProfile />} />
+          <Route path='/profile' element={user?.idTienda != undefined ? <Profile /> : <ClientProfile />} />
           {/* <Route path="/market/:id" element={MarketProfile} /> */}
           {/* <Route path="/market/:id" element={<Market />} /> Ruta para mostrar detalles del mercado */}
           <Route path="/market" element={<MarketProfileClient />} />
