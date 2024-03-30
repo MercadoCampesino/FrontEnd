@@ -2,14 +2,38 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Importa useNavigate de React Router
 import markets from '../.././assets/Markets/markets';
 import './Market.css';
+import { useSelector } from 'react-redux';
+
 
 export default function Market() {
+  
+    const navigates = useNavigate()
+    
+    const user = useSelector((state) => {
+        const profile = state.user?.user
+        console.log(profile)
+        if (profile) return profile; else navigates('/login')
+    });
+
   const [selectedMarket, setSelectedMarket] = useState(null);
   const navigate = useNavigate(); // Obtiene la instancia de navigate de React Router
+  const [fotoPerfil, setFotoPerfil] = useState(user?.imagen);
 
   const handleClick = (market) => {
     setSelectedMarket(market);
     navigate(`/market`); // Usa navigate para navegar a la página del mercado
+  };
+
+
+  const handlePerfilChange = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      setFotoPerfil(e.target.result);
+    };
+
+    reader.readAsDataURL(file);
   };
 
   return (
@@ -24,6 +48,7 @@ export default function Market() {
         markets.map((market) => (
           <div className='card_market' key={market.id} onClick={() => handleClick(market)}>
             <img className='image_market' src={market.image} alt="#" />
+            {/* <img  className="perfil-img" src={fotoPerfil ?? "x"} alt="Foto de perfil" /> */}
             <p className='name_market'>{market.name}</p>
           </div>
         ))

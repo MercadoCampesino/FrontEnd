@@ -180,7 +180,6 @@ summary {
     justify-content: center;
     align-items: center;
     gap: 10px;
-
 } 
 
 .image_market {
@@ -193,4 +192,11 @@ summary {
 .name_market {
     font-weight: 500;
     margin: 0;
+}
+
+@media screen and (max-width: 425px) {
+    summary{
+        width: 15rem;
+        font-size: 0.8rem;
+    }
 }

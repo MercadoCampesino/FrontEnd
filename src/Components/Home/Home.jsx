@@ -1,5 +1,5 @@
 import Header from '../Header/Header'
-import {ProductCard} from '../ProductCard/ProductCard'
+import { ProductCard } from '../ProductCard/ProductCard'
 import DiscountedProducts from '../ProductCard/DiscountedProducts'
 import { Footer } from '../Footer/Footer'
 import './Home.css'
@@ -13,9 +13,6 @@ export default function Home() {
     const toggleChatbot = () => {
         setChatbotOpen(!chatbotOpen);
     };
-    // const url_imgChatBot = 'https://i.pinimg.com/564x/f8/33/15/f83315a9855a4c0d41269f3980b2404b.jpg'
-
-
 
     return (
         <>
@@ -41,17 +38,15 @@ export default function Home() {
                     <img className='hojasIzquierda' src="/images/hojasizqDesc.png" alt="" width={200} height={255} />
                     <img className='hojasDerecha' src="/images/hojasderDesc.png" alt="" width={140} height={240} />
                 </div>
-                <div className='center_productsDiscount producColor'>
+                <div className='center_productsDiscount '>
                     <h2>Descuentos frescos en el Mercado Campesino</h2>
-                    <p className='featured_phrase_home'>Encuentra los mercados mas destacados, con productos de calidad</p>
-
+                    <h3 className='featured_phrase_home'>Encuentra los mercados mas destacados, con productos de calidad</h3>
 
                     <div className='discount_color'>
                         <div className='products_discount'>
                             <DiscountedProducts showAll={false} />
                         </div>
                     </div>
-
 
                     <button className='see_more_discount'>
                         <a className='see_more_discount_a' href="/discounts">Ver más...</a>
@@ -82,24 +77,25 @@ export default function Home() {
                                     style={{ minWidth: '400px', width: '30%', minHeight: '500px' }}
                                     title="ChatBot"
                                 ></iframe>
-                            )}  
+                                
+                            )}
                             <img
                                 className='img_chatBot'
                                 src="/images/bot.png"
                                 alt="Icono de chatbot"
-                                style={{ width: '65px', height: '65px', cursor: 'pointer'}}
+                                style={{ width: '65px', height: '65px', cursor: 'pointer' }}
                                 onClick={toggleChatbot}
                             />
                         </div>
                     </div>
 
-                    <button className='see_more_products' >
+                    {/* <button className='see_more_products' >
                         <a className='see_more_a' href="/products">Ver más...</a>
-                    </button>
+                    </button> */}
                 </div>
 
                 <img className='hojasIzquierdabig' src="/images/hojasizqDesc.png" alt="" width={250} height={350} />
-                        <img className='hojasDerechabig' src="/images/hojasderDescbig.png" alt="" width={130} height={315} />
+                <img className='hojasDerechabig' src="/images/hojasderDescbig.png" alt="" width={130} height={315} />
 
 
                 <div className='Cont_markets'>
@@ -116,8 +112,6 @@ export default function Home() {
                 </div>
             </div>
             <Footer />
-
-            
         </>
     )
 }

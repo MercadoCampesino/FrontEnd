@@ -5,6 +5,7 @@ import { SERVER_URL } from '../../Constants';
 import { store } from '../../store';
 import { login } from '../../store/slices/user';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 export default function Login() {
 
@@ -33,9 +34,21 @@ export default function Login() {
             const decoded = readToken(responseData.token);
             console.log(decoded);
             store.dispatch(login(decoded));
-            navigate('/');
+            if (!decoded.apellido) {
+                navigate('/profile');
+            } else {
+                navigate('/');
+            }
         } catch (error) {
-            alert("Usuario no encontrado");
+            Swal.fire({
+                icon: "info",
+                position: "top-end",
+                title: "Usuario no encontrado",
+                timer: 1600,
+                width: 250,
+                height: 30
+
+            })
             console.error('Error:', error);
         }
     };
@@ -53,12 +66,20 @@ export default function Login() {
 
                     {/* cristian, cambie todo el bloque de header */}
                     <header className='reg-header'>
-                        <img src="/images/logo_mercadoCampesino.png" alt="" width={40} height={70} />
 
-                        <section className='header-text'>
-                            <h1>MERCADO CAMPESINO</h1>
-                            <p>LA MEJOR CALIDAD</p>
-                        </section>
+                        <div className='reg-header'>
+                            <a href="/">
+                                <img src="/images/logo_mercadoCampesino.png" alt="" width={35} height={65} />
+                            </a>
+                            <div className='title_header'>
+                                <div className='title'>
+                                    <a className='a_title' href="/">
+                                        <h1>MERCADO CAMPESINO</h1>
+                                        <p>LA MEJOR CALIDAD</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </header>
 
                     <section className='form_login'>
@@ -77,7 +98,7 @@ export default function Login() {
                                     </label>
 
                                     <div className='start_olvidarContra'>
-                                        <a className="link_olvidarContra" href="">¿Olvide mi contraseña? </a>
+                                        {/* <a className="link_olvidarContra" href="">¿Olvide mi contraseña? </a> */}
                                         <p className="link_registro">¿No te has registrado? <a className="a_registro" href="/register"> Registrarse</a></p>
                                     </div>
                                     <div className="loguear">

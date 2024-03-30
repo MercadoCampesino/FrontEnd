@@ -46,7 +46,6 @@ header {
 .img_header {
     display: flex;
     justify-content: space-evenly;
-    width: 200px;
 }
 
 .img_header button{
@@ -81,12 +80,12 @@ header {
     z-index: 9999;
     position: fixed;
     top: 0;
-    width: 150px;
+    width: 190px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 5px;
 }
 
 .popover a, 
@@ -97,10 +96,16 @@ header {
     border: none;
     font-size: 16px;
     cursor: pointer;
+    padding: 5px 0px;
+    border-radius: 10px;
 
-    &:hover 
-    {
-        color: #A1BB23;
+    &:hover {
+        color: white;
+        background-color: #6B4522;
+        width: 90%;
+        align-items: center;
+        justify-content: center;
+        display: flex;
     }
 }
 
@@ -108,24 +113,49 @@ header {
     fill: white;
 }
 
+.auth_links{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth_links a{
+    color:#ffffff;
+    text-decoration: none;
+    padding: 4px 6px;
+    border-radius: 10px;
+}
+
+.auth_links a:hover{
+    color:#6B4522;
+    background-color: #F4F2DC;
+}
+
+.registerauth{
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
 @media only screen and (max-width: 1024px) {
+
+    .img_header {
+        width: 130px;
+    }
 
     header {
         justify-content: space-between;
-        padding-left: 35px;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-
-    .img_header {
-        width: 90px;
+        padding-left: 40px;
     }
 }
 
 @media only screen and (max-width: 715px) {
 
-    .logo {
+    header {
+        padding-right: 40px;
+    }
+
+    .title_merCampesino img {
         margin-left: 10px;
         width: 35px;
         height: 55px;
@@ -140,7 +170,6 @@ header {
     }
 
     .title h1 {
-        /* width: 230px; */
         margin-bottom: 12px;
         font-size: 18px;
     }
@@ -150,16 +179,16 @@ header {
     }
 }
 
-@media only screen and (max-width: 715px) {
+@media only screen and (max-width: 719px) {
 
-    .logo {
+    .title_merCampesino img {
         margin-left: 10px;
         width: 25px;
         height: 45px;
     }
 
     .img_header {
-        width: 60px;
+        width: 90px;
         margin-right: 0px;
         padding: 06;
     }
@@ -183,9 +212,29 @@ header {
     }
 }
 
+@media only screen and (max-width: 510px) {
+
+    .auth_links{
+        font-size: 16px;
+    }}
+
+
+
 @media only screen and (max-width: 426px) {
 
-    .logo {
+    header {
+        padding-right: 10px;
+    }
+
+    .auth_links{
+        font-size: 14px;
+    }
+
+    .auth_links a{
+        padding: 0;
+    }
+
+    .title_merCampesino img {
         margin-left: 10px;
         width: 25px;
         height: 45px;
@@ -212,5 +261,33 @@ header {
 
     .title p {
         font-size: 10px;
+    }
+}
+
+@media only screen and (max-width: 321px) {
+
+    header {
+        padding-right: 0px;
+        padding-left: 28px;
+    }
+
+    .auth_links{
+        font-size: 14px;
+    }
+
+    .title_merCampesino img {
+        margin-left: 0px;
+        width: 24px;
+        height: 44px;
+    }
+
+    .title {
+        margin-left: 3px;
+    }
+
+    .title h1 {
+        width: 210px;
+        margin-bottom: 14px;
+        font-size: 14px;
     }
 }

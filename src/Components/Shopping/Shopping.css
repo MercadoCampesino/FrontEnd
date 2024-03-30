@@ -7,7 +7,6 @@
     right: 170px;
     border-radius: 30px;
     padding: 20px;
-    /* background-color: antiquewhite; */
     text-align: center;
     font-family: Arial, sans-serif;
     line-height: 1.5;
@@ -27,31 +26,56 @@
     width: 85px;
 }
 
-.carrito .removeButton, 
+.carrito h2{
+    font-size: 18px;
+    color: #6B4522;
+}
+
+
+
+.carrito .removeButton,
 .carrito .increaseButton {
     padding: 5px 10px;
     border-radius: 5px;
     border: none;
     background-color: #6B4522;
     color: #ffffff;
-    margin-bottom: 10px;
+    margin-left: 5px; 
+
+    &:hover {
+        background-color: #72583f;
+    }
 }
 
-.carrito button {
-    padding: 9px 15px;
-    border-radius: 5px;
-    border: none;
-    background-color: #6B4522;
-    color: #ffffff;
-    margin-bottom: 10px;
+.carrito .deleteButton {
+    color: rgb(226, 29, 29);
+    background-color: #6b452200;
+    display: flex;
+    align-items: center;
+    font-weight:600;
+    font-size: 20px;
+}
+
+.carrito .deleteButton:hover {
+    transform: translateY(-2px);
+}
+
+.deleteButton {
+    position: relative;
+    right: 0;
 }
 
 .carrito strong {
-    font-size: 30px;
+    font-size: 20px;
     color: #6B4522;
+    margin-right: 20px;
 }
 
-.item{
+.compra{
+    font-size: 13px;
+}
+
+.item {
     display: flex;
     justify-content: left;
     align-items: center;
@@ -82,7 +106,7 @@
 
 .cont-info-product hr {
     border: #6B4522 solid 1px;
-    width: 200px;
+    width: 150px;
     margin: 0;
 }
 
@@ -102,6 +126,19 @@
     justify-content: space-between;
 }
 
+.compra {
+    padding: 10px 15px;
+    color: #ffffff;
+    border-radius: 10px;
+    background-color: #6B4522;
+    text-decoration: none;
+
+    &:hover {
+        background-color: #6f5339;
+        transform: translateY(-2px);
+    }
+}
+
 .info-cant {
     font-size: 13px;
     padding-right: 10px;
@@ -113,15 +150,39 @@
     }
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 426px) {
     .carrito {
-        right: 12px;
+        right: 10px;
         width: 400px;
+    }
+
+    .item {
+        justify-content: center;
+    }
+
+    .deleteButton {
+        position:relative;
+        left: 115px;
+        bottom: 100px;
     }
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 376px) {
     .carrito {
-        right: 50px;
+        right: 5px;
+        width: 365px;
     }
+}
+
+@media only screen and (max-width: 321px) {
+    .carrito {
+        right: 1px;
+        width: 320px;
+    }
+
+    .deleteButton {
+        left: 90px;
+        bottom: 100px;
+    }
+
 }
