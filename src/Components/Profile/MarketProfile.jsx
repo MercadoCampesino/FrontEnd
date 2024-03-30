@@ -5,7 +5,7 @@ import './MarketProfile.css'
 import { Footer } from '../Footer/Footer';
 import AddProductForm from '../AddProductForm/AddProductForm';
 import { useSelector } from 'react-redux';
-import ReviewCard from "../ReviewCard/Reviewcard";
+// import ReviewCard from "../ReviewCard/Reviewcard";
 
 export default function ProfileMarket() {
 
@@ -114,7 +114,7 @@ export default function ProfileMarket() {
                     <img className='hojasIzquierda' src="/images/hojasizqDesc.png" alt="" width={200} height={255} />
                     <img className='hojasDerecha' src="/images/hojasderDesc.png" alt="" width={140} height={240} />
                 </div>
-
+{/* 
                 <h2 className="tittlecalificaciones">Calificaciones de tu mercado</h2>
 
                 <div className="reviews-container">
@@ -129,7 +129,7 @@ export default function ProfileMarket() {
                         ))}
 
                     </div>
-                </div>
+                </div> */}
 
                 <hr className='hr' />
 
