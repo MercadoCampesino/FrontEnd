@@ -1,14 +1,11 @@
 import React, { useRef, useState } from "react";
 import { ProductCard } from '../ProductCard/ProductCard';
 import Header from '../Header/Header';
-import Reviewcard from '../ReviewCard/Reviewcard';
 import './MarketProfile.css'
 import { Footer } from '../Footer/Footer';
 import AddProductForm from '../AddProductForm/AddProductForm';
 import { useSelector } from 'react-redux';
-// import { useState } from 'react'
-// import { uploadFile } from './Firebase/config'
-
+import ReviewCard from "../ReviewCard/Reviewcard";
 
 export default function ProfileMarket() {
 
@@ -127,22 +124,12 @@ export default function ProfileMarket() {
 
                     </div>
                     <div>
-                        <p className='comments'>Comentarios: <span>{comments.length}</span></p>
-                        {comments.map((comment, index) => (
-                            <div key={index} className="comment">
-                                <p><strong>{comment.author}:</strong> {comment.text}</p>
-                            </div>
+                        {reviews.map((review) => (
+                            <ReviewCard key={review.author} review={review} />
                         ))}
-                        {/* <div className='Send-comment'>
-                            <input 
-                                type="text" 
-                                placeholder='Escribe una reseña' 
-                                value={commentText} 
-                                onChange={handleChange} // Maneja el cambio en el input
-                                onKeyDown={(e) => e.key === 'Enter' ? handleAddComment(e) : null} 
-                            />
-                        </div> */}
-                    </div>  
+
+                    </div>
+                    {/* <ReviewCard></ReviewCard> */}
                 </div>
 
                 <hr className='hr' />
