@@ -5,7 +5,7 @@ import './MarketProfile.css'
 import { Footer } from '../Footer/Footer';
 import AddProductForm from '../AddProductForm/AddProductForm';
 import { useSelector } from 'react-redux';
-// import Reviewcard from '../ReviewCard/Reviewcard';
+import VistaComentarios from '../VistaComentarios/VistaComentarios'
 
 export default function ProfileMarket() {
 
@@ -129,7 +129,7 @@ export default function ProfileMarket() {
                         <p className='comments'>Comentarios: <span>24</span></p>
 
                         {reviews.map((review) => (
-                            <Reviewcard key={review.author} review={review} />
+                            <VistaComentarios key={review.author} review={review} />
                         ))}
 
                         {/* 

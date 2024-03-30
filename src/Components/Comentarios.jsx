@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Reviewcard from './ReviewCard/ReviewCard';
+import VistaComentarios from './VistaComentarios/VistaComentarios'
 
 
 export default function Comentarios({ comments, onAddComment }) {
@@ -39,7 +39,7 @@ export default function Comentarios({ comments, onAddComment }) {
             <div>
                 <p className='comments'>Comentarios: <span>{comments.length}</span></p>
                 {reviews.map((review) => (
-                    <Reviewcard key={review.author} review={review} />
+                    <VistaComentarios key={review.author} review={review} />
                 ))}
                 {comments.map((comment, index) => (
                     <div key={index} className="comment">

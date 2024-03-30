@@ -1,7 +1,7 @@
 import React from 'react'
-import './ReviewCard.css'
+import './VistaComentarios.css'
 
-export default function ReviewCard({ review }) {
+export default function VistaComentarios({ review }) {
 
     return (
         <div className="review-card">
