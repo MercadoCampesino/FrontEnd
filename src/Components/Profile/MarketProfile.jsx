@@ -1,31 +1,13 @@
 import React, { useRef, useState } from "react";
-import Reviewcard from '../ReviewCard/Reviewcard';
 import { ProductCard } from '../ProductCard/ProductCard';
-// import markets from '../.././assets/Markets/markets';
 import Header from '../Header/Header';
+import Reviewcard from '../ReviewCard/Reviewcard';
 import './MarketProfile.css'
 import { Footer } from '../Footer/Footer';
 import AddProductForm from '../AddProductForm/AddProductForm';
 import { useSelector } from 'react-redux';
 
-
 export default function ProfileMarket() {
-
-    const user = useSelector((state) => {
-        const profile = state.user?.user
-        if (profile) return profile; else navigate('/login')
-    });
-    const [showForm, setShowForm] = useState(false);
-    const [fotoPerfil, setFotoPerfil] = useState(null);
-    const dialogRef = useRef(null);
-    const handleCreateProduct = (productData) => {
-        // Aquí puedes enviar los datos del producto a tu backend o hacer lo que necesites
-        console.log("Nuevo producto:", productData);
-        // Cerrar el formulario después de enviar los datos
-        setShowForm(false);
-    };
-
-
 
     const reviews = [
         {
@@ -42,6 +24,34 @@ export default function ProfileMarket() {
         },
     ];
 
+    const [file, setFile] = useState(null)
+    let imageUrl;
+
+    const user = useSelector((state) => {
+        const profile = state.user?.user
+        if (profile) return profile; else navigate('/login')
+    });
+    const [showForm, setShowForm] = useState(false);
+    const [fotoPerfil, setFotoPerfil] = useState(user?.imagen);
+    const dialogRef = useRef(null);
+
+    const handleCreateProduct = (productData) => {
+        console.log("Nuevo producto:", productData);
+        setShowForm(false);
+    };
+
+    const handleSudmit = async (e) => {
+        e.preventDefault();
+        try {
+            const result = await uploadFile(file);
+            console.log(result);
+            imageUrl = result;// Actualiza el estado con la URL de la imagen
+        } catch (error) {
+            console.error(error);
+            setError('Fallo al subir, inténtelo más tarde');
+        }
+    }
+
     const handlePerfilChange = (event) => {
         const file = event.target.files[0];
         const reader = new FileReader();
@@ -57,11 +67,12 @@ export default function ProfileMarket() {
         <>
             <Header />
             <div className="container-marketProfile">
-
+                {/* <div className='button-toEdit'>
+                    <button>Editar perfil</button>
+                </div> */}
                 <div className="contprofile">
                     <section className="profile-absolutemarket">
                         <div className="perfil-containermarket">
-                            <img className='hojasDerechaprofile' src="/images/hojasderDesc.png" alt="" width={70} height={120} />
 
                             <img className="perfil-imgmarket" src={fotoPerfil ?? "https://i.pinimg.com/736x/12/44/82/12448256903ff2d47988f4435dbacf5c.jpg"} alt="Foto de perfil" />
                             <input type="file" className="perfil-input" onChange={handlePerfilChange} />
@@ -110,14 +121,13 @@ export default function ProfileMarket() {
                     <div className="calificacion">
                         <h2>4.5</h2>
                         <img src="/images/calificaciones.png" alt="" width={200} />
+
                     </div>
-
                     <div>
-                        <p className='comments'>Comentarios: <span>24</span></p>
-
                         {reviews.map((review) => (
                             <Reviewcard key={review.author} review={review} />
                         ))}
+
                     </div>
                 </div>
 
