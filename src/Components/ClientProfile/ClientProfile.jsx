@@ -88,6 +88,7 @@ export default function ClientProfile() {
                     <span>{user?.edad}</span>
                 </div>
             </section>
+
             <section className="profile-actions">
 
                 <section className="general-control">
@@ -150,27 +151,7 @@ export default function ClientProfile() {
                         </details>
                     </section>
                 </section>
-                <section className="favourite-markets">
-                    <section className="general-control">
-
-                        <details name='profile-sections'>
-                            <summary>Control general de compras</summary>
-                            <section className="content">
-
-                                {
-                                    markets.map((market, index) => (
-                                        <div className='card_market1' key={index} onClick={() => handleClick(market)}>
-                                            <img onError={handleProfileImageError} className='image_market' src={market.image ?? "/images/Campesinoprofile.jpg"} alt="#" />
-                                            <p className='name_market'>{market.name ?? "market name"}</p>
-                                        </div>
-                                    ))
-                                }
-                            </section>
-                        </details>
-                    </section>
-                </section>
             </section>
-
             <Footer />
         </>
     );

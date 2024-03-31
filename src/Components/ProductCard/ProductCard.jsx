@@ -30,10 +30,12 @@ export const ProductCard = () => {
                     body: JSON.stringify({ idProducto: product.idProducto }),
                 });
                 const data = await response.json();
+                window.location.reload();
                 if (data && data.mensaje === 'ok') {
                     console.log('Producto eliminado:', product);
-                    // Actualizar la lista de productos después de eliminar
+                // Actualizar la lista de productos después de eliminar
                     fetchProducts();
+
                 } else {
                     console.error('Hubo un error al eliminar el producto:', data);
                 }
@@ -160,10 +162,12 @@ export const ProductCard = () => {
                 products.map((productItem) => (
                     <div key={productItem.idProducto}>
                         <div className='card_product'>
-                            <button onClick={() => handleLikeClick(productItem.idProducto, likedProducts?.find(el => el.idProducto == productItem.idProducto))} className="like-wrapper">
+                            <div className='heart'>
+                            <button  onClick={() => handleLikeClick(productItem.idProducto, likedProducts?.find(el => el.idProducto == productItem.idProducto))} className="like-wrapper">
                                 <IconHeart size={24} color="red" fill={likedProducts?.find(el => el.idProducto == productItem.idProducto) ? 'red' : 'none'} />
 
                             </button>
+                            </div>
                             <img className='image_product' src={productItem.imagen} alt={productItem.nombre} />
                             <p className='name_product'>{productItem.nombre}</p>
                             <p className='price_discount'><strong>Precio: </strong><em> $</em> {productItem.precio} 1Kg</p>

@@ -57,7 +57,6 @@
     align-items: center;
     flex-direction: column;
     width: 300px;
-
 }
 
 .text-input {
@@ -95,7 +94,8 @@
 
 .profile-info .nameLastName {
     color: #6B4522;
-    font-size: 30px;
+    font-size: 25px;
+    margin-top: -70px;
 }
 
 .profile-actions {
@@ -106,7 +106,7 @@
     align-items: center;
     gap: 20px;
     width: 100%;
-    padding: 20px;
+    padding: 60px 0 100px 0;
 
     .buy-control {
         width: 100%;
@@ -140,11 +140,12 @@ summary {
     border: none;
     width: 400px;
     background-color: #A1BB23;
+    color: white;
     text-align: center;
-    font-style: italic;
     list-style: none;
     font-weight: 700;
     position: relative;
+    font-family: sans-serif;
 
     /* add a triangule at the start */
     &::before {
@@ -154,7 +155,7 @@ summary {
         left: 10px;
         width: 0;
         height: 0;
-        border-left: 10px solid #000;
+        border-left: 10px solid #ffffff;
         border-top: 10px solid transparent;
         border-bottom: 10px solid transparent;
     }

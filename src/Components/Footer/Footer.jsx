@@ -33,7 +33,7 @@ export const Footer = () => {
                     </div>
                 </div>
 
-                <hr className='hr_footer' />
+                {/* <hr className='hr_footer' /> */}
                 <p className='copy'>&copy; Mercado Campesino</p>
             </div>
         </>
