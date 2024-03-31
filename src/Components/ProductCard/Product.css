@@ -15,12 +15,8 @@
 .card_product .like-wrapper {
     background-color: white;
     border: 1px solid white;
-}
-
-.card_product .heart {
     margin-left: 70%;
 }
-
 
 .button-remove {
     background-color: #6B4522;

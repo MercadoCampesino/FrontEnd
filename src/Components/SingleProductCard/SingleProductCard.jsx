@@ -75,7 +75,7 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
             <article className='card_product'>
                 {!isSeller && (
                     <button onClick={handleLikeClick} className="like-wrapper">
-                        <IconHeart size={24} color="red" fill={isLiked ? 'red' : 'none'} />
+                        <IconHeart className="heart" size={24} color="red" fill={isLiked ? 'red' : 'none'} />
                     </button>
                 )}
                 <img className='image_product' src={imagen} alt={nombre} />
