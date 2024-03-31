@@ -2,7 +2,7 @@ import { IconHeart } from "@tabler/icons-react";
 import { SERVER_URL } from "../../Constants";
 import { addToCart } from "../../store/slices/cart";
 import "./SingleProductCard.css"
-import { updateLikes } from "../../store/slices/likes";
+import updateLikes from "../../utils/updateLikes";
 
 export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen, isSeller, userId }) => {
 
@@ -24,7 +24,7 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
             if (!response.ok) {
                 throw new Error('Error al guardar el producto como favorito');
             }
-            updateLikes({ payload: userId })
+            await updateLikes(userId)
         } catch (error) {
             console.error('Hubo un error en la solicitud:', error);
         }

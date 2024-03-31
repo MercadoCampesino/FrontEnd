@@ -10,13 +10,13 @@ export const ProductCard = () => {
     const [loading, setLoading] = useState(true);
     const [editingProduct, setEditingProduct] = useState(null); // Estado para controlar el producto en edición
     const user = useSelector((state) => state?.user?.user);
-    const [likedProducts, setLikedProducts] = useState([]);
+    // const [likedProducts, setLikedProducts] = useState([]);
+    const likedProducts = useSelector((state) => state.likes?.likes);
 
-    store.subscribe(() => {
-        const likes = store.getState().likes;
-        console.log(likes)
-        setLikedProducts(likes.likes);
-    });
+    // store.subscribe(() => {
+    //     const likes = store.getState().likes;
+    //     setLikedProducts(likes.likes);
+    // });
 
 
 
@@ -104,7 +104,7 @@ export const ProductCard = () => {
                         idProducto={productItem.idProducto}
                         userId={user?.IDCliente}
                         isSeller={user?.idTienda != null}
-                        isLiked={likedProducts.some((likedProduct) => likedProduct.FK_IDProducto1 === productItem.idProducto)}
+                        isLiked={likedProducts.some((likedProduct) => likedProduct.idProducto === productItem.idProducto)}
 
                     />
                 ))

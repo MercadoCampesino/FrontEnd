@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { AddToCartIcon } from '../Icon';
 import { Footer } from '../Footer/Footer';
 import { SERVER_URL } from '../../Constants';
+import { SingleProductCard } from '../SingleProductCard/SingleProductCard';
 export default function ClientProfile() {
     const navigate = useNavigate()
 
@@ -99,22 +100,15 @@ export default function ClientProfile() {
 
                             {
                                 products.map((productItem, index) => (
-                                    <figure key={index}>
-                                        <div className='card_product'>
-                                            <img className='image_product' src={productItem.imagen} alt={productItem.nombre} />
-                                            <p className='name_product'>{productItem.nombre}</p>
-                                            <p className='price_discount'><strong>Precio: </strong><em> $</em> {productItem.precio} 1Kg</p>
-
-                                            <div className='agregarbotona'>
-                                                <button className='button-addToCartIcon' onClick={
-                                                    () => handleClick(productItem)
-                                                }>
-                                                    <AddToCartIcon />
-                                                    <p>Agregar</p>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </figure>
+                                    <SingleProductCard
+                                        key={index}
+                                        idProducto={productItem.idProducto}
+                                        nombre={productItem.nombre}
+                                        precio={productItem.precio}
+                                        imagen={productItem.imagen}
+                                        isLiked={false}
+                                        userId={user?.IDCliente}
+                                    />
                                 ))
                             }
                         </section>
@@ -129,22 +123,15 @@ export default function ClientProfile() {
 
                                 {
                                     favProducts.map((productItem, index) => (
-                                        <figure key={index}>
-                                            <div className='card_product'>
-                                                <img className='image_product' src={productItem.imagen} alt={productItem.nombre} />
-                                                <p className='name_product'>{productItem.nombre}</p>
-                                                <p className='price_discount'><strong>Precio: </strong><em> $</em> {productItem.precio} 1Kg</p>
-
-                                                <div className='agregarbotona'>
-                                                    <button className='button-addToCartIcon' onClick={
-                                                        () => handleClick(productItem)
-                                                    }>
-                                                        <AddToCartIcon />
-                                                        <p>Agregar</p>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </figure>
+                                        <SingleProductCard
+                                            key={index}
+                                            idProducto={productItem.idProducto}
+                                            nombre={productItem.nombre}
+                                            precio={productItem.precio}
+                                            imagen={productItem.imagen}
+                                            isLiked={true}
+                                            userId={user?.IDCliente}
+                                        />
                                     ))
                                 }
                             </section>
