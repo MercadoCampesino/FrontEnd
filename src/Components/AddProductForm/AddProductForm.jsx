@@ -87,6 +87,7 @@ function AddProductForm({ callback }) {
         timer: 1500,
       });
       console.log("Producto creado exitosamente:", data);
+      window.location.reload();
     } catch (error) {
       alert(error.message);
     } finally {
