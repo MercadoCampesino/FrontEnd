@@ -9,12 +9,27 @@
     margin-bottom: 25px;
 }
 
+.hojaPofile {
+    position: absolute;
+    z-index: -10;
+    width: 190px;
+    height: 200px;
+    left: 23%;
+    top: 120px;
+    transform: scaleX(-1);
+}
+
+.perfil_market_c{
+    margin-left: 40px;
+}
+
 .contprofile{
     display: flex;
     align-items: center;
     width: 50%;
     margin-bottom: 20px;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .reviews-containers {
@@ -39,4 +54,81 @@
 .profile-infomarket p{
     margin-top: -30px;
     font-size: 20px;
+}
+
+@media only screen and (max-width: 1024px) {
+
+    .hojaPofile {
+        left: 20%;
+    }
+    
+    .perfil_market_c{
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 939px) {
+
+    .hojaPofile {
+        left: 34%;
+    }
+}
+
+@media only screen and (max-width: 830px) {
+
+    .hojaPofile {
+        left: 32%;
+    }
+}
+
+@media only screen and (max-width: 731px) {
+
+    .hojaPofile {
+        left: 30%;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+
+    .hojaPofile {
+        left: 27%;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+
+    .hojaPofile {
+        left: 22%;
+    }
+}
+
+@media only screen and (max-width: 426px) {
+
+    .coment-market {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hojaPofile {
+        left: 14%;
+    }
+}
+
+@media only screen and (max-width: 376px) {
+
+    .hojaPofile {
+        left: 12%;
+    }
+
+    .Send-comment input {
+        width: 250px;
+    }
+}
+
+@media only screen and (max-width: 321px) {
+
+    .hojaPofile {
+        left: 7%;
+    }
 }

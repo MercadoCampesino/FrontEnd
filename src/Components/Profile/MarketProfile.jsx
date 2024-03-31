@@ -70,7 +70,10 @@ export default function ProfileMarket() {
                 {/* <div className='button-toEdit'>
                     <button>Editar perfil</button>
                 </div> */}
-                <div className="contprofile">
+                <div className="contprofile market_cont">
+
+                    <img className='hojaPofileMarket' src="/images/hojasizqDesc.png" alt="" />
+
                     <section className="profile-absolutemarket">
                         <div className="perfil-containermarket">
 
@@ -79,13 +82,13 @@ export default function ProfileMarket() {
                         </div>
                     </section>
 
-                    <div>
+                    {/* <div className="info_market"> */}
                         <div className="profile-info">
                             <span className='nameLastName'>{user ? user.nombre : "Ejemplo Nombre"} {user ? user.apellido : "Ejemplo apellido"}</span>
                             <span>{user ? user.direccion : "Ejemplo ciudad"}</span>
                             <span> {user ? user.edad : 20}</span>
                         </div>
-                    </div>
+                    {/* </div> */}
                 </div>
 
                 <div className='description-market'>
@@ -132,11 +135,6 @@ export default function ProfileMarket() {
                             <VistaComentarios key={review.author} review={review} />
                         ))}
 
-                        {/* 
-                    <div  className='Send-comment'>
-                        <input type="text" placeholder='Escribe una reseña'/>
-                        <button>Ver mas...</button>
-                    </div> */}
                     </div>
                 </div>
 

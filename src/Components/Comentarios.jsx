@@ -36,7 +36,7 @@ export default function Comentarios({ comments, onAddComment }) {
 
     return (
         <>
-            <div>
+            <div className="coment-market">
                 <p className='comments'>Comentarios: <span>{comments.length}</span></p>
                 {reviews.map((review) => (
                     <VistaComentarios key={review.author} review={review} />

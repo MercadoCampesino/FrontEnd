@@ -3,6 +3,7 @@ import { Footer } from '../Footer/Footer';
 import Header from '../Header/Header';
 import { ProductCard } from '../ProductCard/ProductCard';
 import Comentarios from '../Comentarios';
+import './MarketProfileClient.css'
 // import Reviewcard from '../ReviewCard/Reviewcard';
 
 export const MarketProfileClient = () => {
@@ -23,9 +24,10 @@ export const MarketProfileClient = () => {
             <Header />
             <div className="container-marketProfile">
                 <div className="contprofile">
+                            <img className='hojaPofile' src="/images/hojasizqDesc.png" alt=""  />
                     <section className="profile-absolutemarket">
                         <div className="perfil-containermarket">
-                            <img className="perfil-imgmarket" src='https://i.pinimg.com/564x/fc/5d/5c/fc5d5c16121bb3d34f9efabc441f0a65.jpg' alt="Foto de perfil" />
+                            <img className="perfil-imgmarket perfil_market_c" src='https://i.pinimg.com/564x/fc/5d/5c/fc5d5c16121bb3d34f9efabc441f0a65.jpg' alt="Foto de perfil" />
                         </div>
                     </section>
 
@@ -56,6 +58,7 @@ export const MarketProfileClient = () => {
                         <h2>4.5</h2>
                         <img src="/images/calificaciones.png" alt="" width={200} />
                     </div>
+                    
                     <div>
                         <Comentarios
                             comments={comments}

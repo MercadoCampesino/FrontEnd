@@ -20,6 +20,11 @@
     margin: 0;
 }
 
+.nameLastName {
+        font-size: 35px;
+        font-weight: 500;
+}
+
 .container-marketProfile {
     display: flex;
     align-items: center;
@@ -44,13 +49,9 @@
     grid-auto-rows: minmax(100px, auto);
     grid-gap: 20px;
     width: 70%;
-    /* cristian */
     margin-top: 60px;
-    /* cristian */
     place-items: center;
-    /* cristian */
     margin-bottom: 25px;
-    /* cristian */
 }
 
 .comments {
@@ -59,10 +60,6 @@
     font-size: small;
     color: rgb(98, 98, 98);
 }
-
-/* .comentarios-vendedor {
-    display: flex;
-} */
 
 .reviews-container {
     width: 70%;
@@ -178,12 +175,12 @@ dialog {
     margin-top: 40px;
 }
 
-.hojasDerechaprofile {
+/* .hojasDerechaprofile {
     position: absolute;
     z-index: -10;
     left: 250px;
     margin-top: 45px;
-}
+} */
 
 .tittlecalificaciones {
     font-size: 35px;
@@ -191,15 +188,28 @@ dialog {
     margin-top: 50px;
 }
 
-@media only screen and (max-width: 1440px) {
-    .hojasDerechaprofile {
-        left: 300px;
-    }
+.hojaPofileMarket {
+    position: absolute;
+    z-index: -10;
+    width: 190px;
+    height: 200px;
+    left: 23%;
+    top: 120px;
+    transform: scaleX(-1);
+}
+
+.perfil-imgmarket{
+    margin-left: 40px;
 }
 
 @media only screen and (max-width: 1024px) {
-    .hojasDerechaprofile {
-        left: 220px;
+
+    .hojaPofileMarket {
+        left: 20%;
+    }
+    
+    .perfil-imgmarket{
+        margin-left: 0;
     }
 
     .contprofile {
@@ -209,10 +219,27 @@ dialog {
     }
 }
 
-@media only screen and (max-width: 768px) {
-    .hojasDerechaprofile {
-        left: 90px;
+@media only screen and (max-width: 939px) {
+
+    .hojaPofileMarket {
+        left: 34%;
     }
+
+    .nameLastName {
+        margin-top: 10px;
+        padding-top: 100px;
+    }
+}
+
+@media only screen and (max-width: 830px) {
+
+    .hojaPofileMarket {
+        left: 32%;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
 
     .reviews-container {
         display: flex;
@@ -235,5 +262,48 @@ dialog {
     .tittlecalificaciones {
         width: 80%;
         font-size: 25px;
+    }
+}
+
+@media only screen and (max-width: 731px) {
+
+    .hojaPofileMarket {
+        left: 30%;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+
+    .hojaPofileMarket {
+        left: 27%;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+
+    .hojaPohojaPofileMarketfile {
+        left: 22%;
+    }
+}
+
+@media only screen and (max-width: 426px) {
+
+    .hojaPofileMarket {
+        left: 14%;
+    }
+}
+
+@media only screen and (max-width: 376px) {
+
+    .hojaPofileMarket {
+        left: 12%;
+    }
+
+}
+
+@media only screen and (max-width: 321px) {
+
+    .hojaPohojaPofileMarketfile {
+        left: 5%;
     }
 }
