@@ -15,6 +15,8 @@ export default function Navbar() {
                 <li className='start'><NavLink to='/' onClick={toggleMenu}>Inicio</NavLink></li>
                 <li className='discounts'><NavLink to='/discounts' onClick={toggleMenu}>Descuentos</NavLink></li>
                 <li className='products'><NavLink to='/products' onClick={toggleMenu}>Productos</NavLink></li>
+                <li className='events'><NavLink to='/events' onClick={toggleMenu}>Eventos</NavLink></li>
+
             </ul>
         </div>
     );
