@@ -3,12 +3,20 @@ import { SERVER_URL } from "../../Constants";
 import { addToCart } from "../../store/slices/cart";
 import "./SingleProductCard.css"
 import updateLikes from "../../utils/updateLikes";
+import Swal from 'sweetalert2'
 
 export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen, isSeller, userId }) => {
 
     const handleLikeClick = async () => {
         if (!userId) {
-            alert('Debes iniciar sesión para guardar productos como favoritos.');
+            Swal.fire({
+                icon: "info",
+                title: "Oops...",
+                text: "Debes iniciar sesión, para guardar productos como favoritos.",
+                timer: 5000,
+                width: 300,
+                heightAuto: false
+               });
             return;
         }
         let url = isLiked ? `${SERVER_URL}Favoritos/EliminarFavoritos/${userId}/${idProducto}` : `${SERVER_URL}Favoritos/GuardarFavoritos`;
@@ -32,7 +40,14 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
 
     const handleAddToCart = () => {
         if (!userId) {
-            alert('Debes iniciar sesión para agregar productos al carrito.');
+            Swal.fire({
+                icon: "info",
+                title: "Oops...",
+                text: "Debes iniciar sesión para agregar productos al carrito.",
+                timer: 5000,
+                width: 300,
+                heightAuto: false
+               });
         } else {
             addToCart({
                 idProducto,
