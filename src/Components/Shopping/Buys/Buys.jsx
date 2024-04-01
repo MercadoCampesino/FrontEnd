@@ -107,7 +107,7 @@
 //     </>
 //   )
 // }
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import { CartContext } from '../CartContext';
 import { initMercadoPago, Wallet } from '@mercadopago/sdk-react';
@@ -116,10 +116,19 @@ import './Buys.css';
 export const Buys = () => {
   const { cart, removeFromCart, addOneToCart, deleteFromCart } = useContext(CartContext);
   const [preferenceId, setPreferenceId] = useState(null);
+  const [isLoading, setIsLoading] = useState(false); // Estado para indicar si se está cargando
 
-  initMercadoPago('TEST-14335436-58e1-45e2-8c5e-1a4db40f1236', {
-    locale: "es-CO"
-  });
+  useEffect(() => {
+    initMercadoPago('TEST-14335436-58e1-45e2-8c5e-1a4db40f1236', {
+      locale: "es-CO"
+    });
+  }, []);
+
+  useEffect(() => {
+    if (cart.length > 0) {
+      handleBuy();
+    }
+  }, [cart]);
 
   const calcularTotal = () => {
     return cart.reduce((total, item) => total + item.precio * (item.counter ? item.counter : 1), 0);
@@ -128,23 +137,30 @@ export const Buys = () => {
   const createPreference = async (item) => {
     try {
       const response = await axios.post("https://backmercadopago.onrender.com/create_preference", {
-           title: item.nombre, 
-           quantity: item.counter ? item.counter : 1, 
-           price: item.precio 
+        title: item.nombre, 
+        quantity: item.counter ? item.counter : 1, 
+        price: item.precio 
       });
       const { id } = response.data;
       return id;
-  } catch (error) {
+    } catch (error) {
       console.log("Error al crear la preferencia:", error);
       return null;
-  }
-};   
+    }
+  };   
   
   const handleBuy = async () => {
+    if (isLoading || preferenceId) { // Si ya se está cargando o ya se generó una preferencia, no hagas nada
+      return;
+    }
+    
+    setIsLoading(true); // Indica que se está cargando
+
     for (const item of cart) {
-      const id = await createPreference(item); // Pasa el artículo actual a createPreference
+      const id = await createPreference(item);
       if (id) {
-          setPreferenceId(id);
+        setPreferenceId(id);
+        break; // Rompe el bucle después de encontrar una preferencia exitosa
       }
     }
   };  
@@ -185,7 +201,7 @@ export const Buys = () => {
                     <span>${el.precio} 1Kg</span>
                     <div className='info-cantbuy'>
                       <span>Cantidad:</span>
-                      <span> {el.counter}</span>
+                      <span> {el.counter ? el.counter : 1}</span> {/* Mostrar 1 si la cantidad es 0 */}
                     </div>
                   </div>
                 </div>
@@ -197,15 +213,21 @@ export const Buys = () => {
               </div>
             ))
           }
-          <hr className='hrtotal' />
+          <div>
+        <hr className='hrtotal' />
           <div className='comprabuy'>
             <strong>Total: ${calcularTotal()}</strong>
-            <button className='compra' onClick={handleBuy}>Comprar</button>
-            
+            {preferenceId && (
+              <div className='mercadopago'>
+                <Wallet key={preferenceId} initialization={{ preferenceId: preferenceId }} />
+              </div>
+            )}
           </div>
-          {preferenceId && <Wallet key={preferenceId} initialization={{ preferenceId: preferenceId }} />}
+
+          </div>
+          
         </div>
       </div>
-    </>
-  );
+    </>
+  );
 };

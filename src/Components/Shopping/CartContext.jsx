@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext } from 'react';
+import Swal from 'sweetalert2'
 
 export const CartContext = createContext();
 
@@ -12,7 +13,13 @@ export const CartProvider = ({ children }) => {
       const updatedCart = cart.map(item => {
         if (item.idProducto === product.idProducto) {
           if (item.counter === product.existencia) {
-            alert("No se puede agregar más del producto");
+            Swal.fire({
+              position: "center",
+              icon: 'error',
+              title: "No se puede agregar más del producto",
+              showConfirmButton: false,
+              timer: 3000
+            });
             return item;
           } else {
             return {

@@ -56,7 +56,7 @@ export const Shopping = () => {
 
                     <div className='info-cant'>
                       <span>Cantidad:</span>
-                      {item.counter && <span> {item.counter}</span>}
+                      <span> {item.counter || 1}</span>
                     </div>
                   </div>
                 </div>

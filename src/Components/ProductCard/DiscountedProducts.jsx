@@ -60,6 +60,7 @@ import './DiscountedProducts.css'
 import { AddToCartIcon } from '../Icon';
 import { useCart } from '../Shopping/CartContext';
 import { useSelector } from 'react-redux';
+import Swal from 'sweetalert2'
 
 function DiscountedProducts({ showAll }) {
 
@@ -69,10 +70,22 @@ function DiscountedProducts({ showAll }) {
 
   const handleClick = (product) => {
     if (!user) {
-      alert('Debes iniciar sesión para agregar productos al carrito.');
+      Swal.fire({
+        position: "center",
+        icon: "info",
+        title: "Debes iniciar sesión para agregar productos al carrito.",
+        showConfirmButton: false,
+        timer: 3000
+      });
     } else {
       addToCart(product);
-      alert('Producto agregado al carrito correctamente.');
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Producto agregado al carrito correctamente.",
+        showConfirmButton: false,
+        timer: 3000
+      });
     }
   }
 

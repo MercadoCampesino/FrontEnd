@@ -20,6 +20,7 @@ export const onSellerRegisterSubmit = async (e) => {
             Swal.fire({
                 icon: "info",
                 title: "Las contraseñas no coinciden",
+                timer: 5000
             })
             return;
         }
@@ -54,13 +55,13 @@ export const onSellerRegisterSubmit = async (e) => {
                 icon: "success",
                 title: "Usuario Registrado correctamente",
                 showConfirmButton: false,
-                timer: 3000
+                timer: 5000
               });
 
             console.log(responseData)
             setTimeout(() => {
                 window.location.href = "/login";
-            }, 4000);
+            }, 6000);
             
         } else {
             throw new Error('Network response was not ok.');
@@ -115,12 +116,12 @@ export const onClientRegisterSubmit = async (e) => {
                 icon: "success",
                 title: "Usuario Registrado correctamente",
                 showConfirmButton: false,
-                timer: 3000
+                timer: 5000
               });
               console.log(responseData)
               setTimeout(() => {
                 window.location.href = "/login";
-              }, 4000);
+              }, 6000);
             
         } else {
             throw new Error('Network response was not ok.');
