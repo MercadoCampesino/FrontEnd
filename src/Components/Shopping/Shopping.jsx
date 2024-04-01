@@ -25,7 +25,7 @@ export const Shopping = () => {
   const confirmDelete = (idProducto) => {
     const confirmDelete = window.confirm('¿Estás seguro de que deseas eliminar este producto?');
     if (confirmDelete) {
-      removeFromCart(idProducto);
+      deleteFromCart(idProducto);
     }
   };
 
@@ -64,7 +64,7 @@ export const Shopping = () => {
               
 
               <div className='remove_increase_button'>
-                <button className='removeButton' onClick={() => confirmDelete(item.idProducto)}>-</button>
+                <button className='removeButton' onClick={() => removeFromCart(item.idProducto)}>-</button>
                 <button className='increaseButton' onClick={() => {addOneToCart(item.idProducto); handleAddToCart();}}>+</button>
               </div>
 
