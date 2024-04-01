@@ -84,12 +84,12 @@ function AddProductForm({ callback }) {
         icon: "success",
         title: "Producto creado exitosamente",
         showConfirmButton: false,
-        timer: 5000,
+        timer: 3000,
       });
       console.log("Producto creado exitosamente:", data);
       setTimeout(() => {
         window.location.reload();
-      }, 6000);
+      }, 4000);
       
     } catch (error) {
       alert(error.message);
