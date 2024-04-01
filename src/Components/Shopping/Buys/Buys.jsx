@@ -150,16 +150,13 @@ export const Buys = () => {
   };   
   
   const handleBuy = async () => {
-    if (isLoading || preferenceId) { // Si ya se está cargando o ya se generó una preferencia, no hagas nada
-      return;
-    }
-    
     setIsLoading(true); // Indica que se está cargando
 
     for (const item of cart) {
       const id = await createPreference(item);
       if (id) {
         setPreferenceId(id);
+        setIsLoading(false); // Oculta el indicador de carga una vez que se generó la preferencia
         break; // Rompe el bucle después de encontrar una preferencia exitosa
       }
     }
@@ -217,6 +214,7 @@ export const Buys = () => {
         <hr className='hrtotal' />
           <div className='comprabuy'>
             <strong>Total: ${calcularTotal()}</strong>
+            {!preferenceId && isLoading && <div className="loading-indicator">Cargando...</div>}
             {preferenceId && (
               <div className='mercadopago'>
                 <Wallet key={preferenceId} initialization={{ preferenceId: preferenceId }} />
@@ -230,4 +228,4 @@ export const Buys = () => {
       </div>
     </>
   );
-};
+};  
