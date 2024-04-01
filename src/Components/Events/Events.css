@@ -46,3 +46,52 @@
 .descrip_eventos {
     width: 80%;
 }
+
+@media screen and (max-width: 1024px) {
+
+    .cont_eventos {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .cont_eventos {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 560px) {
+
+    .cont_eventos {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 426px) {
+
+    .cont_eventos {
+        width: 95%;
+    }
+
+    .info_evento h3,
+    .ubicacion_evento h3,
+    .info_evento p,
+    .ubicacion_evento p,
+    .descrip_eventos {
+        margin-left: 10px;
+    }
+
+    .info_evento p,
+    .ubicacion_evento p,
+    .descrip_eventos {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 376px) {
+
+    .cont_eventos {
+        width: 98%;
+    }
+}
