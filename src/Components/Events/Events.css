@@ -1,0 +1,48 @@
+.title_eventos,
+.cont_img_event {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.event_title {
+    width: 80%;
+}
+
+.event_title h2 {
+    color: #A1BB23;
+    border-bottom: #A1BB23 solid;
+    width: 90px;
+}
+
+.cont_eventos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    place-content: center;
+    width: 60%;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.cont_img_event img {
+    border-radius: 40px;
+    width: 100%;
+}
+
+.info_evento h3,
+.ubicacion_evento h3 {
+    color: #A1BB23;
+    margin-bottom: 0;
+    font-size: 24px;
+}
+
+.info_evento p,
+.ubicacion_evento p {
+    margin: 0;
+}
+
+.descrip_eventos {
+    width: 80%;
+}
