@@ -78,7 +78,14 @@ em {
 .agregarboton p{
     margin-left: 5px;
 }
+.small-title {
+    font-size: 12px; /* Ajusta el tamaño de la fuente según tus necesidades */
+}
 
-@media screen and (max-width: 992px) {
+.small-icon {
+    font-size: 9px; /* Ajusta el tamaño del icono según tus necesidades */
+}
 
+.small-timerProgressBar{
+    background-color: #A1BB23;
 }

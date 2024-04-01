@@ -3,6 +3,7 @@ import './Shopping.css';
 import DiscountedProducts from '../ProductCard/DiscountedProducts';
 import { useCart } from './CartContext'; // Importa el contexto del carrito
 import { NavLink } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 export const Shopping = () => {
   const { cart, removeFromCart, addOneToCart, deleteFromCart } = useCart(); // Obtén las funciones del contexto del carrito
@@ -23,11 +24,32 @@ export const Shopping = () => {
   };
 
   const confirmDelete = (idProducto) => {
-    const confirmDelete = window.confirm('¿Estás seguro de que deseas eliminar este producto?');
-    if (confirmDelete) {
-      deleteFromCart(idProducto);
-    }
-  };
+    Swal.fire({
+        position: "top-end",
+        icon: "warning",
+        title: "¿Estás seguro?",
+        text: "¡No podrás revertir esto!",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Sí",
+        cancelButtonText: "No"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Producto eliminado correctamente.",
+                showConfirmButton: false,
+                timer: 1500
+            });
+            deleteFromCart(idProducto); // Solo eliminar si se confirma
+        } else {
+            Swal.fire("Cancelado", "Tu producto está a salvo :)", "info");
+        }
+    });
+};
+
 
   return (
     <div className="carrito">

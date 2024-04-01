@@ -80,11 +80,18 @@ function DiscountedProducts({ showAll }) {
     } else {
       addToCart(product);
       Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Producto agregado al carrito correctamente.",
+        position: "top-end",
+        title: "Producto agregado al carrito.",
         showConfirmButton: false,
-        timer: 3000
+        width: 200,
+        heightAuto: false,
+        timerProgressBar: true,
+        timer: 2000,
+        customClass: {
+          title: 'small-title',
+          icon: 'small-icon',
+          timerProgressBar: 'small-timerProgressBar'
+      }
       });
     }
   }
