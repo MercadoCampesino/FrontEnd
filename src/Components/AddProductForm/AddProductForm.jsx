@@ -87,7 +87,10 @@ function AddProductForm({ callback }) {
         timer: 5000,
       });
       console.log("Producto creado exitosamente:", data);
-      window.location.reload();
+      setTimeout(() => {
+        window.location.reload();
+      }, 6000);
+      
     } catch (error) {
       alert(error.message);
     } finally {
