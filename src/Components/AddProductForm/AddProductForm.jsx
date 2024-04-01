@@ -84,7 +84,7 @@ function AddProductForm({ callback }) {
         icon: "success",
         title: "Producto creado exitosamente",
         showConfirmButton: false,
-        timer: 1500,
+        timer: 5000,
       });
       console.log("Producto creado exitosamente:", data);
       window.location.reload();

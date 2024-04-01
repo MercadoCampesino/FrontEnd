@@ -75,7 +75,7 @@ function DiscountedProducts({ showAll }) {
         icon: "info",
         title: "Debes iniciar sesión para agregar productos al carrito.",
         showConfirmButton: false,
-        timer: 3000
+        timer: 4000
       });
     } else {
       addToCart(product);
