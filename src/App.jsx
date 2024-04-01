@@ -19,6 +19,7 @@ import { MarketProfileClient } from './Components/MarketProfileClient/MarketProf
 import { CartProvider } from '../src/Components/Shopping/CartContext';
 import { Buys } from './Components/Shopping/Buys/Buys'
 import { Events } from './Components/Events/Events'
+import { ProductPage } from './Components/ProductPage/ProductPage'
 
 function App() {
   const dispatch = useDispatch()
@@ -63,6 +64,7 @@ function App() {
           <Route path="/market" element={<MarketProfileClient />} />
           <Route path='/buy' element={<Buys/>}></Route>
           <Route path='/events' element={<Events/>}></Route>
+          <Route path='/product/:productId' element={<ProductPage/>}></Route>
         </Routes>
       </CartProvider>
     </>
