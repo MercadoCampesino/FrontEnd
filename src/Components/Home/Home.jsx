@@ -73,7 +73,7 @@ export default function Home() {
                         <div className="floating-chatbot" style={{ position: 'fixed', bottom: '20px', right: '20px' }}>
                             {chatbotOpen && (
                                 <iframe
-                                    src="https://webchat.botframework.com/embed/MercadoCampesino-bot?s=DwciEbhxT3M.GNMHWj2gP81wCkcMaCzw7EwPYXxJ6MacoCrJlw7GmOA"
+                                    src="https://webchat.botframework.com/embed/MercadoCampesino-bot?s=DwciEbhxT3M.G15KQ21epPD7PyBJoB7-iOPV2PA2f6EVUXb1RIYxxU4"
                                     style={{ minWidth: '400px', width: '30%', minHeight: '500px' }}
                                     title="ChatBot"
                                 ></iframe>

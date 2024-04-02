@@ -75,7 +75,7 @@
     }
 
     .info_market{
-        width: 250px;
+        width: 300px;
         margin-top: 20px;
         margin-bottom: 0;
     }
@@ -125,8 +125,7 @@
 
     .hojaPofile {
         left: 14%;
-    }
-    
+    }   
 }
 
 @media only screen and (max-width: 376px) {

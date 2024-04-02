@@ -226,6 +226,7 @@ dialog {
 
     .description-market{
         width: 80%;
+        margin-top: 10px;
     }
 }
 
@@ -234,7 +235,6 @@ dialog {
     .hojaPofileMarket {
         left: 34%;
     }
-
 }
 
 @media only screen and (max-width: 830px) {
@@ -290,6 +290,19 @@ dialog {
     .hojaPohojaPofileMarketfile {
         left: 22%;
     }
+
+    .hojaPofileMarket {
+        left: 21%;
+    }
+
+    .profile-info p {
+        font-size: 30px;
+        width: 100%;
+    }
+
+    .direccion_market {
+        font-size: 17px;   
+    }
 }
 
 @media only screen and (max-width: 426px) {
@@ -305,6 +318,9 @@ dialog {
         left: 12%;
     }
 
+    .profile-info p {
+        font-size: 27px;
+    }
 }
 
 @media only screen and (max-width: 321px) {

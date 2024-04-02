@@ -71,7 +71,6 @@ export default function     ProfileMarket() {
                     <button>Editar perfil</button>
                 </div> */}
                 <div className="contprofile market_cont">
-r
                     <img className='hojaPofileMarket' src="/images/hojasizqDesc.png" alt="" />
 
                     <section className="profile-absolutemarket">
