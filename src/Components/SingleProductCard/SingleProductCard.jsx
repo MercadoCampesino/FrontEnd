@@ -61,14 +61,20 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
                 cantidad: 1,
             });
             Swal.fire({
-                icon: "success",
-                title: "¡Producto agregado!",
-                text: "El producto ha sido agregado al carrito.",
-                timer: 5000,
-                width: 300,
-                heightAuto: false
-            });
-        }
+                position: "top-end",
+                title: "Producto agregado al carrito.",
+                showConfirmButton: false,
+                width: 200,
+                heightAuto: false,
+                timerProgressBar: true,
+                timer: 2000,
+                customClass: {
+                  title: 'small-title',
+                  icon: 'small-icon',
+                  timerProgressBar: 'small-timerProgressBar'
+              }
+              });
+            }
     }
 
     const handleEditClick = (product) => {
