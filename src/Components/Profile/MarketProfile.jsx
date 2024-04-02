@@ -131,7 +131,7 @@ export default function     ProfileMarket() {
                         <h2>Opiniones</h2>
                         <p className='comments'>Comentarios: <span>24</span></p>
 
-                        {reviews.map((review) => (
+                        {reviews?.map((review) => (
                             <VistaComentarios key={review.author} review={review} />
                         ))}
 

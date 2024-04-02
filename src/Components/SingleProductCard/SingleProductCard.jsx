@@ -1,14 +1,17 @@
 import { IconHeart } from "@tabler/icons-react";
 import { SERVER_URL } from "../../Constants";
-import { addToCart } from "../../store/slices/cart";
+import { } from "../../store/slices/cart";
 import "./SingleProductCard.css"
 import updateLikes from "../../utils/updateLikes";
 import Swal from 'sweetalert2'
 import { useNavigate } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { useCart } from "../Shopping/CartContext";
 export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen, isSeller, userId }) => {
     const navigator = useNavigate()
+    const { addToCart } = useCart()
     const handleLikeClick = async () => {
+        console.log(userId)
         if (!userId) {
             Swal.fire({
                 icon: "info",
@@ -17,7 +20,7 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
                 timer: 5000,
                 width: 300,
                 heightAuto: false
-               });
+            });
             return;
         }
         let url = isLiked ? `${SERVER_URL}Favoritos/EliminarFavoritos/${userId}/${idProducto}` : `${SERVER_URL}Favoritos/GuardarFavoritos`;
@@ -48,14 +51,22 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
                 timer: 5000,
                 width: 300,
                 heightAuto: false
-               });
+            });
         } else {
-            addToCart({
+           addToCart({
                 idProducto,
                 nombre,
                 precio,
                 imagen,
                 cantidad: 1,
+            });
+            Swal.fire({
+                icon: "success",
+                title: "¡Producto agregado!",
+                text: "El producto ha sido agregado al carrito.",
+                timer: 5000,
+                width: 300,
+                heightAuto: false
             });
         }
     }
