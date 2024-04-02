@@ -7,7 +7,7 @@ import AddProductForm from '../AddProductForm/AddProductForm';
 import { useSelector } from 'react-redux';
 import VistaComentarios from '../VistaComentarios/VistaComentarios'
 
-export default function ProfileMarket() {
+export default function     ProfileMarket() {
 
     const reviews = [
         {
