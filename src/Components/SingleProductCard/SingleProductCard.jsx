@@ -67,7 +67,7 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
                 width: 200,
                 heightAuto: false,
                 timerProgressBar: true,
-                timer: 2000,
+                timer: 1500,
                 customClass: {
                   title: 'small-title',
                   icon: 'small-icon',
