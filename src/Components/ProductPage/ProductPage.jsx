@@ -64,25 +64,25 @@ export const ProductPage = () => {
             <Header />
             <main className="product-main">
                 <header className="base-product-presentation">
-                    <h2>Compra los mejores productos</h2>
-                    <h3>Sabores que cuentan historias</h3>
-                </header>
                 <div className='hojas'>
                     <img className='hojasIzquierdabig' src="/images/hojasizqDesc.png" alt="" width={250} height={350} />
                     <img className='hojasDerechabig' src="/images/hojasderDescbig.png" alt="" width={130} height={315} />
                 </div>
+                    <h2>Compra los mejores productos</h2>
+                    <h3>Sabores que cuentan historias</h3>
+                </header>
+
                 <article className="product-container">
                     <picture className="product-image">
                         <img src={product.imagen} alt={product.nombre} />
-                        
+
                     </picture>
                     <div className="product-info">
                         <h2>{product.nombre}</h2>
-                        <hr className="hrrr"/>
+                        {/* <hr className="hrrr"/> */}
                         <section className="tienda-info">
                             <picture>
                                 <img src={tienda.imagen} alt={tienda.nombre} />
-                                <hr className="hrproductpage" />
                             </picture>
                             <p>publicado por <em>{tienda.nombre}</em></p>
                         </section>
@@ -91,15 +91,23 @@ export const ProductPage = () => {
                             Agregar
                             <CartIcon />
                         </button>
+
                     </div>
                 </article>
                 <section className="related-products">
                     <h2>Productos que te podrian interesar</h2>
+                    <p>Mira un poco más alla, descubre nuevas cosas</p>
                     <div className="related-products-container">
+                        <div className='hojas'>
+                            <img className='hojasIzquierdabig' src="/images/hojasizqDesc.png" alt="" width={250} height={350} />
+                            <img className='hojasDerechabig' src="/images/hojasderDescbig.png" alt="" width={130} height={315} />
+                        </div>
                         {products.map((p) => (
                             <SingleProductCard key={p.idProducto} {...p} />
                         ))}
+
                     </div>
+
                 </section>
             </main>
         </>

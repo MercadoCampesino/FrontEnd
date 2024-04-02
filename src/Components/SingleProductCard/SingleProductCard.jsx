@@ -151,17 +151,28 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
                                     <button className='button-edit' onClick={handleEditClick}>Editar</button>
                                     <button className='button-remove' onClick={handleRemoveClick}>Eliminar</button>
                                 </div>
-                                    
                                 </>
                             )
                             : <button className='button-addToCartIcon' onClick={handleAddToCart}>Agregar</button>
                     }
                 </div>
+                {/* {editingProduct === productItem && (
+                <div className="popover" onClick={(e) => e.stopPropagation()}>
+                    <h2>Editar Producto</h2>
+                    <form onSubmit={handleSubmit}>
+                        <Input name="cantidad" type="number" label="cantidad" required placeholder="cantidad: 0" />
+                        <Input name="precio" type="number" label="precio" required placeholder="2700$" />
+                        <button onClick={handleEditClick}>Cancelar</button>
+                        <button type="submit" >Guardar</button>
+                    </form>
+                </div>
+            )}  */}   
             </article>
             {}
         </div>
     );
-}/* {editingProduct === productItem && (
+}
+/* {editingProduct === productItem && (
                 <div className="popover" onClick={(e) => e.stopPropagation()}>
                     <h2>Editar Producto</h2>
                     <form onSubmit={handleSubmit}>
