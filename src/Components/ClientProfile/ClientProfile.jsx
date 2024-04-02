@@ -15,6 +15,7 @@ export default function ClientProfile() {
         console.log(profile)
         if (profile) return profile; else navigate('/login')
     });
+const client = useSelector((state) => state.user?.user);
     const favProducts = useSelector((state) => state.likes?.likes);
     const [fotoPortada, setFotoPortada] = useState(null);
     const [fotoPerfil, setFotoPerfil] = useState(user?.imagen);
@@ -101,6 +102,7 @@ export default function ClientProfile() {
                             {
                                 products.map((productItem, index) => (
                                     <SingleProductCard
+                                    
                                         key={index}
                                         idProducto={productItem.idProducto}
                                         nombre={productItem.nombre}
@@ -122,7 +124,7 @@ export default function ClientProfile() {
                             <section className="content">
 
                                 {
-                                    favProducts.map((productItem, index) => (
+                                    favProducts?.map((productItem, index) => (
                                         <SingleProductCard
                                             key={index}
                                             idProducto={productItem.idProducto}
