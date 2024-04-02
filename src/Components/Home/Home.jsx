@@ -55,7 +55,7 @@ export default function Home() {
 
                 <div className='center_products_'>
                     <div className='featured_product'>
-                        <h2 className='featured_product_title'>Productos destacados</h2>
+                        <h2 className='featured_product_title'>Productos agricolas</h2>
                         <p>El alma de la tierra en cada producto</p>
                     </div>
 

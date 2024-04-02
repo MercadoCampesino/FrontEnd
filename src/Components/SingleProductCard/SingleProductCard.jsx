@@ -1,20 +1,17 @@
 import { IconHeart } from "@tabler/icons-react";
 import { SERVER_URL } from "../../Constants";
-import { addToCart } from "../../store/slices/cart";
+import { } from "../../store/slices/cart";
 import "./SingleProductCard.css"
 import updateLikes from "../../utils/updateLikes";
 import Swal from 'sweetalert2'
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { Input } from "../Input/Input";
-
+import { useDispatch } from "react-redux";
+import { useCart } from "../Shopping/CartContext";
 export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen, isSeller, userId }) => {
     const navigator = useNavigate()
-    const [isEditting, setIsEditing] = useState(false)
-    const handleEditClick = () => {
-        setIsEditing(!isEditting)
-    }
+    const { addToCart } = useCart()
     const handleLikeClick = async () => {
+        console.log(userId)
         if (!userId) {
             Swal.fire({
                 icon: "info",
@@ -56,82 +53,81 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
                 heightAuto: false
             });
         } else {
-            addToCart({
+           addToCart({
                 idProducto,
                 nombre,
                 precio,
                 imagen,
                 cantidad: 1,
             });
-        }
-    }
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        console.log("submitting")
-        const formData = new FormData(e.currentTarget)
-        const cantidad = formData.get("cantidad")
-        const precio = formData.get("precio")
-
-        const body = {
-            existencia: cantidad, precio, IDProducto: idProducto
-
-        }
-
-        try {
-            console.log(body)
-            const response = await fetch(`${SERVER_URL}Producto/EditarProducto`, {
-
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(body),
-            })
-
-
-            console.log(await response.json())
-
-            if (!response.ok) throw new Error("hubo un error al actualizar el producto")
-
-        } catch (err) {
-            console.error(err)
             Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: "Hubo un error al actualizar el producto",
+                icon: "success",
+                title: "¡Producto agregado!",
+                text: "El producto ha sido agregado al carrito.",
                 timer: 5000,
                 width: 300,
                 heightAuto: false
-            })
+            });
         }
+    }
 
-
+    const handleEditClick = (product) => {
+        setEditingProduct(product); // Establecer el producto en edición
     }
 
     const handleRemoveClick = async () => {
-        if (!window.confirm('¿Estás seguro de que quieres eliminar este producto?')) return;
-
-        try {
-            const response = await fetch(`${SERVER_URL}Producto/EliminarProducto/${idProducto}`, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ idProducto }),
-            });
-            const data = await response.json();
-            if (data && data.mensaje === 'ok') {
-
-                console.log('Producto eliminado:', { idProducto });
-
-            } else {
-                console.error('Hubo un error al eliminar el producto:', data);
+        // Mostrar SweetAlert para advertir al usuario
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: 'Esta acción eliminará el producto permanentemente.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Eliminar',
+            cancelButtonText: 'Cancelar'
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    const response = await fetch(`${SERVER_URL}Producto/EliminarProducto/${idProducto}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ idProducto }),
+                    });
+                    const data = await response.json();
+                    if (response.ok) {
+                        Swal.fire({
+                            title: '¡Eliminado!',
+                            text: 'El producto ha sido eliminado.',
+                            icon: 'success',
+                            timer: 3000, // Mostrar el mensaje por 5 segundos
+                            timerProgressBar: true,
+                            showConfirmButton: false // Ocultar el botón de confirmación
+                        });
+                        // Recargar la página después de eliminar el producto
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 3000); // Recargar la página después de 5 segundos
+                    } else {
+                        Swal.fire(
+                            'Error',
+                            'Hubo un error al eliminar el producto.',
+                            'error'
+                        );
+                    }
+                } catch (error) {
+                    console.error('Hubo un error en la solicitud:', error);
+                    Swal.fire(
+                        'Error',
+                        'Hubo un error en la solicitud.',
+                        'error'
+                    );
+                }
             }
-        } catch (error) {
-            console.error('Hubo un error en la solicitud:', error);
-        }
-    }
-
+        });
+    };
     return (
         <div>
             <article className='card_product'>
@@ -151,15 +147,21 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
                         isSeller
                             ? (
                                 <>
+                                <div className="botones">
                                     <button className='button-edit' onClick={handleEditClick}>Editar</button>
                                     <button className='button-remove' onClick={handleRemoveClick}>Eliminar</button>
+                                </div>
+                                    
                                 </>
                             )
                             : <button className='button-addToCartIcon' onClick={handleAddToCart}>Agregar</button>
                     }
                 </div>
             </article>
-            {isEditting && (
+            {}
+        </div>
+    );
+}/* {editingProduct === productItem && (
                 <div className="popover" onClick={(e) => e.stopPropagation()}>
                     <h2>Editar Producto</h2>
                     <form onSubmit={handleSubmit}>
@@ -169,7 +171,4 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
                         <button type="submit" >Guardar</button>
                     </form>
                 </div>
-            )}
-        </div>
-    );
-}
+            )} */

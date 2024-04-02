@@ -63,7 +63,7 @@ export default function Header() {
             <div className='navbar_img'>
                 {isLogged && user.apellido && <Navbar />}
                 <div className='img_header'>
-                    {isLogged && <button id="boton-carrito" onClick={toggleCarrito}><img src="/images/shoppingCart.png" alt="" width={30} height={30} /></button>}
+                    {isLogged && user.apellido      && <button id="boton-carrito" onClick={toggleCarrito}><img src="/images/shoppingCart.png" alt="" width={30} height={30} /></button>}
                     {carritoAbierto && <Shopping style={{ top: popoverPosition.top, left: popoverPosition.left }} />}
                     {isLogged && <button onClick={handleButtonClick}><img className='image_perfil' src={user.profileImage ? user.image : "/images/profile.png"} alt="Profile" /></button>}
                 </div>
