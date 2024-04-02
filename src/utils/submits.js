@@ -24,7 +24,11 @@ export const onSellerRegisterSubmit = async (e) => {
             })
             return;
         }
-        
+        const storeName = form.get('storeName');
+        const email = form.get('email');
+        if (!storeName || !email) {
+            throw new Error('Por favor, complete todos los campos obligatorios');
+        }
         const data = {
             IDTienda: Math.floor(Math.random() * 1000000000) + 1,
             nombre: form.get('storeName'),
@@ -68,11 +72,11 @@ export const onSellerRegisterSubmit = async (e) => {
         }   
 
     } catch (error) {
-        // Swal.fire({
-        //     icon: "error",
-        //     title: "El usuario no se pudo registrar",
-        //     text: "Intentalo de nuevo!",
-        // });
+        Swal.fire({
+            icon: "error",
+            title: "El usuario no se pudo registrar",
+            text: "Intentalo de nuevo!",
+        });
 
     }
 }
@@ -127,11 +131,11 @@ export const onClientRegisterSubmit = async (e) => {
             throw new Error('Network response was not ok.');
         }
     } catch (error) {
-        // Swal.fire({
-        //     icon: "error",
-        //     title: "El usuario no se pudo registrar correctamente",
-        //     text: "Intentalo de nuevo!"
-        // });
+        Swal.fire({
+            icon: "error",
+            title: "El usuario no se pudo registrar correctamente",
+            text: "Intentalo de nuevo!"
+        });
     }
 }
 
