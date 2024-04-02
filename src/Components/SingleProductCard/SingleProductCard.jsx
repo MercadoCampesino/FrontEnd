@@ -4,9 +4,10 @@ import { addToCart } from "../../store/slices/cart";
 import "./SingleProductCard.css"
 import updateLikes from "../../utils/updateLikes";
 import Swal from 'sweetalert2'
+import { useNavigate } from "react-router-dom";
 
 export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen, isSeller, userId }) => {
-
+    const navigator = useNavigate()
     const handleLikeClick = async () => {
         if (!userId) {
             Swal.fire({
@@ -93,7 +94,10 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
                         <IconHeart className="heart" size={24} color="red" fill={isLiked ? 'red' : 'none'} />
                     </button>
                 )}
-                <img className='image_product' src={imagen} alt={nombre} />
+
+                <img onClick={() => {
+                    navigator(`/product/${idProducto}`)
+                }} className='image_product' src={imagen} alt={nombre} />
                 <p className='name_product'>{nombre}</p>
                 <p className='price_discount'><strong>Precio: </strong><em> $</em> {precio} 1Kg</p>
                 <div className='agregarbotona'>
@@ -125,7 +129,7 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
                         <button onClick={() => handleEditSubmit(editedFields)}>Guardar</button>
                     </form>
                 </div>
-            )} */}
+            )}  */}
         </div>
     );
 }
