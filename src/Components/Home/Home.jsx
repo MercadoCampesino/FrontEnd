@@ -74,7 +74,7 @@ export default function Home() {
                             {chatbotOpen && (
                                 <iframe
                                     src="https://webchat.botframework.com/embed/MercadoCampesino-bot?s=DwciEbhxT3M.G15KQ21epPD7PyBJoB7-iOPV2PA2f6EVUXb1RIYxxU4"
-                                    style={{ minWidth: '400px', width: '30%', minHeight: '500px' }}
+                                    // style={{ minWidth: '400px', width: '30%', minHeight: '500px' }}
                                     title="ChatBot"
                                 ></iframe>
                                 
