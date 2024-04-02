@@ -91,14 +91,14 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
                             title: '¡Eliminado!',
                             text: 'El producto ha sido eliminado.',
                             icon: 'success',
-                            timer: 5000, // Mostrar el mensaje por 5 segundos
+                            timer: 3000, // Mostrar el mensaje por 5 segundos
                             timerProgressBar: true,
                             showConfirmButton: false // Ocultar el botón de confirmación
                         });
                         // Recargar la página después de eliminar el producto
                         setTimeout(() => {
                             window.location.reload();
-                        }, 5000); // Recargar la página después de 5 segundos
+                        }, 3000); // Recargar la página después de 5 segundos
                     } else {
                         Swal.fire(
                             'Error',
