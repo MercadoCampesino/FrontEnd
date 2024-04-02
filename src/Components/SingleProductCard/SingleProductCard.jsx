@@ -5,9 +5,15 @@ import "./SingleProductCard.css"
 import updateLikes from "../../utils/updateLikes";
 import Swal from 'sweetalert2'
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Input } from "../Input/Input";
 
 export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen, isSeller, userId }) => {
     const navigator = useNavigate()
+    const [isEditting, setIsEditing] = useState(false)
+    const handleEditClick = () => {
+        setIsEditing(!isEditting)
+    }
     const handleLikeClick = async () => {
         if (!userId) {
             Swal.fire({
@@ -17,7 +23,7 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
                 timer: 5000,
                 width: 300,
                 heightAuto: false
-               });
+            });
             return;
         }
         let url = isLiked ? `${SERVER_URL}Favoritos/EliminarFavoritos/${userId}/${idProducto}` : `${SERVER_URL}Favoritos/GuardarFavoritos`;
@@ -48,7 +54,7 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
                 timer: 5000,
                 width: 300,
                 heightAuto: false
-               });
+            });
         } else {
             addToCart({
                 idProducto,
@@ -59,9 +65,47 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
             });
         }
     }
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        console.log("submitting")
+        const formData = new FormData(e.currentTarget)
+        const cantidad = formData.get("cantidad")
+        const precio = formData.get("precio")
 
-    const handleEditClick = (product) => {
-        setEditingProduct(product); // Establecer el producto en edición
+        const body = {
+            existencia: cantidad, precio, IDProducto: idProducto
+
+        }
+
+        try {
+            console.log(body)
+            const response = await fetch(`${SERVER_URL}Producto/EditarProducto`, {
+
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(body),
+            })
+
+
+            console.log(await response.json())
+
+            if (!response.ok) throw new Error("hubo un error al actualizar el producto")
+
+        } catch (err) {
+            console.error(err)
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Hubo un error al actualizar el producto",
+                timer: 5000,
+                width: 300,
+                heightAuto: false
+            })
+        }
+
+
     }
 
     const handleRemoveClick = async () => {
@@ -77,7 +121,9 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
             });
             const data = await response.json();
             if (data && data.mensaje === 'ok') {
+
                 console.log('Producto eliminado:', { idProducto });
+
             } else {
                 console.error('Hubo un error al eliminar el producto:', data);
             }
@@ -113,23 +159,17 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
                     }
                 </div>
             </article>
-            {/* {editingProduct === productItem && (
+            {isEditting && (
                 <div className="popover" onClick={(e) => e.stopPropagation()}>
                     <h2>Editar Producto</h2>
-                    <form onSubmit={(e) => e.preventDefault()}>
-                        <label htmlFor="nombre">Nombre:</label>
-                        <input type="text" id="nombre" value={editedFields.nombre} onChange={(e) => handleEditChange('nombre', e.target.value)} />
-                        <label htmlFor="precio">Precio:</label>
-                        <input type="number" id="precio" value={editedFields.precio} onChange={(e) => handleEditChange('precio', e.target.value)} />
-                        <label htmlFor="imagen">URL de la Imagen:</label>
-                        <input type="text" id="imagen" value={editedFields.imagen} onChange={(e) => handleEditChange('imagen', e.target.value)} />
-                        <label htmlFor="cantidad">Cantidad:</label>
-                        <input type="number" id="cantidad" value={editedFields.cantidad} onChange={(e) => handleEditChange('cantidad', e.target.value)} />
-                        <button onClick={handleEditCancel}>Cancelar</button>
-                        <button onClick={() => handleEditSubmit(editedFields)}>Guardar</button>
+                    <form onSubmit={handleSubmit}>
+                        <Input name="cantidad" type="number" label="cantidad" required placeholder="cantidad: 0" />
+                        <Input name="precio" type="number" label="precio" required placeholder="2700$" />
+                        <button onClick={handleEditClick}>Cancelar</button>
+                        <button type="submit" >Guardar</button>
                     </form>
                 </div>
-            )}  */}
+            )}
         </div>
     );
 }

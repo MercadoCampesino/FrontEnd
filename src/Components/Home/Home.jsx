@@ -22,10 +22,10 @@ export default function Home() {
                 <section className='cont1'>
                     <div className='slide'>
                         <ul>
-                            <li><img src="/images/slide1.jpg" alt="" /></li>
-                            <li><img src="/images/slide3.jpg" alt="" /></li>
-                            <li><img src="/images/slide2.jpg" alt="" /></li>
-                            <li><img src="/images/slide4.jpg" alt="" /></li>
+                            <li><img src="/images/evento7.jpg" alt="" /></li>
+                            <li><img src="/images/evento5.jpg" alt="" /></li>
+                            <li><img src="/images/evento4.jpg" alt="" /></li>
+                            <li><img src="/images/evento6.jpg" alt="" /></li>
                         </ul>
                     </div>
                     <div className='tittles'>

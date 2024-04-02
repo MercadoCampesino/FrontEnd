@@ -67,15 +67,22 @@ export const ProductPage = () => {
                     <h2>Compra los mejores productos</h2>
                     <h3>Sabores que cuentan historias</h3>
                 </header>
+                <div className='hojas'>
+                    <img className='hojasIzquierdabig' src="/images/hojasizqDesc.png" alt="" width={250} height={350} />
+                    <img className='hojasDerechabig' src="/images/hojasderDescbig.png" alt="" width={130} height={315} />
+                </div>
                 <article className="product-container">
                     <picture className="product-image">
                         <img src={product.imagen} alt={product.nombre} />
+                        
                     </picture>
                     <div className="product-info">
                         <h2>{product.nombre}</h2>
+                        <hr className="hrrr"/>
                         <section className="tienda-info">
                             <picture>
                                 <img src={tienda.imagen} alt={tienda.nombre} />
+                                <hr className="hrproductpage" />
                             </picture>
                             <p>publicado por <em>{tienda.nombre}</em></p>
                         </section>

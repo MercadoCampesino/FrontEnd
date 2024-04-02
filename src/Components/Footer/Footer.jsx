@@ -21,8 +21,9 @@ export const Footer = () => {
                         <a href="">Terminos y condiciones</a>
                     </div>
 
-                    <div>
+                    <div className='pagosfooter'>
                         <h2>Metodos de pago</h2>
+                        <img src="/images/pago.png" alt="" width={200} height={80} />
                     </div>
                     
                     <div>

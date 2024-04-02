@@ -4,6 +4,10 @@
     padding: 20px;
 }
 
+.pagosfooter{
+    text-align: center;
+}
+
 .title_merCampesino {
     display: flex;
     color: white;

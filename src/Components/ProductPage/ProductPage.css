@@ -67,11 +67,23 @@
 
 }
 
+.base-product-presentation h2{
+    color: #6B4522;
+    margin-top: 20px;
+}
+
+.base-product-presentation h3{
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
 .product-image {
     width: 30%;
     display: flex;
     border-radius: 20px;
-    border: 1px solid maroon;
+    border: 2px solid #6B4522;
     justify-content: center;
     height: 300px;
 
@@ -92,11 +104,11 @@
     border-radius: 20px;
 
     h2 {
-        color: maroon;
+        color: #6B4522;
     }
 
     p {
-        color: maroon;
+        color: #6B4522;
     }
 
     .add-to-cart-button {
