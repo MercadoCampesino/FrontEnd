@@ -136,8 +136,11 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
                         isSeller
                             ? (
                                 <>
+                                <div className="botones">
                                     <button className='button-edit' onClick={handleEditClick}>Editar</button>
                                     <button className='button-remove' onClick={handleRemoveClick}>Eliminar</button>
+                                </div>
+                                    
                                 </>
                             )
                             : <button className='button-addToCartIcon' onClick={handleAddToCart}>Agregar</button>
