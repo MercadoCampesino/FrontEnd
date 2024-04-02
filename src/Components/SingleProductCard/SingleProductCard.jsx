@@ -147,7 +147,7 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
                     navigator(`/product/${idProducto}`)
                 }} className='image_product' src={imagen} alt={nombre} />
                 <p className='name_product'>{nombre}</p>
-                <p className='price_discount'><strong>Precio: </strong><em> $</em> {precio} 1Kg</p>
+                <p className='price_discount'><strong>Precio: </strong><em> $</em> {precio} COP 1Kg</p>
                 <div className='agregarbotona'>
                     {
                         isSeller

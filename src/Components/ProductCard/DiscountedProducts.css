@@ -37,12 +37,13 @@ em {
 .name_products {
     font-size: 18px;
     border-bottom: 2px solid #6B4522;
-    width: 150px;
+    /* width: 140px; */
     text-align: center;
 }
 
 .price_discount{
-    display: flex
+    display: flex;
+    font-size: 14px;
 }
 
 .price_discount span{
