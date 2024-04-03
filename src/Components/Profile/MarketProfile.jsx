@@ -71,7 +71,6 @@ export default function     ProfileMarket() {
                     <button>Editar perfil</button>
                 </div> */}
                 <div className="contprofile market_cont">
-
                     <img className='hojaPofileMarket' src="/images/hojasizqDesc.png" alt="" />
 
                     <section className="profile-absolutemarket">
@@ -82,13 +81,13 @@ export default function     ProfileMarket() {
                         </div>
                     </section>
 
-                    {/* <div className="info_market"> */}
+                    <div className="info_market">
                         <div className="profile-info">
-                            <span className='nameLastName'>{user ? user.nombre : "Ejemplo Nombre"} {user ? user.apellido : "Ejemplo apellido"}</span>
-                            <span>{user ? user.direccion : "Ejemplo ciudad"}</span>
+                            <p className='name_market'>{user ? user.nombre : "Ejemplo Nombre"} {user ? user.apellido : "Ejemplo apellido"}</p>
+                            <span className="direccion_market">{user ? user.direccion : "Ejemplo ciudad"}</span>
                             <span> {user ? user.edad : 20}</span>
                         </div>
-                    {/* </div> */}
+                    </div>
                 </div>
 
                 <div className='description-market'>

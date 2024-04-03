@@ -51,12 +51,19 @@
     object-fit: cover;
 }
 
+.info_market {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+}
+
 .profile-info {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 300px;
 }
 
 .text-input {

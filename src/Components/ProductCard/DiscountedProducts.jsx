@@ -104,8 +104,8 @@ function DiscountedProducts({ showAll }) {
           <p className='name_products'>{product.name}</p>
 
           <div className='name_price_product'>
-            <p className='price_discount'><strong>Ahora:</strong> <em>$</em>{product.priceDiscount}COP 1Kg</p>
-            <p className='price_discount'><strong>Antes:</strong><span ><em>$</em>{product.price}COP 1Kg</span> </p>
+            <p className='price_discount'><strong>Ahora:</strong> <em>$</em>{product.priceDiscount} COP 1Kg</p>
+            <p className='price_discount'><strong>Antes:</strong><span ><em>$</em>{product.price} COP 1Kg</span> </p>
           </div>
 
           <div className='agregarboton'>

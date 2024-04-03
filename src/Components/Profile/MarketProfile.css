@@ -20,9 +20,15 @@
     margin: 0;
 }
 
-.nameLastName {
-        font-size: 35px;
-        font-weight: 500;
+.profile-info p {
+    font-size: 40px;
+    font-weight: 500;
+    color: #6B4522;
+}
+
+.direccion_market {
+    margin-top: -10px;
+    font-size: 20px;   
 }
 
 .container-marketProfile {
@@ -40,7 +46,7 @@
     background-color: #EEE9B4;
     padding: 10px 30px;
     border-radius: 15px;
-    margin-top: 10px;
+    /* margin-top: 10px;    */
 }
 
 .products-container {
@@ -202,7 +208,7 @@ dialog {
     margin-left: 40px;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1078px) {
 
     .hojaPofileMarket {
         left: 20%;
@@ -217,17 +223,17 @@ dialog {
         align-items: center;
         justify-content: center;
     }
+
+    .description-market{
+        width: 80%;
+        margin-top: 10px;
+    }
 }
 
 @media only screen and (max-width: 939px) {
 
     .hojaPofileMarket {
         left: 34%;
-    }
-
-    .nameLastName {
-        margin-top: 10px;
-        padding-top: 100px;
     }
 }
 
@@ -284,6 +290,19 @@ dialog {
     .hojaPohojaPofileMarketfile {
         left: 22%;
     }
+
+    .hojaPofileMarket {
+        left: 21%;
+    }
+
+    .profile-info p {
+        font-size: 30px;
+        width: 100%;
+    }
+
+    .direccion_market {
+        font-size: 17px;   
+    }
 }
 
 @media only screen and (max-width: 426px) {
@@ -299,6 +318,9 @@ dialog {
         left: 12%;
     }
 
+    .profile-info p {
+        font-size: 27px;
+    }
 }
 
 @media only screen and (max-width: 321px) {

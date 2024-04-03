@@ -76,6 +76,7 @@ export const onSellerRegisterSubmit = async (e) => {
             icon: "error",
             title: "El usuario no se pudo registrar",
             text: "Intentalo de nuevo!",
+            timer: 3000
         });
 
     }
@@ -134,7 +135,8 @@ export const onClientRegisterSubmit = async (e) => {
         Swal.fire({
             icon: "error",
             title: "El usuario no se pudo registrar correctamente",
-            text: "Intentalo de nuevo!"
+            text: "Intentalo de nuevo!",
+            timer: 3000
         });
     }
 }
