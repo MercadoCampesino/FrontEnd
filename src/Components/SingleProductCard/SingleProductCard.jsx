@@ -7,8 +7,10 @@ import Swal from 'sweetalert2'
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useCart } from "../Shopping/CartContext";
+import { useState } from "react";
 export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen, isSeller, userId }) => {
     const navigator = useNavigate()
+    const [isEditting, setIsEditing] = useState();
     const { addToCart } = useCart()
     const handleLikeClick = async () => {
         console.log(userId)
@@ -156,7 +158,7 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
                             : <button className='button-addToCartIcon' onClick={handleAddToCart}>Agregar</button>
                     }
                 </div>
-                {/* {editingProduct === productItem && (
+                {isEditting && (
                 <div className="popover" onClick={(e) => e.stopPropagation()}>
                     <h2>Editar Producto</h2>
                     <form onSubmit={handleSubmit}>
@@ -166,7 +168,7 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
                         <button type="submit" >Guardar</button>
                     </form>
                 </div>
-            )}  */}   
+            )}    
             </article>
             {}
         </div>
