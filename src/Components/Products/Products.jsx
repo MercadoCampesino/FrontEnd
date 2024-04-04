@@ -15,28 +15,24 @@ const Products = () => {
     // Realizar la solicitud al servidor para obtener la lista de productos
     fetch(`${SERVER_URL}Producto/ListaProducto`)
       .then(response => response.json())
-      .then(data => setProducts(data))
+      .then(data => setProducts(data.response))
       .catch(error => console.error('Error fetching products:', error));
   }, []);
 
- // Función para manejar el cambio en el campo de búsqueda
-const handleSearch = (event) => {
-  const searchTerm = event.target.value;
-  setSearchTerm(searchTerm);
+  // Función para manejar el cambio en el campo de búsqueda
+  const handleSearch = (event) => {
+    const searchTerm = event.target.value;
+    setSearchTerm(searchTerm);
 
-  // Verificar si products está inicializado antes de filtrar
-  if (Array.isArray(products) && products.length > 0) {
-    // Filtrar productos según el término de búsqueda
-    const filtered = products.filter((product) =>
-      product.nombre.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredProducts(filtered);
-  } else {
-    console.warn('Los productos aún no se han cargado. Por favor, espere...');
-    // No hagas nada más, simplemente espera a que los productos se carguen
-    // Puedes mostrar un indicador de carga para informar al usuario que los productos se están cargando
-  }
-};
+    if (products?.length > 0) {
+      const filtered = products.filter((product) =>
+        product.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredProducts(filtered);
+    } else {
+      console.warn('Los productos aún no se han cargado. Por favor, espere...');
+    }
+  };
 
 
   return (
@@ -79,11 +75,7 @@ const handleSearch = (event) => {
           </div>
         </div>
 
-        {showProductCard && (
-          <div className='product'>
-            {/* Pasar la lista de productos y la función de búsqueda al componente ProductCard */}
-            <ProductCard setProducts={setProducts} />
-          </div>
+        {showProductCard && (<ProductCard passedProducts={products ?? undefined} />
         )}
       </div>
 
