@@ -158,7 +158,7 @@ export const ProductPage = () => {
 
                     <div className="related-products-container">
                         {products.map((p) => (
-                            <SingleProductCard userId={user.IDCliente} key={p.idProducto} {...p} />
+                            <SingleProductCard userId={user?.IDCliente} key={p.idProducto} {...p} />
                         ))}
                     </div>
                 </section>
