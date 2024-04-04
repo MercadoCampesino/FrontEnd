@@ -5,13 +5,17 @@ import { CartIcon } from "../Icon"
 import "./ProductPage.css"
 import { SingleProductCard } from "../SingleProductCard/SingleProductCard"
 import Header from "../Header/Header"
+import { useCart } from "../Shopping/CartContext"
+import { useSelector } from "react-redux"
+import Swal from "sweetalert2"
 
 export const ProductPage = () => {
+    const { addToCart } = useCart()
     const { productId } = useParams()
     const [product, setProduct] = useState({})
     const [products, setProducts] = useState([])
     const [tienda, setTienda] = useState({})
-
+    const user = useSelector((state) => state.user?.user)
     useEffect(() => {
         async function getProduct() {
             try {
@@ -60,6 +64,43 @@ export const ProductPage = () => {
         getProducts()
     }, [])
 
+
+    const handleAddToCart = () => {
+        console.log(user)
+        if (!user?.["IDCliente"]) {
+            Swal.fire({
+                icon: "info",
+                title: "Oops...",
+                text: "Debes iniciar sesión para agregar productos al carrito.",
+                timer: 5000,
+                width: 300,
+                heightAuto: false
+            });
+        } else {
+            addToCart({
+                idProducto: product.idProducto,
+                nombre: product.nombre,
+                precio: product.precio,
+                imagen: product.imagen,
+                cantidad: 1,
+            });
+            Swal.fire({
+                position: "top-end",
+                title: "Producto agregado al carrito.",
+                showConfirmButton: false,
+                width: 200,
+                heightAuto: false,
+                timerProgressBar: true,
+                timer: 1500,
+                customClass: {
+                    title: 'small-title',
+                    icon: 'small-icon',
+                    timerProgressBar: 'small-timerProgressBar'
+                }
+            });
+        }
+    }
+
     return (
         <>
             <Header />
@@ -91,7 +132,7 @@ export const ProductPage = () => {
 
                         <p>Precio: ${product.precio}</p>
 
-                        <button className="add-to-cart-button">
+                        <button onClick={handleAddToCart} className="add-to-cart-button">
                             Agregar
                             <CartIcon />
                         </button>
@@ -109,7 +150,7 @@ export const ProductPage = () => {
                         </div>
 
                         {products.map((p) => (
-                            <SingleProductCard key={p.idProducto} {...p} />
+                            <SingleProductCard userId={user.IDCliente} key={p.idProducto} {...p} />
                         ))}
                     </div>
                 </section>

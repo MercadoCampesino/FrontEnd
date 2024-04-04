@@ -7,32 +7,27 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   const addToCart = (product) => {
+    console.log(cart)
     const isProductInCart = cart.some(item => item.idProducto === product.idProducto);
 
     if (isProductInCart) {
       const updatedCart = cart.map(item => {
-        if (item.idProducto === product.idProducto) {
-          if (item.counter === product.existencia) {
-            Swal.fire({
-              position: "center",
-              icon: 'error',
-              title: "No se puede agregar más del producto",
-              showConfirmButton: false,
-              timer: 3000
-            });
-            return item;
-          } else {
-            return {
-              ...item,
-              counter: (item.counter ? item.counter : 0) + 1
-            };
-          }
+        if (!item.idProducto === product.idProducto) return item;
+        if (item.counter === product.existencia) {
+          Swal.fire({ position: "center", icon: 'error', title: "No se puede agregar más del producto", showConfirmButton: false, timer: 3000 });
+          return item
         }
-        return item;
+
+        console.log(item)
+        return {
+          ...item, counter: (item.counter ?? 0) + 1
+        };
+
+
       });
       setCart(updatedCart);
       return;
-    } 
+    }
     setCart([...cart, product]);
   };
 
@@ -73,7 +68,7 @@ export const CartProvider = ({ children }) => {
     setCart(updatedCart);
   };
 
-  return ( 
+  return (
     <CartContext.Provider value={{ cart, addToCart, removeFromCart, deleteFromCart, addOneToCart }}>
       {children}
     </CartContext.Provider>
@@ -155,7 +150,7 @@ export const useCart = () => useContext(CartContext);
 //     setCart(newCart);
 //   };
 
-//   return ( 
+//   return (
 //     <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
 //       {children}
 //     </CartContext.Provider>
