@@ -50,9 +50,9 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <button className='see_more_discount'>
+                    {/* <button className='see_more_discount'>
                         <a className='see_more_discount_a' href="/discounts">Ver más...</a>
-                    </button>
+                    </button> */}
                 </div>
 
                 <div className='center_products_'>
