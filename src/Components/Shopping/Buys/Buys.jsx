@@ -119,7 +119,7 @@ export const Buys = () => {
   const [isLoading, setIsLoading] = useState(false); // Estado para indicar si se está cargando
 
   useEffect(() => {
-    initMercadoPago('TEST-14335436-58e1-45e2-8c5e-1a4db40f1236', {
+    initMercadoPago('TEST-cf18ac7f-d958-4419-b473-3de36ee310d8', {
       locale: "es-CO"
     });
   }, []);
