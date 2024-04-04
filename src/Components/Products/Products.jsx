@@ -1,55 +1,145 @@
+// import React, { useState, useEffect } from 'react';
+// import Header from '../Header/Header';
+// import { ProductCard } from '../ProductCard/ProductCard';
+// import './Products.css';
+// import { Footer } from '../Footer/Footer';
+// import { SERVER_URL } from '../../Constants';
+
+// const Products = () => {
+//   const [searchTerm, setSearchTerm] = useState('');
+//   const [filteredProducts, setFilteredProducts] = useState([]);
+//   const [showProductCard, setShowProductCard] = useState(true);
+//   const [products, setProducts] = useState([]); // Estado para almacenar la lista de productos
+
+//   useEffect(() => {
+//     // Realizar la solicitud al servidor para obtener la lista de productos
+//     fetch(`${SERVER_URL}Producto/ListaProducto`)
+//       .then(response => response.json())
+//       .then(data => setProducts(data.response))
+//       .catch(error => console.error('Error fetching products:', error));
+//   }, []);
+
+//   // Función para manejar el cambio en el campo de búsqueda
+//   const handleSearch = (event) => {
+//     const searchTerm = event.target.value;
+//     setSearchTerm(searchTerm);
+
+//     if (products?.length > 0) {
+//       const filtered = products.filter((product) =>
+//         product.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+//       );
+//       setFilteredProducts(filtered);
+//     } else {
+//       console.warn('Los productos aún no se han cargado. Por favor, espere...');
+//     }
+//   };
+
+
+//   return (
+//     <>
+//       <Header />
+
+//       <div className='content_products'>
+//         <div className='title_productsc'>
+//           <h2>La esencia de la naturaleza en cada producto</h2>
+//           <p>Conoce las joyas del mercado agrícola</p>
+//         </div>
+
+//         <div className='hojas'>
+//           <img className='hojasIzquierdabig' src="/images/hojasizqDesc.png" alt="" width={250} height={350} />
+//           <img className='hojasDerechabig' src="/images/hojasderDescbig.png" alt="" width={130} height={315} />
+//         </div>
+
+//         <div className='featured_products'>
+//           <div className='search_products'>
+//             <div className='search_'>
+//               {/* <input
+//                 className='busquedaProductos'
+//                 type='search'
+//                 name='busquedaProductos'
+//                 placeholder='Buscar productos...'
+//                 value={searchTerm}
+//                 onChange={handleSearch}
+//               /> */}
+//             </div>
+//           </div>
+
+//           <div className='product_list'>
+//             {filteredProducts.map((product) => (
+//               <div className='card_product' key={product.idProducto}>
+//                 <img className='image' src={product.imagen} alt='' />
+//                 <p className='name_product'>{product.nombre}</p>
+//                 <p className='price_product'>Precio: ${product.precio}</p>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+
+//         {showProductCard && (<ProductCard passedProducts={products ?? undefined} />
+//         )}
+//       </div>
+
+//       <hr className='hr' />
+
+//       <Footer />
+//     </>
+//   );
+// };
+
+// export default Products;
+
+
 import React, { useState, useEffect } from 'react';
 import Header from '../Header/Header';
 import { ProductCard } from '../ProductCard/ProductCard';
 import './Products.css';
 import { Footer } from '../Footer/Footer';
 import { SERVER_URL } from '../../Constants';
-
 const Products = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [showProductCard, setShowProductCard] = useState(true);
   const [products, setProducts] = useState([]); // Estado para almacenar la lista de productos
-
   useEffect(() => {
     // Realizar la solicitud al servidor para obtener la lista de productos
     fetch(`${SERVER_URL}Producto/ListaProducto`)
       .then(response => response.json())
-      .then(data => setProducts(data.response))
+      .then(data => setProducts(data))
       .catch(error => console.error('Error fetching products:', error));
   }, []);
 
-  // Función para manejar el cambio en el campo de búsqueda
-  const handleSearch = (event) => {
-    const searchTerm = event.target.value;
-    setSearchTerm(searchTerm);
+ // Función para manejar el cambio en el campo de búsqueda
+const handleSearch = (event) => {
+  const searchTerm = event.target.value;
+  setSearchTerm(searchTerm);
 
-    if (products?.length > 0) {
-      const filtered = products.filter((product) =>
-        product.nombre.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      setFilteredProducts(filtered);
-    } else {
-      console.warn('Los productos aún no se han cargado. Por favor, espere...');
-    }
-  };
+  // Verificar si products está inicializado antes de filtrar
+  if (Array.isArray(products) && products.length > 0) {
+    // Filtrar productos según el término de búsqueda
+    const filtered = products.filter((product) =>
+      product.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredProducts(filtered);
+  } else {
+    console.warn('Los productos aún no se han cargado. Por favor, espere...');
+    // No hagas nada más, simplemente espera a que los productos se carguen
+    // Puedes mostrar un indicador de carga para informar al usuario que los productos se están cargando
+  }
+};
 
 
   return (
     <>
       <Header />
-
       <div className='content_products'>
         <div className='title_productsc'>
           <h2>La esencia de la naturaleza en cada producto</h2>
           <p>Conoce las joyas del mercado agrícola</p>
         </div>
-
         <div className='hojas'>
           <img className='hojasIzquierdabig' src="/images/hojasizqDesc.png" alt="" width={250} height={350} />
           <img className='hojasDerechabig' src="/images/hojasderDescbig.png" alt="" width={130} height={315} />
         </div>
-
         <div className='featured_products'>
           <div className='search_products'>
             <div className='search_'>
@@ -63,7 +153,6 @@ const Products = () => {
               />
             </div>
           </div>
-
           <div className='product_list'>
             {filteredProducts.map((product) => (
               <div className='card_product' key={product.idProducto}>
@@ -75,21 +164,20 @@ const Products = () => {
           </div>
         </div>
 
-        {showProductCard && (<ProductCard passedProducts={products ?? undefined} />
+        {showProductCard && (
+          <div className='product'>
+            {/* Pasar la lista de productos y la función de búsqueda al componente ProductCard */}
+            <ProductCard setProducts={setProducts} />
+          </div>
         )}
       </div>
 
       <hr className='hr' />
-
       <Footer />
     </>
   );
 };
-
 export default Products;
-
-
-
 
 
 

@@ -5,6 +5,10 @@
     flex-direction: column;
 }
 
+.product_list {
+    width: 80%;
+}
+
 .product {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
