@@ -142,7 +142,7 @@ const handleSearch = (event) => {
         </div>
         <div className='featured_products'>
           <div className='search_products'>
-            <div className='search_'>
+            {/* <div className='search_'>
               <input
                 className='busquedaProductos'
                 type='search'
@@ -151,7 +151,7 @@ const handleSearch = (event) => {
                 value={searchTerm}
                 onChange={handleSearch}
               />
-            </div>
+            </div> */}
           </div>
           <div className='product_list'>
             {filteredProducts.map((product) => (
