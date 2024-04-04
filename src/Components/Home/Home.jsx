@@ -17,7 +17,6 @@ export default function Home() {
     return (
         <>
             <Header />
-
             <div className='home'>
                 <section className='cont1'>
                     <div className='slide'>
@@ -28,16 +27,19 @@ export default function Home() {
                             <li><img src="/images/evento6.jpg" alt="" /></li>
                         </ul>
                     </div>
+
                     <div className='tittles'>
                         <h2>Descubre </h2>
                         <h2>El encanto rural</h2>
                         <h3>Mercado Campesino</h3>
                     </div>
                 </section>
+
                 <div className='hojas'>
                     <img className='hojasIzquierda' src="/images/hojasizqDesc.png" alt="" width={200} height={255} />
                     <img className='hojasDerecha' src="/images/hojasderDesc.png" alt="" width={140} height={240} />
                 </div>
+
                 <div className='center_productsDiscount '>
                     <h2>Descuentos frescos en el Mercado Campesino</h2>
                     <h3 className='featured_phrase_home'>Encuentra los mercados mas destacados, con productos de calidad</h3>
@@ -48,9 +50,9 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <button className='see_more_discount'>
+                    {/* <button className='see_more_discount'>
                         <a className='see_more_discount_a' href="/discounts">Ver más...</a>
-                    </button>
+                    </button> */}
                 </div>
 
                 <div className='center_products_'>
@@ -69,7 +71,6 @@ export default function Home() {
                     </div>
 
                     <div className='chat-bot-home'>
-
                         <div className="floating-chatbot" style={{ position: 'fixed', bottom: '20px', right: '20px' }}>
                             {chatbotOpen && (
                                 <iframe
@@ -77,7 +78,6 @@ export default function Home() {
                                     // style={{ minWidth: '400px', width: '30%', minHeight: '500px' }}
                                     title="ChatBot"
                                 ></iframe>
-                                
                             )}
                             <img
                                 className='img_chatBot'
@@ -89,14 +89,10 @@ export default function Home() {
                         </div>
                     </div>
 
-                    {/* <button className='see_more_products' >
-                        <a className='see_more_a' href="/products">Ver más...</a>
-                    </button> */}
                 </div>
 
                 <img className='hojasIzquierdabig' src="/images/hojasizqDesc.png" alt="" width={250} height={350} />
                 <img className='hojasDerechabig' src="/images/hojasderDescbig.png" alt="" width={130} height={315} />
-
 
                 <div className='Cont_markets'>
                     <div className='title_recommended_markets'>

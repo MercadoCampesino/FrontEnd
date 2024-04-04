@@ -217,7 +217,7 @@ export const Buys = () => {
             {!preferenceId && isLoading && <div className="loading-indicator">Cargando...</div>}
             {preferenceId && (
               <div className='mercadopago'>
-                <Wallet key={preferenceId} initialization={{ preferenceId: preferenceId }} />
+                <Wallet className='button' key={preferenceId} initialization={{ preferenceId: preferenceId }} />
               </div>
             )}
           </div>

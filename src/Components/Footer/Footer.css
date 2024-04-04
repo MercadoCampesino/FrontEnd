@@ -77,3 +77,16 @@
         margin-bottom: 10px;
     }
 }
+
+@media (max-width: 460px) {
+    .infoContainer div{
+        margin-bottom: 36px;
+        border-bottom: 1px solid white;
+        width: 70%;
+        padding-bottom: 30px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+}
