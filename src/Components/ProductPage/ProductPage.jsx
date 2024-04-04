@@ -5,6 +5,7 @@ import { CartIcon } from "../Icon"
 import "./ProductPage.css"
 import { SingleProductCard } from "../SingleProductCard/SingleProductCard"
 import Header from "../Header/Header"
+import { Footer } from "../Footer/Footer"
 
 export const ProductPage = () => {
     const { productId } = useParams()
@@ -63,57 +64,64 @@ export const ProductPage = () => {
     return (
         <>
             <Header />
+            <div className='hojas'>
+                <img className='hojasIzquierdabig' src="/images/hojasizqDesc.png" alt="" width={250} height={350} />
+                <img className='hojasDerechabig' src="/images/hojasderDescbig.png" alt="" width={130} height={315} />
+            </div>
+
             <main className="product-main">
-                <header className="base-product-presentation">
-                    <div className='hojas'>
-                        <img className='hojasIzquierdabig' src="/images/hojasizqDesc.png" alt="" width={250} height={350} />
-                        <img className='hojasDerechabig' src="/images/hojasderDescbig.png" alt="" width={130} height={315} />
-                    </div>
+                <div className="product-presentation title_recommended_markets">
                     <h2>Compra los mejores productos</h2>
-                    <h3>Sabores que cuentan historias</h3>
-                </header>
+                    <p>Sabores que cuentan historias</p>
+                </div>
 
                 <article className="product-container">
-                    <picture className="product-image">
-                        <img src={product.imagen} alt={product.nombre} />
+                    <div className="cont_img_descrip">
+                        <picture className="product-img">
+                            <img src={product.imagen} alt={product.nombre} />
+                        </picture>
+                    </div>
 
-                    </picture>
                     <div className="product-info">
-                        <h2>{product.nombre}</h2>
+                        <div className="info_description">
+                            <h2>{product.nombre}</h2>
 
-                        <section className="tienda-info">
-                            <picture>
-                                <img src={tienda.imagen} alt={tienda.nombre} />
-                            </picture>
+                            <section className="tienda-info">
+                                <picture>
+                                    <img src={tienda.imagen} alt={tienda.nombre} />
+                                </picture>
 
-                            <p>publicado por <em>{tienda.nombre}</em></p>
-                        </section>
+                                <p>Publicado por <em>{tienda.nombre}</em></p>
+                            </section>
 
-                        <p>Precio: ${product.precio}</p>
+                            <p>Precio: ${product.precio}</p>
 
-                        <button className="add-to-cart-button">
-                            Agregar
-                            <CartIcon />
-                        </button>
+                            <button className="add-to-cart-button">Agregar <CartIcon /></button>
+                        </div>
                     </div>
                 </article>
 
                 <section className="related-products">
-                    <h2>Productos que te podrian interesar</h2>
-                    <p>Mira un poco más alla, descubre nuevas cosas</p>
+                    <div className="title_aliados">
+                        <h2>Productos que te podrian interesar</h2>
+                        <p>Mira un poco más alla, descubre nuevas cosas</p>
+                    </div>
+
+                    <div className='hojas'>
+                        <img className='hojasIzquierdabig' src="/images/hojasizqDesc.png" alt="" width={250} height={350} />
+                        <img className='hojasDerechabig' src="/images/hojasderDescbig.png" alt="" width={130} height={315} />
+                    </div>
 
                     <div className="related-products-container">
-                        <div className='hojas'>
-                            <img className='hojasIzquierdabig' src="/images/hojasizqDesc.png" alt="" width={250} height={350} />
-                            <img className='hojasDerechabig' src="/images/hojasderDescbig.png" alt="" width={130} height={315} />
-                        </div>
-
                         {products.map((p) => (
                             <SingleProductCard key={p.idProducto} {...p} />
                         ))}
                     </div>
                 </section>
+
+                <hr className="hr"/>
             </main>
+            <Footer/>
         </>
     )
 }
