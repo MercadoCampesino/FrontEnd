@@ -20,6 +20,7 @@ import { CartProvider } from '../src/Components/Shopping/CartContext';
 import { Buys } from './Components/Shopping/Buys/Buys'
 import { Events } from './Components/Events/Events'
 import { ProductPage } from './Components/ProductPage/ProductPage'
+import { SERVER_URL } from './Constants'
 
 function App() {
   const dispatch = useDispatch()
@@ -37,7 +38,7 @@ function App() {
     async function getLikes() {
       if (user?.IDCliente == undefined) return
       console.log(user.IDCliente)
-      const response = await fetch(`https://mercadocampesino.azurewebsites.net/Favoritos/ListarFavoritosPorPersona?FK_IDCliente1=${user.IDCliente}`)
+      const response = await fetch(`${SERVER_URL}/Favoritos/ListarFavoritosPorPersona?FK_IDCliente1=${user.IDCliente}`)
       const data = await response.json()
       console.log(data)
       dispatch(setLikes(data.response))
