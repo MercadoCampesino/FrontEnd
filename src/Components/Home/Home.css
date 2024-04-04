@@ -447,6 +447,10 @@
         font-size: 15px;
     }
 
+    .hr{
+        margin-top: 65px;
+    }
+
     .center_productsDiscount h2,
     .title_recommended_markets h2 {
         font-size: 25px;
