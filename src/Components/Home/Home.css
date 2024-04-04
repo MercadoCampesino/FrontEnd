@@ -320,12 +320,6 @@
     background-color: transparent;
 }
 
-/* .floating-chatbot iframe {
-    margin-right: 30px;
-    border: none;
-    border-radius: 20px;
-} */
-
 @media screen and (max-width: 1262px) {
 
     .cont1 {
@@ -394,7 +388,6 @@
         line-height: 0%;
         text-align: center;
     }
-
 }
 
 @media screen and (max-width: 769px) {
@@ -407,7 +400,6 @@
     .markets {
         width: 90%;
     }
-
 }
 
 @media screen and (max-width: 515px) {
@@ -476,12 +468,12 @@
         margin-right: 10px;
     }
 
-}
-
-@media screen and (max-width: 376px) {
     .slide {
         display: none;
     }
+}
+
+@media screen and (max-width: 376px) {
 
     .markets {
         margin-top: 0;
