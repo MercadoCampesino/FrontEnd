@@ -37,7 +37,7 @@ export default function Discounts() {
           </ul>
         </div>
       </div>
-
+{/* 
       <div className='search_products'>
         <input
           className='busquedaProductos'
@@ -47,7 +47,7 @@ export default function Discounts() {
           value={searchTerm}
           onChange={handleSearch}
         />
-      </div>
+      </div> */}
 
       <div className='discounts'>
         <div className='cont_discounts'>
