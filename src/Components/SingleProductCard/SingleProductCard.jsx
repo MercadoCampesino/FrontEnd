@@ -75,7 +75,7 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
                     window.location.reload();
                 }, 3000); // Recargar la página después de 5 segundos
             } else {
-                console.log({data, response})
+                console.log({ data, response })
                 Swal.fire(
                     'Error',
                     'Hubo un error al actualizar el producto.',
@@ -214,13 +214,15 @@ export const SingleProductCard = ({ idProducto, nombre, isLiked, precio, imagen,
                     }
                 </div>
                 {isEditting && (
-                    <div className="popover" onClick={(e) => e.stopPropagation()}>
+                    <div className="popoveredit" onClick={(e) => e.stopPropagation()}>
                         <h2>Editar Producto</h2>
                         <form onSubmit={handleSubmit}>
-                            <Input name="cantidad" type="number" label="cantidad" required placeholder="cantidad: 0" />
-                            <Input name="precio" type="number" label="precio" required placeholder="2700$" />
-                            <button onClick={handleEditClick}>Cancelar</button>
-                            <button type="submit" >Guardar</button>
+                            <Input className='input' name="cantidad" type="number" label="Cantidad" required placeholder="Escriba la cantidad actualizada" />
+                            <Input className='input' name="precio" type="number" label="Precio" required placeholder="Escriba el precio actualizado" />
+                            <div className="botonesedit">
+                                <button className="cancelaredit" onClick={handleEditClick}>Cancelar</button>
+                                <button className="guardaredit" type="submit" >Guardar</button>
+                            </div>
                         </form>
                     </div>
                 )}
