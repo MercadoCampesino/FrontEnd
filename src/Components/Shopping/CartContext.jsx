@@ -7,37 +7,32 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   const addToCart = (product) => {
-    console.log(cart)
-    const isProductInCart = cart.some(item => item.idProducto === product.idProducto);
-
-    if (isProductInCart) {
-      const updatedCart = cart.map(item => {
-        if (!item.idProducto === product.idProducto) return item;
-        if (item.counter === product.existencia) {
-          Swal.fire({ position: "center", icon: 'error', title: "No se puede agregar más del producto", showConfirmButton: false, timer: 3000 });
-          return item
-        }
-
-        console.log(item)
-        return {
-          ...item, counter: (item.counter ?? 0) + 1
-        };
+    if (!cart.some(el => el.idProducto == product.idProducto)) return setCart([...cart, { ...product, cantidad: 1 }]);
+    const updatedCart = cart.map((item, i) => {
+      console.log({ item, i, product })
+      if (!item.idProducto === product.idProducto) return item;
+      if (item.cantidad === product.existencia) {
+        Swal.fire({ position: "center", icon: 'error', title: "No se puede agregar más del producto", showConfirmButton: false, timer: 3000 });
+        return item
+      }
+      return {
+        ...item,
+        cantidad: item.cantidad + 1
+      };
 
 
-      });
-      setCart(updatedCart);
-      return;
-    }
-    setCart([...cart, product]);
+    });
+    setCart(updatedCart);
+
   };
 
   const removeFromCart = (idProducto) => {
     const updatedCart = cart.map(item => {
       if (item.idProducto === idProducto) {
-        if (item.counter > 1) {
+        if (item.cantidad > 1) {
           return {
             ...item,
-            counter: item.counter - 1
+            cantidad: item.cantidad - 1
           };
         } else {
           return null;
@@ -60,7 +55,7 @@ export const CartProvider = ({ children }) => {
       if (item.idProducto === idProducto) {
         return {
           ...item,
-          counter: (item.counter ? item.counter : 0) + 1
+          cantidad: (item.cantidad ? item.cantidad : 0) + 1
         };
       }
       return item;
@@ -97,13 +92,13 @@ export const useCart = () => useContext(CartContext);
 //     if (isProductInCart) {
 //       const updatedCart = cart.map(item => {
 //         if (item.idProducto === product.idProducto) {
-//           if (item.counter === product.existencia) {
+//           if (item.cantidad === product.existencia) {
 //             alert("No se puede agregar más del producto");
 //             return item;
 //           } else {
 //             return {
 //               ...item,
-//               counter: (item.counter ? item.counter : 0) + 1
+//               cantidad: (item.cantidad ? item.cantidad : 0) + 1
 //             };
 //           }
 //         }
@@ -118,10 +113,10 @@ export const useCart = () => useContext(CartContext);
 //   const removeFromCart = (idProducto) => {
 //     const updatedCart = cart.map(item => {
 //       if (item.idProducto === idProducto) {
-//         if (item.counter > 1) {
+//         if (item.cantidad > 1) {
 //           return {
 //             ...item,
-//             counter: item.counter - 1
+//             cantidad: item.cantidad - 1
 //           };
 //         } else {
 //           return null;

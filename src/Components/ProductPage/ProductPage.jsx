@@ -8,6 +8,7 @@ import Header from "../Header/Header"
 import { useCart } from "../Shopping/CartContext"
 import { useSelector } from "react-redux"
 import Swal from "sweetalert2"
+import { Footer } from "../Footer/Footer"
 
 export const ProductPage = () => {
     const { addToCart } = useCart()
@@ -136,10 +137,11 @@ export const ProductPage = () => {
 
                             <p>Precio: ${product.precio}</p>
 
-                        <button onClick={handleAddToCart} className="add-to-cart-button">
-                            Agregar
-                            <CartIcon />
-                        </button>
+                            <button onClick={handleAddToCart} className="add-to-cart-button">
+                                Agregar
+                                <CartIcon />
+                            </button>
+                        </div>
                     </div>
                 </article>
 
@@ -161,9 +163,9 @@ export const ProductPage = () => {
                     </div>
                 </section>
 
-                <hr className="hr"/>
+                <hr className="hr" />
             </main>
-            <Footer/>
+            <Footer />
         </>
     )
 }

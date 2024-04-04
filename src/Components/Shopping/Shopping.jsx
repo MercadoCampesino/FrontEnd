@@ -25,30 +25,30 @@ export const Shopping = () => {
 
   const confirmDelete = (idProducto) => {
     Swal.fire({
-        position: "top-end",
-        icon: "warning",
-        title: "¿Estás seguro?",
-        text: "¡No podrás revertir esto!",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Sí",
-        cancelButtonText: "No"
+      position: "top-end",
+      icon: "warning",
+      title: "¿Estás seguro?",
+      text: "¡No podrás revertir esto!",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí",
+      cancelButtonText: "No"
     }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "Producto eliminado correctamente.",
-                showConfirmButton: false,
-                timer: 1500
-            });
-            deleteFromCart(idProducto); // Solo eliminar si se confirma
-        } else {
-            Swal.fire("Cancelado", "Tu producto está a salvo :)", "info");
-        }
+      if (result.isConfirmed) {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Producto eliminado correctamente.",
+          showConfirmButton: false,
+          timer: 1500
+        });
+        deleteFromCart(idProducto); // Solo eliminar si se confirma
+      } else {
+        Swal.fire("Cancelado", "Tu producto está a salvo :)", "info");
+      }
     });
-};
+  };
 
 
   return (
@@ -78,16 +78,16 @@ export const Shopping = () => {
 
                     <div className='info-cant'>
                       <span>Cantidad:</span>
-                      <span> {item.counter || 1}</span>
+                      <span> {item.cantidad}</span>
                     </div>
                   </div>
                 </div>
               </section>
-              
+
 
               <div className='remove_increase_button'>
                 <button className='removeButton' onClick={() => removeFromCart(item.idProducto)}>-</button>
-                <button className='increaseButton' onClick={() => {addOneToCart(item.idProducto); handleAddToCart();}}>+</button>
+                <button className='increaseButton' onClick={() => { addOneToCart(item.idProducto); handleAddToCart(); }}>+</button>
               </div>
 
               <button className='deleteButton' onClick={() => confirmDelete(item.idProducto)}>x</button>
